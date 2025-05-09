@@ -6,72 +6,70 @@
   <title>Luzamora</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css">
 </head>
 <body>
 
-    <!-- PANTALLA DE INTRO -->
-    <div class="intro-screen" id="introScreen">
-      <h1 class="encendido" id="tituloAnimado">----------</h1>
-    </div>
-  
-    <!-- CONTENIDO PRINCIPAL -->
-    <div id="contenido" class="fade-in" style="display: none;">
+  <!-- INTRO -->
+  <div class="intro-screen" id="introScreen">
+    <h1 class="encendido" id="tituloAnimado">----------</h1>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div id="contenido" class="fade-in" style="display: none;">
+    <header class="hero">
       
-      <!-- MENÚ LATERAL DERECHO -->
-      <nav class="menu-lateral">
+      <h1>LUZAMORA</h1>
+
+      <!-- MENÚ ABAJO A LA DERECHA -->
+      <nav class="menu-inferior">
         <ul>
           <li><a href="#proyectos">Trabajos</a></li>
           <li><a href="cv.html">CV</a></li>
           <li><a href="#contacto">Contacto</a></li>
         </ul>
       </nav>
-  
-      <!-- HERO -->
-      <header class="hero">
-        <h1>LUZAMORA</h1>
-        <p>Arte, código y estética en acción</p>
-      </header>
-  
-      <!-- SOBRE MÍ -->
-      <section class="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p>
-          Soy una creadora visual con base en Bellas Artes y experiencia en fotografía, vídeo, diseño web e inteligencia artificial. Me encanta mezclar arte y tecnología para crear experiencias atractivas.
-        </p>
-      </section>
-  
-      <!-- PROYECTOS -->
-      <section class="proyectos" id="proyectos">
-        <h2>Mis proyectos</h2>
-        <div class="grid-proyectos">
-          <div class="proyecto">
-            <h3>Web generativa</h3>
-            <div class="carrusel-container">
-              <button class="carrusel-btn left">&#10094;</button>
-              <div class="carrusel">
-                <div class="slide"><img src="images/imagen1.png" alt="Imagen 1"></div>
-                <div class="slide"><img src="images/imagen2.png" alt="Imagen 2"></div>
-              </div>
-              <button class="carrusel-btn right">&#10095;</button>
+    </header>
+
+    <!-- SOBRE MÍ -->
+    <section class="sobre-mi">
+      <p>
+        Andaluza de cámara inquieta. Hago fotos, diseño, programo... y me apunto a cursos como si dieran puntos. No soy experta en nada, pero sé un poco de todo (y eso da para mucho). Mezclo arte y código porque alguien tenía que hacerlo.
+      </p>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="proyectos" id="proyectos">
+      <h2>Mis proyectos</h2>
+      <div class="grid-proyectos">
+        <div class="proyecto">
+          <h3>Web generativa</h3>
+          <div class="carrusel-container">
+            <button class="carrusel-btn left">&#10094;</button>
+            <div class="carrusel">
+              <div class="slide"><img src="images/imagenAnalogica1 .jpeg" alt="Imagen 1"></div>
+              <div class="slide"><img src="images/imagenAnalogica2.jpg" alt="Imagen 2"></div>
             </div>
-            <p>Web experimental con p5.js.</p>
+            <button class="carrusel-btn right">&#10095;</button>
           </div>
+          <p>Web experimental con p5.js.</p>
         </div>
-      </section>
-  
-      <!-- CONTACTO -->
-      <section class="contacto" id="contacto">
-        <h2>Contacto</h2>
-        <a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a><br>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <h2>Contacto</h2>
+      <p><a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a></p>
+      <p>
         <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a> |
         <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
-      </section>
-  
-    </div>
-  
-    <script src="script.js"></script>
-  </body>
-  </html>
+      </p>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

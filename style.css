@@ -1,130 +1,144 @@
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: 'Fira Sans', sans-serif;
-    background-color: #000;
-    color: #fff;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
- /* INTRO */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "aileron", sans-serif;
+  background-color: #fff;;
+  color: #000;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* INTRO */
 .intro-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: black;
-  }
-  .encendido {
-    font-size: 3rem;
-    font-family: monospace;
-    color: #7affd1;
-    letter-spacing: 0.15em;
-  }
-  
-  /* ANIMACIÓN ENTRADA */
-  .fade-in {
-    animation: fadeIn 1.2s ease forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  /* MENÚ LATERAL */
-  .menu-lateral {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    background: #111;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    z-index: 10;
-  }
-  .menu-lateral ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  .menu-lateral ul li {
-    margin-bottom: 1rem;
-  }
-  .menu-lateral a {
-    color: #7affd1;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  .menu-lateral .nombre-lateral {
-    font-size: 2rem;
-    font-weight: bold;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    color: #fff;
-  }
-  
-  /* HERO */
-  .hero {
-    padding: 6rem 1rem;
-    text-align: center;
-  }
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-  .btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: #5f3dc4;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    text-decoration: none;
-  }
-  
-  /* SECCIONES */
-  section {
-    padding: 2rem 1rem;
-    margin-right: 120px; /* Deja espacio para el menú lateral */
-  }
-  
-  /* CARRUSEL */
-  .carrusel-container {
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    margin: rem;
-  }
-  .carrusel {
-    display: flex;
-    transition: transform 0.4s ease;
-  }
-  .slide {
-    min-width: 100%;
-  }
-  .slide img {
-    width: 100%;
-    display: block;
-    border-radius: 10px;
-  }
-  .carrusel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255,255,255,0.5);
-    border: none;
-    font-size: 2rem;
-    padding: 0.5rem;
-    cursor: pointer;
-    z-index: 2;
-  }
-  .carrusel-btn.left { left: 10px; }
-  .carrusel-btn.right { right: 10px; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: black;
+}
+.encendido {
+  font-size: 3rem;
+  font-family: "aileron", sans-serif;
+  color: #7affd1;
+  letter-spacing: 0.15em;
+}
+
+/* ENTRADA */
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* HERO */
+.hero {
+  padding: 3rem 3rem 1rem 3rem;
+  text-align: left;
+  position: relative;
+  margin-top: 30rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 10vw, 8rem);
+  font-weight: 900;
+  word-break: break-word;
+}
+
+/* MENÚ ABAJO A LA DERECHA */
+.menu-inferior {
+  position: absolute;
+  bottom: 0;
+  right: 8rem;
+}
+.menu-inferior ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.menu-inferior a {
+  color: #002164;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* SECCIONES */
+section {
+  padding: 5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h2 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-family: "aileron", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem;
+}
+p {
+  font-family: "aileron", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  line-height: 1.6;
+  margin-top: 2rem; 
+}
+
+/* CARRUSEL */
+.carrusel-container {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  margin-top: 1rem;
+}
+.carrusel {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+.slide {
+  min-width: 100%;
+}
+.slide img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+.carrusel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.5);
+  border: none;
+  font-size: 2rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+}
+.carrusel-btn.left { left: 10px; }
+.carrusel-btn.right { right: 10px; }
+
+/* CONTACTO */
+.contacto a {
+  color: #7affd1;
+  text-decoration: none;
+}
+
+.sobre-mi {
+   text-align: right;
+}
+.banner { 
+  width: 100%;
+  height: 40vh;
+  object-fit: cover;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
