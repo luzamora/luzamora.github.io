@@ -3,24 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Portafolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio Luzamora</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <header>
-        <h1>Bienvenido a mi Portafolio</h1>
-        <p>Hola, soy [Tu Nombre], un desarrollador web apasionado por la tecnología.</p>
+        <h1>Luzamora</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
     </header>
-    <section>
-        <h2>Proyectos Destacados</h2>
-        <ul>
-            <li><a href="https://link-a-tu-proyecto1">Proyecto 1</a></li>
-            <li><a href="https://link-a-tu-proyecto2">Proyecto 2</a></li>
-            <li><a href="https://link-a-tu-proyecto3">Proyecto 3</a></li>
-        </ul>
+    
+    <section id="inicio">
+        <h2>Creatividad sin límites</h2>
+        <p>Fotografía, diseño, videomapping, programación e IA.</p>
     </section>
-    <footer>
-        <p>Conéctame en <a href="https://github.com/username">GitHub</a></p>
-    </footer>
+
+    <section id="sobre-mi">
+        <h2>Sobre Mí</h2>
+        <p>Soy Luzamora, una mente inquieta que explora el arte y la tecnología...</p>
+    </section>
+
+    <section id="portafolio">
+        <h2>Portafolio</h2>
+        <div class="proyectos">
+            <div class="proyecto" onclick="mostrarMensaje('Fotografía')">Fotografía</div>
+            <div class="proyecto" onclick="mostrarMensaje('Diseño')">Diseño</div>
+            <div class="proyecto" onclick="mostrarMensaje('Videomapping')">Videomapping</div>
+            <div class="proyecto" onclick="mostrarMensaje('Código & IA')">Código & IA</div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>¡Hablemos! Encuéntrame en redes o envíame un mensaje.</p>
+    </section>
 </body>
 </html>
