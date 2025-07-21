@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -6,10 +5,10 @@
 }
 body {
   font-family: "aileron", sans-serif;
-  background-color: #fff;;
+  background-color: #fff;
   color: #000;
   height: 100vh;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* INTRO */
@@ -22,12 +21,11 @@ body {
 }
 .encendido {
   font-size: 3rem;
-  font-family: "aileron", sans-serif;
   color: #7affd1;
   letter-spacing: 0.15em;
 }
 
-/* ENTRADA */
+/* FADE-IN */
 .fade-in {
   animation: fadeIn 1.2s ease forwards;
 }
@@ -38,23 +36,27 @@ body {
 
 /* HERO */
 .hero {
-  padding: 3rem 3rem 1rem 3rem;
+  padding: 3rem;
   text-align: left;
   position: relative;
-  margin-top: 30rem;
+  margin-top: 3rem;
 }
-
 .hero h1 {
   font-size: clamp(2.5rem, 10vw, 8rem);
   font-weight: 900;
   word-break: break-word;
 }
 
-/* MENÚ ABAJO A LA DERECHA */
+/* MENÚ */
 .menu-inferior {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  top: 2rem;
   right: 8rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
 }
 .menu-inferior ul {
   list-style: none;
@@ -76,20 +78,16 @@ section {
 h2 {
   font-size: 3rem;
   margin-bottom: 3rem;
-  font-family: "aileron", sans-serif;
   font-weight: 200;
-  font-style: normal;
 }
 h3 {
   font-size: 1.5rem;
   margin: 1rem 0 0.5rem;
 }
 p {
-  font-family: "aileron", sans-serif;
   font-weight: 100;
-  font-style: normal;
   line-height: 1.6;
-  margin-top: 2rem; 
+  margin-top: 2rem;
 }
 
 /* CARRUSEL */
@@ -131,14 +129,64 @@ p {
   text-decoration: none;
 }
 
+/* SOBRE MÍ */
 .sobre-mi {
-   text-align: right;
+  text-align: right;
 }
-.banner { 
-  width: 100%;
-  height: 40vh;
+
+/* CV SECTION */
+.cv-section ul {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin-top: 1rem;
+}
+.cv-section li {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+}
+.cv-section a {
+  color: #002164;
+  text-decoration: underline;
+}
+.cv-section strong {
+  font-weight: 600;
+}
+.cv-section p {
+  margin-top: 0.5rem;
+}
+.cv-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.foto-cv {
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  border-radius: 50%;
+  margin: 1rem 0;
+  border: 3px solid #002164;
 }
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .menu-inferior {
+    right: 2rem;
+  }
+
+  section {
+    padding: 2rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+.hero {
+  padding: 3rem;
+  text-align: left;
+  position: relative;
+  margin-top: 5rem; /* antes: 30rem */
+}
+}
+
