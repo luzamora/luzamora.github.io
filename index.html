@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Luzamora</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css" />
 </head>
 <body>
 
@@ -32,9 +32,9 @@
     </header>
 
     <!-- SOBRE MÍ -->
-    <section class="sobre-mi">
+    <section class="sobre-mi-libre">
       <p>
-        Andaluza de cámara inquieta. Hago fotos, diseño, programo... y me apunto a cursos como si dieran puntos. No soy experta en nada, pero sé un poco de todo (y eso da para mucho). Mezclo arte y código porque alguien tenía que hacerlo.
+      Una todoterreno apasionada por el diseño y el desarrollo. Puede que no sea experta en una sola cosa, pero sí en hacer que las cosas funcionen. Siempre lista para aprender, crear y avanzar con los proyectos.
       </p>
     </section>
 
@@ -42,33 +42,68 @@
     <section class="proyectos" id="proyectos">
       <h2>Mis proyectos</h2>
       <div class="grid-proyectos">
+        
         <div class="proyecto">
-          <h3>Web generativa</h3>
-          <div class="carrusel-container">
+          <div class="proyecto-texto">
+            <h3>Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA</h3>
+            <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.
+El sistema permite búsquedas personalizadas por texto libre y ubicación, genera resúmenes automáticos de reseñas utilizando modelos como BART, Sumy y Gemini, y presenta los resultados en mapas interactivos y visualizaciones.
+Incluye funcionalidades de Análisis Exploratorio de Datos (EDA) que permiten al usuario explorar patrones y tendencias del sector gastronómico en EE. UU.</p>
+          </div>
+          <div class="proyecto-carrusel carrusel-container">
             <button class="carrusel-btn left">&#10094;</button>
             <div class="carrusel">
-              <div class="slide"><img src="images/imagenAnalogica1.jpeg" alt="Imagen 1"></div>
-              <div class="slide"><img src="images/imagenAnalogica2.jpg" alt="Imagen 2"></div>
+              <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
+              <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
             </div>
             <button class="carrusel-btn right">&#10095;</button>
           </div>
-          <p>Web experimental con p5.js.</p>
         </div>
+
+        <div class="proyecto">
+          <div class="proyecto-texto">
+            <h3>Proyecto Fotografía</h3>
+            <p>Serie de retratos en estudio con iluminación natural.</p>
+          </div>
+          <div class="proyecto-carrusel carrusel-container">
+            <button class="carrusel-btn left">&#10094;</button>
+            <div class="carrusel">
+              <div class="slide"><img src="images/foto1.jpg" alt="Foto 1" /></div>
+              <div class="slide"><img src="images/foto2.jpg" alt="Foto 2" /></div>
+            </div>
+            <button class="carrusel-btn right">&#10095;</button>
+          </div>
+        </div>
+
+        <div class="proyecto">
+          <div class="proyecto-texto">
+            <h3>Diseño gráfico</h3>
+            <p>Branding y diseño para clientes locales.</p>
+          </div>
+          <div class="proyecto-carrusel carrusel-container">
+            <button class="carrusel-btn left">&#10094;</button>
+            <div class="carrusel">
+              <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
+              <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
+            </div>
+            <button class="carrusel-btn right">&#10095;</button>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
       <h2>Contacto</h2>
-      <p><a href="mailto:tucorreo@gmail.com">tucorreo@gmail.com</a></p>
-      <p>
-        <a href="https://linkedin.com/in/tuusuario" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/tuusuario" target="_blank">GitHub</a>
-      </p>
+      <p>Correo: luzamora@example.com</p>
+      <p><a href="mailto:luzamora@example.com">Enviar correo</a></p>
     </section>
+
   </div>
 
   <script src="script.js"></script>
 </body>
 </html>
+
 
