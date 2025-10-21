@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const titulo = document.getElementById("tituloAnimado");
-    const textoFinal = "Luzamora";
+    const textoFinal = "LUZAMORA";
     const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
     let actual = new Array(textoFinal.length).fill("");
   
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
           .map((char, index) => (index < i ? textoFinal[index] : char))
           .join("");
   
-        if (Math.random() < 0.2) {
+        if (Math.random() < 0.3) {
           i++;
           if (i > textoFinal.length) {
             clearInterval(intervalo);

@@ -6,8 +6,8 @@
 
 body {
   font-family: "aileron", sans-serif;
-  background-color: #fff;
-  color: #000;
+  background-color: #000;
+  color: #fff;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -24,7 +24,7 @@ body {
 .encendido {
   font-size: 3rem;
   color: #7affd1;
-  letter-spacing: 0.15em;
+  font-weight: 900;
 }
 
 /* FADE-IN */
@@ -40,54 +40,71 @@ body {
 /* HERO */
 .hero {
   padding: 2rem;
-  text-align: left;
+  text-align: center;
   position: relative;
   margin-top: 2rem;
 }
 
-.hero h1 {
-  font-size: clamp(2.5rem, 10vw, 6rem);
-  font-weight: 900;
-  word-break: break-word;
+/* LOGO (normal, no fijo) */
+.logo-container {
+  text-align: left;
+  padding-left: 2rem;
 }
 
-/* MENÚ */
+.logo {
+  height: 4.2rem;
+  width: auto;
+  margin-left: 2rem; /* 🔹 mueve el logo a la izquierda */
+  display: block;
+}
+
+/* MENÚ (fijo arriba a la derecha) */
 .menu-inferior {
   position: fixed;
-  top: 1rem;
-  right: 2rem;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 0.4rem 0.8rem;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  top: 4rem;
+  right: 3.5rem;
   z-index: 1000;
+  background: none;
+  box-shadow: none;
 }
 
 .menu-inferior ul {
   list-style: none;
   display: flex;
   gap: 1.2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-inferior a {
-  color: #002164;
+  color: #fff;
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
+  padding: 0.rem 0;
+  transition: color 0.2s ease;
 }
+
+.menu-inferior a:hover {
+  color: #7affd1;
+}
+
+/* TÍTULO */
+.hero h1 {
+  margin-top: 2rem;
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  font-weight: 900;
+  word-break: break-word;
+  color: #7affd1;
+}
+
 
 /* TEXTO LIBRE SOBRE MÍ */
 .sobre-mi-libre {
   max-width: 90%;
   width: 1000px;
-  margin-left: auto;
-  margin-right: 0;
-  padding-right: 4rem;
-  font-size: 2rem;
-  font-weight: 300;
-  line-height: 1.5;
-  text-align: right;
+  font-size: 1.5rem;
+  text-align: center;
   letter-spacing: -0.02em;
-  color: #111;
 }
 
 /* SECCIONES */
