@@ -99,13 +99,37 @@ body {
 
 
 /* TEXTO LIBRE SOBRE MÍ */
-.sobre-mi-libre {
-  max-width: 90%;
-  width: 1000px;
-  font-size: 1.5rem;
+
+/* TEXTO ARRIBA */
+.intro-texto {
+  width: 100%;
   text-align: center;
-  letter-spacing: -0.02em;
+  max-width: 900px; /* limita la línea de lectura */
+  margin: 0 auto;
+  font-size: clamp(1.2rem, 1.2vw, 2rem);
+  line-height: 1.6;
+  color: #fff;
+  font-weight: 400;
 }
+
+/* BANNER VIDEO */
+.video-separador {
+  position: relative;
+  width: 100%;
+  height: 45vh; /* altura más pequeña que antes */
+  overflow: hidden;
+}
+
+.video-separador video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 /* SECCIONES */
 section {
@@ -126,11 +150,6 @@ h3 {
   margin: 0.8rem 0 0.4rem;
 }
 
-p {
-  font-weight: 200;
-  line-height: 1.5;
-  margin-top: 1.2rem;
-}
 
 /* CARRUSEL */
 .carrusel-container {
