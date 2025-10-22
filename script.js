@@ -53,3 +53,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
   
+  const projects = [
+  { title: "Proyecto 1", image: "https://picsum.photos/800/400?random=1" },
+  { title: "Proyecto 2", image: "https://picsum.photos/800/400?random=2" },
+  { title: "Proyecto 3", image: "https://picsum.photos/800/400?random=3" },
+  { title: "Proyecto 4", image: "https://picsum.photos/600/400?random=4" },
+  { title: "Proyecto 5", image: "https://picsum.photos/600/400?random=5" },
+  { title: "Proyecto 6", image: "https://picsum.photos/600/400?random=6" },
+  { title: "Proyecto 7", image: "https://picsum.photos/600/400?random=7" },
+];
+
+const container = document.getElementById("projectLayout");
+
+/* ---- Fila superior (2 grandes) ---- */
+const rowTop = document.createElement("div");
+rowTop.classList.add("row", "row-top");
+rowTop.appendChild(createCard(projects[0]));
+rowTop.appendChild(createCard(projects[1]));
+
+/* ---- Fila inferior (1 grande + 4 en cuadrícula) ---- */
+const rowBottom = document.createElement("div");
+rowBottom.classList.add("row", "row-bottom");
+
+// Izquierda
+rowBottom.appendChild(createCard(projects[2]));
+
+// Derecha
+const rightGrid = document.createElement("div");
+rightGrid.classList.add("right-grid");
+rightGrid.appendChild(createCard(projects[3]));
+rightGrid.appendChild(createCard(projects[4]));
+rightGrid.appendChild(createCard(projects[5]));
+rightGrid.appendChild(createCard(projects[6]));
+rowBottom.appendChild(rightGrid);
+
+container.appendChild(rowTop);
+container.appendChild(rowBottom);
+
+/* ---- Función para crear tarjeta ---- */
+function createCard(project) {
+  const card = document.createElement("div");
+  card.classList.add("project-card");
+  card.innerHTML = `
+    <img src="${project.image}" alt="${project.title}">
+    <div class="project-info">
+      <h3>${project.title}</h3>
+    </div>
+  `;
+  return card;
+}
+
+

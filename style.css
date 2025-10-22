@@ -1,3 +1,4 @@
+/* RESETEO BÁSICO */
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +9,10 @@ body {
   font-family: "aileron", sans-serif;
   background-color: #000;
   color: #fff;
-  height: 100vh;
   overflow-x: hidden;
 }
+
+
 
 /* INTRO */
 .intro-screen {
@@ -45,78 +47,79 @@ body {
   margin-top: 2rem;
 }
 
-/* LOGO (normal, no fijo) */
-.logo-container {
-  text-align: left;
-  padding-left: 2rem;
-}
-
 .logo {
   height: 4.2rem;
   width: auto;
-  margin-left: 2rem; /* 🔹 mueve el logo a la izquierda */
+  margin-left: 2rem;
   display: block;
 }
 
-/* MENÚ (fijo arriba a la derecha) */
-.menu-inferior {
-  position: fixed;
-  top: 4rem;
-  right: 3.5rem;
-  z-index: 1000;
-  background: none;
-  box-shadow: none;
+/* --- MENU FIJO DEBAJO DEL TITULO --- */
+.menu-debajo {
+  position: sticky; /* se queda fijo dentro del header */
+  top: 100%;        /* justo debajo del título */
+  background-color: #000; /* mismo color que el header */
+  padding: 1rem 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
 }
 
-.menu-inferior ul {
-  list-style: none;
+.menu-debajo ul {
   display: flex;
-  gap: 1.2rem;
+  gap: 2.5rem;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.menu-inferior a {
+.menu-debajo a {
   color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
   text-decoration: none;
-  font-size: 1.2rem;
-  padding: 0.rem 0;
   transition: color 0.2s ease;
 }
 
-.menu-inferior a:hover {
+.menu-debajo a:hover {
   color: #7affd1;
 }
 
-/* TÍTULO */
+/* --- REDES SOCIALES (arriba derecha) --- */
+.redes-sociales {
+  position: fixed;
+  top: 3.5rem;
+  right: 3.7rem;
+  display: flex;
+  gap: 1.2rem;
+  z-index: 1000;
+}
+
+.redes-sociales img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.redes-sociales a:hover img {
+  transform: scale(1.2);
+  filter: invert(68%) sepia(85%) saturate(342%) hue-rotate(98deg) brightness(103%) contrast(101%);
+}
+
+
+/* TÍTULO PRINCIPAL */
 .hero h1 {
   margin-top: 2rem;
   font-size: clamp(2.5rem, 10vw, 6rem);
   font-weight: 900;
-  word-break: break-word;
   color: #7affd1;
-}
-
-
-/* TEXTO LIBRE SOBRE MÍ */
-
-/* TEXTO ARRIBA */
-.intro-texto {
-  width: 100%;
-  text-align: center;
-  max-width: 900px; /* limita la línea de lectura */
-  margin: 0 auto;
-  font-size: clamp(1.2rem, 1.2vw, 2rem);
-  line-height: 1.6;
-  color: #fff;
-  font-weight: 400;
 }
 
 /* BANNER VIDEO */
 .video-separador {
   position: relative;
   width: 100%;
-  height: 45vh; /* altura más pequeña que antes */
+  height: 45vh;
   overflow: hidden;
 }
 
@@ -127,21 +130,18 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
 }
 
-
-/* SECCIONES */
+/* SECCIONES GENERALES */
 section {
   padding: 3rem 5vw;
   width: 100%;
-  max-width: none;
   margin: 0 auto;
 }
 
 h2 {
   font-size: 2.5rem;
-  margin: 3rem 3rem 2rem; /* añadido margen superior */
+  margin: 3rem 3rem 2rem;
   font-weight: 300;
 }
 
@@ -150,6 +150,82 @@ h3 {
   margin: 0.8rem 0 0.4rem;
 }
 
+/* BOTÓN “VER MÁS” */
+.btn-ver-mas {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #7affd1;
+  color: #000;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-ver-mas:hover {
+  background-color: #5ee6b2;
+  transform: translateY(-2px);
+}
+
+/* CONTACTO */
+.contacto a {
+  color: #7affd1;
+  text-decoration: none;
+}
+
+/* PROYECTOS */
+.proyectos {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.grid-proyectos {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.proyecto {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4rem 5vw;
+  gap: 2rem;
+  box-sizing: border-box;
+}
+
+.proyecto:nth-child(odd) {
+  background-color: #e0f7f3;
+  flex-direction: row;
+  color: #111;
+}
+
+.proyecto:nth-child(even) {
+  background-color: #fff0f3;
+  flex-direction: row-reverse;
+  color: #111;
+}
+
+.proyecto-texto {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.proyecto-texto p {
+  font-size: 1.5rem;
+}
+
+.proyecto-carrusel {
+  flex: 1;
+}
+
+.proyecto-carrusel img {
+  border-radius: 12px;
+  width: 100%;
+  object-fit: cover;
+}
 
 /* CARRUSEL */
 .carrusel-container {
@@ -188,190 +264,129 @@ h3 {
 .carrusel-btn.left { left: 10px; }
 .carrusel-btn.right { right: 10px; }
 
-/* CONTACTO */
-.contacto a {
-  color: #7affd1;
-  text-decoration: none;
+/* LAYOUT DE PROYECTO (para olivia.html) */
+.layout-wrapper {
+  width: 90vw;
+  max-width: 1800px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  margin: 3rem auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* CV SECTION */
-.cv-section ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-top: 0.8rem;
-}
-
-.cv-section li {
-  margin-bottom: 1rem;
-  line-height: 1.5;
-}
-
-.cv-section a {
-  color: #002164;
-  text-decoration: underline;
-}
-
-.cv-section strong {
-  font-weight: 600;
-}
-
-.cv-section p {
-  margin-top: 0.3rem;
-}
-
-.cv-section img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.foto-cv {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 50%;
-  margin: 0.8rem 0;
-  border: 3px solid #002164;
-}
-
-/* PROYECTOS */
-.proyectos {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.grid-proyectos {
+.project-layout {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 }
 
-.proyecto {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+.row {
+  display: grid;
+  gap: 1rem;
+}
+
+.row-top {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.row-bottom {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 1rem;
+}
+
+.right-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1rem;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #ccc;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
   width: 100%;
-  padding: 4rem 5vw;
-  min-height: 400px;
-  gap: 2rem;
-  box-sizing: border-box;
-  color: #111;
-}
-
-.proyecto:nth-child(odd) {
-  background-color: #e0f7f3;
-  flex-direction: row;
-}
-
-.proyecto:nth-child(even) {
-  background-color: #fff0f3;
-  flex-direction: row-reverse;
-}
-
-.proyecto-texto {
-  flex: 1;
-  max-width: none;
-  padding: 0 1rem;
-}
-
-.proyecto-texto p {
-  font-size: 1.5rem;
-}
-
-.proyecto-carrusel {
-  flex: 1;
-  max-width: none;
-}
-
-.proyecto-carrusel img {
-  border-radius: 12px;
-  width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-/* RESPONSIVE TABLET */
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1rem;
+  color: white;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-info {
+  opacity: 1;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .layout-wrapper {
+    width: 95vw;
+    aspect-ratio: 9 / 16;
+  }
+
+  .row-top, .row-bottom {
+    grid-template-columns: 1fr;
+  }
+
+  .right-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-inferior {
     right: 1rem;
     top: 0.5rem;
-    padding: 0.3rem 0.6rem;
-  }
-
-  .sobre-mi-libre {
-    position: static;
-    width: 100%;
-    text-align: left;
-    margin-top: 1rem;
-    padding: 0 1rem;
   }
 
   section {
     padding: 2rem 1rem;
   }
 
-  h2 {
-    font-size: 2rem;
-    margin: 2rem 0 1.5rem;
-  }
-
   .hero {
-    padding: 2rem 1rem;
     margin-top: 3rem;
   }
 
   .proyecto {
     flex-direction: column !important;
     padding: 2rem 5vw;
-    min-height: auto;
   }
 
   .proyecto-texto {
-    max-width: 100%;
-    padding: 0;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
     text-align: center;
-  }
-
-  .proyecto-carrusel {
-    flex: none;
-    max-width: 100%;
   }
 }
 
-/* RESPONSIVE MOVILES PEQUEÑOS */
 @media (max-width: 480px) {
-  .encendido {
-    font-size: 2rem;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-
-  .sobre-mi-libre {
-    font-size: 1.2rem;
-    padding-right: 1rem;
-  }
-
-  h2 {
-    font-size: 1.7rem;
-    margin: 2.5rem 0 1.5rem;
-  }
-
-  .proyecto-texto p {
-    font-size: 1.3rem;
-  }
-
-  .menu-inferior {
-    font-size: 0.8rem;
-    gap: 0.6rem;
-  }
-
-  .carrusel-btn {
-    font-size: 1.5rem;
-    padding: 0.3rem;
-  }
+  .encendido { font-size: 2rem; }
+  .hero h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.7rem; margin: 2.5rem 0 1.5rem; }
+  .proyecto-texto p { font-size: 1.3rem; }
+  .carrusel-btn { font-size: 1.5rem; padding: 0.3rem; }
 }

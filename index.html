@@ -17,32 +17,38 @@
   </div>
 
   <div id="contenido" class="fade-in" style="display: none;">
-    <header class="hero">
-    <!-- LOGO ARRIBA IZQUIERDA -->
+ <header class="hero">
+  <!-- LOGO ARRIBA IZQUIERDA -->
   <div class="top-bar">
     <img src="images/Recurso 1t5.png" alt="Logo" class="logo">
 
-      <!-- MENÚ ARRIBA DERECHA -->
-      <nav class="menu-inferior">
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="#proyectos">Trabajos</a></li>
-          <li><a href="/cv/">CV</a></li>
-          <li><a href="contacto/">Contacto</a></li>
-        </ul>
-      </nav>
+    <!-- ICONOS DE REDES ARRIBA DERECHA -->
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/luzamora__" target="_blank" aria-label="Instagram">
+        <img src="images/logotipo-de-instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn">
+        <img src="images/linkedin.png" alt="LinkedIn">
+      </a>
     </div>
+  </div>
 
-    <!-- TÍTULO CENTRADO MÁS ABAJO -->
-    <h1>LUZAMORA</h1>
-  </header>
+  <!-- TÍTULO CENTRADO -->
+  <h1>LUZAMORA</h1>
+
+  <!-- MENÚ FIJO DEBAJO DEL TÍTULO -->
+  <nav class="menu-debajo">
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="#proyectos">Trabajos</a></li>
+      <li><a href="/cv/">CV</a></li>
+      <li><a href="contacto/">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
 </div>
 <!-- TEXTO ARRIBA DEL BANNER -->
-<section class="intro-texto">
-  <p>
-    Una todoterreno apasionada por el diseño y el desarrollo. Puede que no sea experta en una sola cosa, pero sí en hacer que las cosas funcionen. Siempre lista para aprender, crear y avanzar con los proyectos.
-  </p>
-</section>
 
 <!-- BANNER VIDEO -->
 <section class="video-separador">
@@ -53,61 +59,64 @@
 </section>
 
 
-
-    <!-- PROYECTOS -->
-    <section class="proyectos" id="proyectos">
-      <h2>Mis proyectos</h2>
-      <div class="grid-proyectos">
-        
-        <div class="proyecto">
-          <div class="proyecto-texto">
-            <h3>Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA</h3>
-            <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.
+<!-- PROYECTOS -->
+<section class="proyectos" id="proyectos">
+  <h2>Mis proyectos</h2>
+  <div class="grid-proyectos">
+    
+    <div class="proyecto">
+      <div class="proyecto-texto">
+        <h3>Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA</h3>
+        <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.
 El sistema permite búsquedas personalizadas por texto libre y ubicación, genera resúmenes automáticos de reseñas utilizando modelos como BART, Sumy y Gemini, y presenta los resultados en mapas interactivos y visualizaciones.
 Incluye funcionalidades de Análisis Exploratorio de Datos (EDA) que permiten al usuario explorar patrones y tendencias del sector gastronómico en EE. UU.</p>
-          </div>
-          <div class="proyecto-carrusel carrusel-container">
-            <button class="carrusel-btn left">&#10094;</button>
-            <div class="carrusel">
-              <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
-              <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
-            </div>
-            <button class="carrusel-btn right">&#10095;</button>
-          </div>
-        </div>
-
-        <div class="proyecto">
-          <div class="proyecto-texto">
-            <h3>Proyecto Fotografía</h3>
-            <p>Serie de retratos en estudio con iluminación natural.</p>
-          </div>
-          <div class="proyecto-carrusel carrusel-container">
-            <button class="carrusel-btn left">&#10094;</button>
-            <div class="carrusel">
-              <div class="slide"><img src="images/foto1.jpg" alt="Foto 1" /></div>
-              <div class="slide"><img src="images/foto2.jpg" alt="Foto 2" /></div>
-            </div>
-            <button class="carrusel-btn right">&#10095;</button>
-          </div>
-        </div>
-
-        <div class="proyecto">
-          <div class="proyecto-texto">
-            <h3>Diseño gráfico</h3>
-            <p>Branding y diseño para clientes locales.</p>
-          </div>
-          <div class="proyecto-carrusel carrusel-container">
-            <button class="carrusel-btn left">&#10094;</button>
-            <div class="carrusel">
-              <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
-              <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
-            </div>
-            <button class="carrusel-btn right">&#10095;</button>
-          </div>
-        </div>
-
+        <a href="/olivia/" class="btn-ver-mas">Ver más</a>
       </div>
-    </section>
+      <div class="proyecto-carrusel carrusel-container">
+        <button class="carrusel-btn left">&#10094;</button>
+        <div class="carrusel">
+          <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
+          <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
+        </div>
+        <button class="carrusel-btn right">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <div class="proyecto-texto">
+        <h3>Proyecto Fotografía</h3>
+        <p>Serie de retratos en estudio con iluminación natural.</p>
+        <a href="fotografia.html" class="btn-ver-mas">Ver más</a>
+      </div>
+      <div class="proyecto-carrusel carrusel-container">
+        <button class="carrusel-btn left">&#10094;</button>
+        <div class="carrusel">
+          <div class="slide"><img src="images/foto1.jpg" alt="Foto 1" /></div>
+          <div class="slide"><img src="images/foto2.jpg" alt="Foto 2" /></div>
+        </div>
+        <button class="carrusel-btn right">&#10095;</button>
+      </div>
+    </div>
+
+    <div class="proyecto">
+      <div class="proyecto-texto">
+        <h3>Diseño gráfico</h3>
+        <p>Branding y diseño para clientes locales.</p>
+        <a href="diseno.html" class="btn-ver-mas">Ver más</a>
+      </div>
+      <div class="proyecto-carrusel carrusel-container">
+        <button class="carrusel-btn left">&#10094;</button>
+        <div class="carrusel">
+          <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
+          <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
+        </div>
+        <button class="carrusel-btn right">&#10095;</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- CONTACTO -->
     <section class="contacto" id="contacto">
