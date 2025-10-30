@@ -1,106 +1,173 @@
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // ======================================================================
+    // DATOS GLOBALES: Array único con la información de los proyectos
+    // ======================================================================
+    const ALL_PROJECT_DATA = {
+        "olivia": {
+            title: "Oliv.ia: Sistema de Recomendación de Restaurantes con IA",
+            layout_images: [
+                // **REEMPLAZA ESTOS CON LAS 7 RUTAS DE IMÁGENES REALES DE OLIV.IA**
+                { title: "Dashboard principal", image: "images/imagenAnalogica3.jpg" }, 
+                { title: "Mapa de resultados", image: "images/olivia-p2.jpg" },
+                { title: "Resumen de reseñas", image: "images/olivia-p3.jpg" },
+                { title: "Gráfico de sentimiento", image: "images/olivia-p4.jpg" },
+                { title: "Tabla de datos", image: "images/olivia-p5.jpg" },
+                { title: "Visualización de tendencias", image: "images/olivia-p6.jpg" },
+                { title: "Logo y branding", image: "images/olivia-p7.jpg" },
+            ]
+        },
+        "fotografia": {
+            title: "Proyecto Fotografía: Serie de Retratos en Estudio",
+            layout_images: [
+                // **REEMPLAZA ESTOS CON LAS 7 RUTAS DE IMÁGENES REALES DE FOTOGRAFÍA**
+                { title: "Retrato en blanco y negro", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847212/analog_1_ilnm0t.jpg" },
+                { title: "Retrato de perfil", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847212/analog_1_zhstek.jpg" },
+                { title: "Close-up", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847214/analog_2_t8zmry.jpg" },
+                { title: "Retrato corporal 1", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847214/analog_3_apo7wv.jpg" },
+                { title: "Retrato corporal 2", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847215/analog_5_yfu8mo.jpg" },
+                { title: "Detalle de iluminación", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847217/analog_3_xtv2jw.jpg" },
+                { title: "Making of", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847266/analog_7_if3dbk.jpg" },
+            ]
+        }
+    };
+
+
+    // ----------------------------------------------------------------------
+    // 1. LÓGICA DE INTRODUCCIÓN Y ANIMACIÓN (Página de Inicio)
+    // ----------------------------------------------------------------------
+    const introScreen = document.getElementById("introScreen");
+    const contenido = document.getElementById("contenido");
     const titulo = document.getElementById("tituloAnimado");
     const textoFinal = "LUZAMORA";
-    const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
-    let actual = new Array(textoFinal.length).fill("");
-  
+    const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
     let i = 0;
-  
-    const descifrar = () => {
-      const intervalo = setInterval(() => {
-        for (let j = i; j < textoFinal.length; j++) {
-          actual[j] = caracteres[Math.floor(Math.random() * caracteres.length)];
-        }
-        titulo.textContent = actual
-          .map((char, index) => (index < i ? textoFinal[index] : char))
-          .join("");
-  
-        if (Math.random() < 0.3) {
-          i++;
-          if (i > textoFinal.length) {
-            clearInterval(intervalo);
-            titulo.textContent = textoFinal;
-            setTimeout(() => {
-              document.getElementById("introScreen").style.transition = "opacity 1s";
-              document.getElementById("introScreen").style.opacity = "0";
-              setTimeout(() => {
-                document.getElementById("introScreen").style.display = "none";
-                document.getElementById("contenido").style.display = "block";
-                document.body.style.overflow = "auto";
-              }, 1000);
-            }, 800);
-          }
-        }
-      }, 60); // Más lento
+
+    const animarDescifrado = () => { /* ... (Función Promise se mantiene igual) ... */
+        return new Promise(resolve => {
+            const intervalo = setInterval(() => {
+                let textoIntermedio = '';
+                for (let j = 0; j < textoFinal.length; j++) {
+                    if (j < i) {
+                        textoIntermedio += textoFinal[j];
+                    } else {
+                        textoIntermedio += caracteres[Math.floor(Math.random() * caracteres.length)];
+                    }
+                }
+                titulo.textContent = textoIntermedio;
+
+                if (Math.random() < 0.25) { 
+                    i++;
+                }
+
+                if (i > textoFinal.length) {
+                    clearInterval(intervalo);
+                    titulo.textContent = textoFinal;
+                    resolve();
+                }
+            }, 60);
+        });
     };
-  
-    descifrar();
-  
-    // CARRUSEL
+
+    const iniciarSecuencia = async () => {
+        // Solo ejecuta la intro si estamos en la página que tiene los elementos
+        if (introScreen && contenido) { 
+            document.body.style.overflow = "hidden";
+            await animarDescifrado();
+            
+            setTimeout(() => {
+                introScreen.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    introScreen.style.display = "none";
+                    contenido.style.display = "block";
+                    document.body.style.overflow = "auto";
+                }, 1000); 
+            }, 800);
+        }
+    };
+
+    iniciarSecuencia();
+
+
+    // ----------------------------------------------------------------------
+    // 2. LÓGICA DEL CARRUSEL (Reutilizable en todas las páginas)
+    // ----------------------------------------------------------------------
     document.querySelectorAll('.carrusel-container').forEach(container => {
-      const carrusel = container.querySelector('.carrusel');
-      const slides = carrusel.children;
-      let index = 0;
-  
-      container.querySelector('.left').addEventListener('click', () => {
-        index = (index - 1 + slides.length) % slides.length;
-        carrusel.style.transform = `translateX(-${index * 100}%)`;
-      });
-      container.querySelector('.right').addEventListener('click', () => {
-        index = (index + 1) % slides.length;
-        carrusel.style.transform = `translateX(-${index * 100}%)`;
-      });
+        const carrusel = container.querySelector('.carrusel');
+        const slides = carrusel.children;
+        let index = 0;
+
+        const updateCarrusel = (newIndex) => {
+            index = newIndex;
+            carrusel.style.transform = `translateX(-${index * 100}%)`;
+        };
+
+        // Escucha de eventos para los botones
+        container.querySelector('.left').addEventListener('click', () => {
+            let newIndex = (index - 1 + slides.length) % slides.length;
+            updateCarrusel(newIndex);
+        });
+        
+        container.querySelector('.right').addEventListener('click', () => {
+            let newIndex = (index + 1) % slides.length;
+            updateCarrusel(newIndex);
+        });
     });
-  });
-  
-  const projects = [
-  { title: "Proyecto 1", image: "https://picsum.photos/800/400?random=1" },
-  { title: "Proyecto 2", image: "https://picsum.photos/800/400?random=2" },
-  { title: "Proyecto 3", image: "https://picsum.photos/800/400?random=3" },
-  { title: "Proyecto 4", image: "https://picsum.photos/600/400?random=4" },
-  { title: "Proyecto 5", image: "https://picsum.photos/600/400?random=5" },
-  { title: "Proyecto 6", image: "https://picsum.photos/600/400?random=6" },
-  { title: "Proyecto 7", image: "https://picsum.photos/600/400?random=7" },
-];
 
-const container = document.getElementById("projectLayout");
+    // ----------------------------------------------------------------------
+    // 3. BLOQUE CONDICIONAL DINÁMICO para generar el layout (Páginas de Proyecto)
+    // ----------------------------------------------------------------------
+    const container = document.getElementById("projectLayout"); 
+    const mainWrapper = document.querySelector(".layout-wrapper");
 
-/* ---- Fila superior (2 grandes) ---- */
-const rowTop = document.createElement("div");
-rowTop.classList.add("row", "row-top");
-rowTop.appendChild(createCard(projects[0]));
-rowTop.appendChild(createCard(projects[1]));
+    // Solo se ejecuta si el contenedor existe Y el wrapper (con el data-id) existe
+    if (container && mainWrapper) {
+        
+        const projectId = mainWrapper.getAttribute('data-project-id'); 
+        const projectData = ALL_PROJECT_DATA[projectId];
 
-/* ---- Fila inferior (1 grande + 4 en cuadrícula) ---- */
-const rowBottom = document.createElement("div");
-rowBottom.classList.add("row", "row-bottom");
+        if (projectData && projectData.layout_images.length >= 7) {
+            
+            const images = projectData.layout_images; 
 
-// Izquierda
-rowBottom.appendChild(createCard(projects[2]));
+            /* ---- Función para crear tarjeta ---- */
+            function createCard(imageData) {
+                const card = document.createElement("div");
+                card.classList.add("project-card");
+                card.innerHTML = `
+                    <img src="${imageData.image}" alt="${imageData.title}">
+                    <div class="project-info">
+                        <h3>${imageData.title}</h3>
+                    </div>
+                `;
+                return card;
+            }
 
-// Derecha
-const rightGrid = document.createElement("div");
-rightGrid.classList.add("right-grid");
-rightGrid.appendChild(createCard(projects[3]));
-rightGrid.appendChild(createCard(projects[4]));
-rightGrid.appendChild(createCard(projects[5]));
-rightGrid.appendChild(createCard(projects[6]));
-rowBottom.appendChild(rightGrid);
+            // --- Generación del Layout Dinámico (Usa el array 'images' del proyecto actual) ---
+            
+            const rowTop = document.createElement("div");
+            rowTop.classList.add("row", "row-top");
+            rowTop.appendChild(createCard(images[0]));
+            rowTop.appendChild(createCard(images[1]));
 
-container.appendChild(rowTop);
-container.appendChild(rowBottom);
+            const rowBottom = document.createElement("div");
+            rowBottom.classList.add("row", "row-bottom");
 
-/* ---- Función para crear tarjeta ---- */
-function createCard(project) {
-  const card = document.createElement("div");
-  card.classList.add("project-card");
-  card.innerHTML = `
-    <img src="${project.image}" alt="${project.title}">
-    <div class="project-info">
-      <h3>${project.title}</h3>
-    </div>
-  `;
-  return card;
-}
+            rowBottom.appendChild(createCard(images[2]));
 
+            const rightGrid = document.createElement("div");
+            rightGrid.classList.add("right-grid");
+            rightGrid.appendChild(createCard(images[3]));
+            rightGrid.appendChild(createCard(images[4]));
+            rightGrid.appendChild(createCard(images[5]));
+            rightGrid.appendChild(createCard(images[6]));
+            rowBottom.appendChild(rightGrid);
 
+            container.appendChild(rowTop);
+            container.appendChild(rowBottom);
+        } else {
+            console.error(`Error de datos: No se encontraron datos para el ID "${projectId}" o faltan imágenes (se necesitan 7).`);
+        }
+    }
+});

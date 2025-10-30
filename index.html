@@ -1,133 +1,121 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Luzamora</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luzamora | Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css" />
 </head>
 <body>
 
-  <!-- INTRO -->
-  <div class="intro-screen" id="introScreen">
-    <h1 class="encendido" id="tituloAnimado">----------</h1>
-  </div>
-
-  <div id="contenido" class="fade-in" style="display: none;">
- <header class="hero">
-  <!-- LOGO ARRIBA IZQUIERDA -->
-  <div class="top-bar">
-    <img src="images/Recurso 1t5.png" alt="Logo" class="logo">
-
-    <!-- ICONOS DE REDES ARRIBA DERECHA -->
-    <div class="redes-sociales">
-      <a href="https://www.instagram.com/luzamora__" target="_blank" aria-label="Instagram">
-        <img src="images/logotipo-de-instagram.png" alt="Instagram">
-      </a>
-      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn">
-        <img src="images/linkedin.png" alt="LinkedIn">
-      </a>
-    </div>
-  </div>
-
-  <!-- TÍTULO CENTRADO -->
-  <h1>LUZAMORA</h1>
-
-  <!-- MENÚ FIJO DEBAJO DEL TÍTULO -->
-  <nav class="menu-debajo">
-    <ul>
-      <li><a href="/">Inicio</a></li>
-      <li><a href="#proyectos">Trabajos</a></li>
-      <li><a href="/cv/">CV</a></li>
-      <li><a href="contacto/">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
-
-</div>
-<!-- TEXTO ARRIBA DEL BANNER -->
-
-<!-- BANNER VIDEO -->
-<section class="video-separador">
-  <video autoplay muted loop playsinline>
-    <source src="images/video-enhanced (4).mp4" type="video/mp4">
-    Tu navegador no soporta el video.
-  </video>
-</section>
-
-
-<!-- PROYECTOS -->
-<section class="proyectos" id="proyectos">
-  <h2>Mis proyectos</h2>
-  <div class="grid-proyectos">
-    
-    <div class="proyecto">
-      <div class="proyecto-texto">
-        <h3>Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA</h3>
-        <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.
-El sistema permite búsquedas personalizadas por texto libre y ubicación, genera resúmenes automáticos de reseñas utilizando modelos como BART, Sumy y Gemini, y presenta los resultados en mapas interactivos y visualizaciones.
-Incluye funcionalidades de Análisis Exploratorio de Datos (EDA) que permiten al usuario explorar patrones y tendencias del sector gastronómico en EE. UU.</p>
-        <a href="/olivia/" class="btn-ver-mas">Ver más</a>
-      </div>
-      <div class="proyecto-carrusel carrusel-container">
-        <button class="carrusel-btn left">&#10094;</button>
-        <div class="carrusel">
-          <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
-          <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
-        </div>
-        <button class="carrusel-btn right">&#10095;</button>
-      </div>
+    <div class="intro-screen" id="introScreen">
+        <span class="encendido" id="tituloAnimado">----------</span>
     </div>
 
-    <div class="proyecto">
-      <div class="proyecto-texto">
-        <h3>Proyecto Fotografía</h3>
-        <p>Serie de retratos en estudio con iluminación natural.</p>
-        <a href="fotografia.html" class="btn-ver-mas">Ver más</a>
-      </div>
-      <div class="proyecto-carrusel carrusel-container">
-        <button class="carrusel-btn left">&#10094;</button>
-        <div class="carrusel">
-          <div class="slide"><img src="images/foto1.jpg" alt="Foto 1" /></div>
-          <div class="slide"><img src="images/foto2.jpg" alt="Foto 2" /></div>
-        </div>
-        <button class="carrusel-btn right">&#10095;</button>
-      </div>
+    <div id="contenido" class="fade-in" style="display: none;">
+
+        <header class="hero">
+            <div class="top-bar">
+                <img src="images/Recurso 1t5.png" alt="Logo Luzamora" class="logo">
+
+                <div class="redes-sociales">
+                    <a href="https://www.instagram.com/luzamora__" target="_blank" aria-label="Instagram de Luzamora">
+                        <img src="images/logotipo-de-instagram.png" alt="Icono de Instagram">
+                    </a>
+                    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn de Luzamora">
+                        <img src="images/linkedin.png" alt="Icono de LinkedIn">
+                    </a>
+                </div>
+            </div>
+
+            <h1>LUZAMORA</h1>
+
+            <nav class="menu-debajo" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="/">Inicio</a></li>
+                    <li><a href="#proyectos">Trabajos</a></li>
+                    <li><a href="/cv/">CV</a></li>
+                    <li><a href="contacto/">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="video-separador">
+            <video autoplay muted loop playsinline>
+                <source src="https://res.cloudinary.com/daxumuyx8/video/upload/v1761847607/video_vsqrrp.mp4" type="video/mp4">
+                Tu navegador no soporta el video.
+            </video>
+        </section>
+
+
+        <section class="proyectos" id="proyectos">
+            <h2>Mis proyectos</h2>
+            <div class="grid-proyectos">
+                
+                <div class="proyecto">
+                    <div class="proyecto-texto">
+                        <h3>Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA</h3>
+                        <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.</p>
+                        <a href="/olivia/" class="btn-ver-mas">Ver más</a>
+                    </div>
+                    <div class="proyecto-carrusel carrusel-container">
+                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
+                        <div class="carrusel">
+                            <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
+                            <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
+                        </div>
+                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <div class="proyecto-texto">
+                        <h3>Proyecto Fotografía</h3>
+                        <p>Serie de retratos en estudio con iluminación natural.</p>
+                        <a href="/Fotografía/" class="btn-ver-mas">Ver más</a>
+                    </div>
+                    <div class="proyecto-carrusel carrusel-container">
+                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
+                        <div class="carrusel">
+                            <div class="slide"><img src="images/imagenAnalogica1 .jpeg" alt="Foto 1" /></div>
+                            <div class="slide"><img src="images/imagenAnalogica2.jpg" alt="Foto 2" /></div>
+                        </div>
+                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    </div>
+                </div>
+
+                <div class="proyecto">
+                    <div class="proyecto-texto">
+                        <h3>Diseño gráfico</h3>
+                        <p>Branding y diseño para clientes locales.</p>
+                        <a href="diseno.html" class="btn-ver-mas">Ver más</a>
+                    </div>
+                    <div class="proyecto-carrusel carrusel-container">
+                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
+                        <div class="carrusel">
+                            <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
+                            <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
+                        </div>
+                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section class="contacto" id="contacto">
+            <h2>Contacto</h2>
+            <p>Correo: luzamora@example.com</p>
+            <p><a href="mailto:luzamora@example.com">Enviar correo</a></p>
+        </section>
+
     </div>
 
-    <div class="proyecto">
-      <div class="proyecto-texto">
-        <h3>Diseño gráfico</h3>
-        <p>Branding y diseño para clientes locales.</p>
-        <a href="diseno.html" class="btn-ver-mas">Ver más</a>
-      </div>
-      <div class="proyecto-carrusel carrusel-container">
-        <button class="carrusel-btn left">&#10094;</button>
-        <div class="carrusel">
-          <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
-          <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
-        </div>
-        <button class="carrusel-btn right">&#10095;</button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-    <!-- CONTACTO -->
-    <section class="contacto" id="contacto">
-      <h2>Contacto</h2>
-      <p>Correo: luzamora@example.com</p>
-      <p><a href="mailto:luzamora@example.com">Enviar correo</a></p>
-    </section>
-
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
 

@@ -1,98 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV - Luzamora</title>
-  <link rel="stylesheet" href="/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV - Luzamora</title>
+    <link rel="stylesheet" href="/style.css" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css" />
 </head>
 <body>
 
-  <header class="hero">
-    <h1>Currículum</h1>
-    <nav class="menu-inferior">
-      <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="#proyectos">Trabajos</a></li>
-          <li><a href="cv/">CV</a></li>
-          <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header class="hero">
+        <h1>CURRÍCULUM VITAE</h1>
+        <nav class="menu-debajo" aria-label="Navegación principal">
+            <ul>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="/#proyectos">Trabajos</a></li>
+                <li><a href="/cv/">CV</a></li>
+                <li><a href="/contacto/">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="cv-section">
-    <section>
-      <h2>Lucía García González</h2>
-        <img src="images/1683737246915 (1).png" alt="Foto de Lucía García" class="foto-cv">
-      <p><strong>Front-end Developer Junior & Diseñadora UX/UI</strong></p>
-      <p>1998 · Valencia</p>
-      <p><a href="mailto:luzamora.design@gmail.com">luzamora.design@gmail.com</a> · <a href="tel:+34722124172">+34 722 12 41 72</a></p>
-      <p><a href="https://linkedin.com/in/lucía-garcía-gonzález-programadoraweb" target="_blank">LinkedIn</a> · <a href="https://github.com/luzamora" target="_blank">GitHub</a></p>
-    </section>
+    <main class="cv-wrapper">
+        
+        <aside class="cv-columna izquierda">
+            
+            <section class="cv-personal-info">
+                <img src="/images/1683737246915 (1).png" alt="Foto de Lucía García" class="foto-cv">
+                <h2>Lucía García G.</h2>
+                <p class="cv-puesto">Front-end Developer Junior & Diseñadora UX/UI</p>
+            </section>
+            
+            <section class="cv-contacto">
+                <h3>Contacto</h3>
+                <p>📍 Valencia, España</p>
+                <p><a href="mailto:luzamora.design@gmail.com">luzamora.design@gmail.com</a></p>
+                <p><a href="tel:+34722124172">+34 722 12 41 72</a></p>
+                <p><a href="https://linkedin.com/in/lucía-garcía-gonzález-programadoraweb" target="_blank">LinkedIn</a></p>
+                <p><a href="https://github.com/luzamora" target="_blank">GitHub</a></p>
+            </section>
 
-    <section>
-      <h2>Perfil</h2>
-      <p>Soy una desarrolladora front-end junior con formación en programación web, UX/UI y Python. Tengo experiencia en diseño y desarrollo de interfaces centradas en el usuario. Me defino como una persona creativa y técnica, con alto nivel de inglés e italiano, y muy motivada por nuevos retos.</p>
-    </section>
+            <section class="cv-skills">
+                <h3>Herramientas Técnicas</h3>
+                <ul>
+                    <li>**Web:** HTML5, CSS3, JS, Node.js, Express, GitHub, Wordpress</li>
+                    <li>**Diseño:** UX/UI, Adobe Suite, Figma</li>
+                    <li>**Datos e IA:** Python, TensorFlow, Scikit-learn, MongoDB, NumPy</li>
+                    <li>**Multimedia:** Unity, Touch Designer, Blender, Fotografía</li>
+                </ul>
+            </section>
+            
+            <section class="cv-idiomas">
+                <h3>Idiomas</h3>
+                <p>Español (Nativo)</p>
+                <p>Inglés (B2 - British Council)</p>
+                <p>Italiano (B2 - PLIDA Dante Alighieri)</p>
+            </section>
+            
+            <section class="cv-otros">
+                <h3>Otros Datos</h3>
+                <ul>
+                    <li>Disponibilidad total y para teletrabajo</li>
+                    <li>Inscrita en Garantía Juvenil</li>
+                    <li>Carnet de conducir B</li>
+                </ul>
+            </section>
 
-    <section>
-      <h2>Experiencia Laboral</h2>
-      <ul>
-        <li><strong>UX/UI Designer & Web Developer</strong> · UPV (2023-2024)<br>Diseño y desarrollo web, contenidos y experiencia de usuario.</li>
-        <li><strong>Social Media Manager</strong> · UPV (2022-2024)<br>Gestión de redes, contenidos y métricas.</li>
-        <li><strong>Freelance</strong> (2018 - Actualidad)<br>Branding y diseño digital para clientes independientes.</li>
-        <li><strong>ZINE</strong> · Revista colaborativa con Bellas Artes Granada (ISSN 2603-588X)</li>
-      </ul>
-    </section>
+        </aside>
 
-    <section>
-      <h2>Formación Académica</h2>
-      <ul>
-        <li><strong>Máster en Artes Visuales y Multimedia</strong> · UPV (2021-2024) <a href="https://riunet.upv.es/entities/publication/83b5497a-dcbf-4e15-94a7-839cb39b2124" target="_blank">[TFM]</a></li>
-        <li><strong>Grado en Bellas Artes</strong> · UGR (2015-2021)</li>
-        <li><strong>Beca Erasmus+</strong> · Accademia di Belle Arti di Urbino (2018-2019)</li>
-      </ul>
-    </section>
+        <article class="cv-columna derecha">
+            
+            <section class="cv-perfil">
+                <h3>Perfil</h3>
+                <p>Soy una desarrolladora front-end junior con formación en programación web, UX/UI y Python. Tengo experiencia en diseño y desarrollo de interfaces centradas en el usuario. Me defino como una persona creativa y técnica, con alto nivel de inglés e italiano, y muy motivada por nuevos retos.</p>
+            </section>
 
-    <section>
-      <h2>Formación Complementaria</h2>
-      <ul>
-        <li>SIC IA · EOI · 317h · Feb-Jul 2025</li>
-        <li>SIC Python · EOI · 180h · Dic 2024-Feb 2025</li>
-        <li>DevWomen · EOI · 200h · Nov 2024-Feb 2025</li>
-        <li>Métodos Sintéticos e IA · UPV</li>
-        <li>Realidad Aumentada · Espacio Lavadero</li>
-        <li>Photoshop aplicado · UGR</li>
-      </ul>
-    </section>
+            <section class="cv-experiencia">
+                <h3>Experiencia Laboral</h3>
+                <ul class="cv-lista-trabajo">
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2023-2024</span>
+                            <span class="cv-rol">**UX/UI Designer & Web Developer**</span>
+                            <span class="cv-empresa">UPV</span>
+                            <span class="cv-descripcion">Diseño y desarrollo web, contenidos y experiencia de usuario.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2022-2024</span>
+                            <span class="cv-rol">**Social Media Manager**</span>
+                            <span class="cv-empresa">UPV</span>
+                            <span class="cv-descripcion">Gestión de redes, contenidos y métricas.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2018 - Actualidad</span>
+                            <span class="cv-rol">**Freelance**</span>
+                            <span class="cv-descripcion">Branding y diseño digital para clientes independientes.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2021-2024</span>
+                            <span class="cv-rol">**ZINE**</span>
+                            <span class="cv-empresa">Revista colaborativa con Bellas Artes Granada (ISSN 2603-588X)</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-    <section>
-      <h2>Herramientas Técnicas</h2>
-      <ul>
-        <li><strong>Web:</strong> HTML5, CSS3, JS, Node.js, Express, GitHub, Wordpress</li>
-        <li><strong>Diseño:</strong> UX/UI, Adobe Suite, Figma</li>
-        <li><strong>Datos e IA:</strong> Python, TensorFlow, Scikit-learn, MongoDB, NumPy</li>
-        <li><strong>Multimedia:</strong> Unity, Touch Designer, Blender, Fotografía</li>
-      </ul>
-    </section>
+            <section class="cv-formacion">
+                <h3>Formación Académica</h3>
+                <ul class="cv-lista-trabajo">
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2021-2024</span>
+                            <span class="cv-rol">**Máster en Artes Visuales y Multimedia**</span>
+                            <span class="cv-empresa">UPV <a href="https://riunet.upv.es/entities/publication/83b5497a-dcbf-4e15-94a7-839cb39b2124" target="_blank">[TFM]</a></span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2015-2021</span>
+                            <span class="cv-rol">**Grado en Bellas Artes**</span>
+                            <span class="cv-empresa">UGR</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="cv-linea-tiempo">
+                            <span class="cv-fecha">2018-2019</span>
+                            <span class="cv-rol">**Beca Erasmus+**</span>
+                            <span class="cv-empresa">Accademia di Belle Arti di Urbino</span>
+                        </div>
+                    </li>
+                </ul>
+            </section>
 
-    <section>
-      <h2>Idiomas</h2>
-      <ul>
-        <li>Inglés · B2 (British Council)</li>
-        <li>Italiano · B2 (PLIDA Dante Alighieri)</li>
-      </ul>
-    </section>
+            <section class="cv-formacion-comp">
+                <h3>Formación Complementaria</h3>
+                <ul class="cv-lista-simple">
+                    <li>SIC IA · EOI · **317h** · Feb-Jul 2025</li>
+                    <li>SIC Python · EOI · **180h** · Dic 2024-Feb 2025</li>
+                    <li>DevWomen · EOI · **200h** · Nov 2024-Feb 2025</li>
+                    <li>Métodos Sintéticos e IA · UPV</li>
+                    <li>Realidad Aumentada · Espacio Lavadero</li>
+                    <li>Photoshop aplicado · UGR</li>
+                </ul>
+            </section>
+            
+        </article>
+    </main>
 
-    <section>
-      <h2>Otros Datos</h2>
-      <ul>
-        <li>Disponibilidad total y para teletrabajo</li>
-        <li>Inscrita en Garantía Juvenil</li>
-        <li>Carnet de conducir B</li>
-      </ul>
-    </section>
-  </div>
-</body>
+    </body>
 </html>
-
