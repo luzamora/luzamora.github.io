@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
     let i = 0;
 
-    const animarDescifrado = () => { /* ... (Función Promise se mantiene igual) ... */
+    const animarDescifrado = () => { 
         return new Promise(resolve => {
             const intervalo = setInterval(() => {
                 let textoIntermedio = '';
@@ -82,12 +82,30 @@ document.addEventListener("DOMContentLoaded", () => {
                     introScreen.style.display = "none";
                     contenido.style.display = "block";
                     document.body.style.overflow = "auto";
+                    
+                    // === NUEVO: Establecer bandera en localStorage después de completar la animación ===
+                    localStorage.setItem('animacionVista', 'true');
+                    
                 }, 1000); 
             }, 800);
         }
     };
 
-    iniciarSecuencia();
+    // === NUEVA LÓGICA DE COMPROBACIÓN CON LOCALSTORAGE ===
+    if (introScreen && contenido) {
+        const animacionYaVista = localStorage.getItem('animacionVista');
+        
+        if (animacionYaVista) {
+            // Si ya se ha visto, saltar la animación inmediatamente
+            introScreen.style.display = "none";
+            contenido.style.display = "block";
+            document.body.style.overflow = "auto";
+        } else {
+            // Si es la primera vez, iniciar la secuencia de animación
+            iniciarSecuencia();
+        }
+    }
+    // ===================================================
 
 
     // ----------------------------------------------------------------------

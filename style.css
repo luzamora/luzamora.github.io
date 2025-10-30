@@ -422,190 +422,182 @@ h3 {
 }
 
 /* ======================================= */
-/* CV LAYOUT Y ESTILOS MODERNOS */
+/* CV LAYOUT FLOTANTE SOBRE NEGRO        */
 /* ======================================= */
 
-/* Contenedor principal del CV */
-.cv-wrapper {
-    display: flex;
+.cv-grid-container {
+    display: grid;
+    /* Mantenemos la relación 1:2 de columnas */
+    grid-template-columns: 1fr 2fr; 
+    gap: 3rem; /* Aumentamos el espacio entre columnas para separarlas visualmente */
     max-width: 1200px;
     width: 90vw;
     margin: 3rem auto;
-    background-color: #111; /* Fondo ligeramente más claro que el body */
-    border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    overflow: hidden; /* Para contener las columnas */
-    padding: 0; /* Quitamos padding externo, se maneja en columnas */
+    background-color: transparent; /* QUITAMOS EL FONDO GRIS/NEGRO DE LA CAJA PRINCIPAL */
+    box-shadow: none; /* Quitamos la sombra de la caja principal */
+    overflow: visible; /* Permitimos que los elementos sobresalgan un poco si es necesario */
+    padding: 0; 
+    border-radius: 0;
 }
 
-/* Estilo para las dos columnas */
-.cv-columna {
-    padding: 3rem 2rem;
+/* 🛑 Quitamos el fondo a las columnas para que floten sobre el body */
+.cv-left-column {
+    background-color: transparent; 
+    padding: 0; /* Quitamos padding general, lo gestiona cada sección */
 }
 
-.cv-columna.izquierda {
-    flex: 0 0 35%; /* Ocupa el 35% del ancho */
-    background-color: #0d0d0d; /* Un color más oscuro para diferenciar */
-    color: #fff;
-    border-right: 2px solid #7affd1; /* Línea separadora de acento */
+.cv-right-column {
+    background-color: transparent; 
+    padding: 0; 
 }
 
-.cv-columna.derecha {
-    flex: 1; /* Ocupa el resto (65%) */
-    background-color: #111;
-    color: #fff;
+
+/* Estilos Generales de Sección */
+/* Separamos las secciones con margen, no con padding y border */
+.cv-section {
+    padding: 0; 
+    margin-bottom: 2rem; /* Espacio para separar bloques */
+    border-bottom: none; 
+}
+.cv-section:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
-/* Títulos de sección */
-.cv-columna h3 {
-    color: #7affd1; /* Color de acento */
-    font-size: 1.5rem;
+/* Títulos de Sección (Definen la estructura) */
+.cv-section h3 {
+    color: #7affd1;
+    font-size: 1.3rem; 
     font-weight: 700;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid rgba(122, 255, 209, 0.3); /* Línea sutil */
-    padding-bottom: 0.3rem;
+    margin-bottom: 0.8rem; /* Espacio antes del contenido */
+    padding-bottom: 0.3rem; 
+    /* Damos fuerza al título con un subrayado de color */
+    border-bottom: 2px solid #7affd1; 
     text-transform: uppercase;
 }
-.cv-columna h3:first-of-type {
-    margin-top: 0; /* Quitar el margen superior del primer título */
+.cv-section h3:first-of-type {
+    margin-top: 0;
 }
 
-/* Estilo de Foto y Perfil */
-.cv-personal-info h2 {
-    font-size: 2rem;
-    font-weight: 900;
-    color: #fff;
-    margin-top: 0.5rem;
-}
+/* ======================================= */
+/* COLUMNA IZQUIERDA (Info Personal)     */
+/* ======================================= */
 
-.cv-puesto {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #ccc;
-    margin-bottom: 1.5rem;
+.cv-left-column .cv-section {
+    padding: 0; /* Sin padding */
 }
-
 .foto-cv {
-    width: 250px;
-    height: 350px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #7affd1;
-    margin-bottom: 1rem;
+/* Usamos unidades relativas al viewport para el tamaño */
+    width: 17rem; /* Aproximadamente 17% del ancho del Viewport (Se acerca a 250px en 1440px) */
+    height: auto; /* Mantenemos 'auto' para respetar la proporción original de la imagen */
+    max-height: 40rem; /* Establecemos una altura máxima en 'rem' para que no sea demasiado grande en monitores enormes */
+    margin: 0 auto 0.5rem auto; /* Centrarla y darle un pequeño margen inferior */
+    display: block;
 }
 
-/* Estilo de Contacto y Enlaces */
-.cv-contacto p {
-    margin: 0.4rem 0;
-    font-size: 0.95rem;
+.cv-nombre h2 {
+    font-size: 1.6rem; 
+    margin-bottom: 0.1rem;
 }
-.cv-contacto a {
-    color: #7affd1;
-    text-decoration: none;
-    transition: color 0.2s;
+.cv-puesto {
+    font-size: 0.95rem; 
+    color: #aaa;
 }
-.cv-contacto a:hover {
-    color: #fff;
-    text-decoration: underline;
+/* Asegurar que el texto se vea con color blanco/claro sobre fondo negro */
+.cv-contact-info p, .cv-skills-list p, .cv-languages p, .cv-other-data li, .cv-contact-info a {
+    color: #ccc; 
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
 }
-
-/* Listas de Experiencia y Formación (Línea de tiempo sutil) */
-.cv-lista-trabajo {
-    list-style: none;
-    padding: 0;
-    margin-left: 0.5rem;
-    /* Línea vertical para la línea de tiempo */
-    border-left: 2px solid rgba(255, 255, 255, 0.1); 
+.cv-contact-info a {
+    color: #7affd1; /* Enlaces en color de acento */
 }
 
-.cv-lista-trabajo li {
-    padding-left: 1rem;
-    padding-bottom: 1.5rem;
+/* Iconos de Software */
+.software-grid {
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px;
+    padding: 0.5rem 0;
+    width: 80%; /* Hacer la cuadrícula más pequeña para que no se extienda mucho */
+    margin: 0 auto;
+}
+.software-grid img {
+    width: 40px; 
+    height: 40px;
+}
+
+
+/* ======================================= */
+/* COLUMNA DERECHA (Contenido Principal) */
+/* ======================================= */
+
+/* Perfil (Centrado y Separado con línea de acento) */
+.cv-profile p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+
+/* Experiencia y Educación (Línea de tiempo más sutil) */
+.cv-item {
+    margin-bottom: 1.8rem;
+    /* Línea sutil que funciona sobre el negro */
+    border-left: 1px solid rgba(255, 255, 255, 0.1); 
     position: relative;
 }
+.cv-item-header {
+    margin-left: 1.5rem; 
+}
 
-/* Círculo de la línea de tiempo */
-.cv-lista-trabajo li::before {
+/* El círculo del timeline */
+.cv-item::before {
     content: '';
     position: absolute;
     left: -7px;
     top: 0.2rem;
-    width: 10px;
-    height: 10px;
-    background-color: #7affd1;
+    width: 12px;
+    height: 12px;
+    background-color: #7affd1; /* Círculo de color de acento */
     border-radius: 50%;
+    z-index: 2;
 }
 
-.cv-linea-tiempo {
-    display: flex;
-    flex-direction: column;
-}
-
-.cv-fecha {
-    color: #7affd1;
+.cv-company, .cv-description {
+    margin-left: 1.5rem;
     font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 0.2rem;
+    margin-top: 0.2rem;
 }
 
-.cv-rol {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #fff;
-}
-
-.cv-empresa, .cv-descripcion {
-    font-size: 1rem;
-    color: #ccc;
-    margin-top: 0.1rem;
-}
-.cv-descripcion {
-    margin-top: 0.5rem;
-}
-
-/* Listas de Formación Complementaria y Habilidades */
-.cv-skills ul, .cv-idiomas ul, .cv-otros ul, .cv-formacion-comp ul {
-    list-style: none;
-    padding-left: 0;
-    margin-top: 1rem;
-}
-.cv-skills li, .cv-formacion-comp li, .cv-otros li {
-    margin-bottom: 0.6rem;
-    font-size: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-.cv-skills li::before, .cv-formacion-comp li::before, .cv-otros li::before {
-    content: "▪"; /* Bullet cuadrado simple */
-    position: absolute;
-    left: 0;
-    color: #7affd1;
-    font-weight: 900;
-}
-
-/* RESPONSIVE: Mover a una sola columna en móviles */
-@media (max-width: 768px) {
-    .cv-wrapper {
-        flex-direction: column;
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
+/* ======================================= */
+/* RESPONSIVE FLOTANTE                   */
+/* ======================================= */
+@media (max-width: 992px) { 
+    .cv-grid-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* Espacio reducido para móvil */
+        width: 95vw;
     }
-
-    .cv-columna.izquierda, .cv-columna.derecha {
-        flex: 1;
-        padding: 2rem 1rem;
-        border-right: none;
-    }
-
-    .cv-columna.izquierda {
-        background-color: #1a1a1a; /* Un tono diferente para destacar */
+    /* Añadimos una línea de separación entre la columna izquierda y la derecha */
+    .cv-left-column {
+        padding-bottom: 1rem;
         border-bottom: 2px solid #7affd1;
     }
-    
-    .cv-lista-trabajo {
-        margin-left: 0; /* Quitar margen para centrar mejor en móviles */
+}
+
+@media (max-width: 576px) { 
+    .cv-grid-container {
+        padding: 0.5rem;
+    }
+    .cv-item-header {
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .cv-company, .cv-description {
+        margin-left: 0.5rem;
+    }
+    .cv-item::before {
+        left: -8px;
     }
 }
