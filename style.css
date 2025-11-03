@@ -1,15 +1,78 @@
-/* RESETEO BÁSICO */
+/* BASE */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: "aileron", sans-serif;
-    background-color: #000;
-    color: #fff;
-    overflow-x: hidden;
+  font-family: "Bitcount Grid Single", monospace;
+  background-color: #0A0A0A;
+  color: #FF7B00;
+  overflow-x: hidden;
+  line-height: 1.6;
+  text-transform: uppercase; /* opcional: si quieres todo en mayúsculas */
+}
+
+/* ======================================================= */
+/* JERARQUÍA TIPOGRÁFICA Y ESCALAS                        */
+/* ======================================================= */
+
+/* TÍTULO PRINCIPAL */
+h1 {
+  font-size: clamp(2.8rem, 8vw, 5.5rem); /* grande pero adaptable */
+  font-family: "Bitcount Grid Single", sans-serif;
+  font-weight: 900;
+  color: #FF7B00;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-shadow:
+    0 0 10px rgba(255, 123, 0, 0.7),
+    0 0 25px rgba(255, 60, 0, 0.4);
+}
+
+/* SECCIONES PRINCIPALES (como “Proyectos”, “Contacto”) */
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem); /* menor que h1 pero imponente */
+  font-weight: 400;
+  margin-bottom: 1.4rem;
+  font-family: "Bitcount Grid Single", sans-serif;
+  text-transform: uppercase;
+}
+
+/* SUBTÍTULOS o títulos dentro de secciones */
+h3 {
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  font-family: "Bitcount Grid Single", sans-serif;
+  text-transform: uppercase;
+}
+
+/* PÁRRAFOS */
+p {
+  font-size: clamp(1rem, 1.2vw, 1.25rem); /* más pequeño que ahora */
+  line-height: 1.7;
+  color: #EAEAEA;
+  font-weight: 300;
+  max-width: 70ch; /* limita el ancho para legibilidad */
+  margin-bottom: 1rem;
+}
+
+
+/* LOGO */
+.logo, .logo-text {
+  color: #EAEAEA;
+  letter-spacing: 0.05em;
+}
+
+
+.luzamora{
+    font-family:"aileron", sans-serif;
+    letter-spacing: 0;
+     color: #EAEAEA;
+    text-transform: 0;
+    text-shadow: none;
 }
 
 
@@ -31,7 +94,7 @@ body {
 
 .encendido {
     font-size: 3rem;
-    color: #7affd1;
+    color: #FF7B00;
     font-weight: 900;
 }
 
@@ -47,14 +110,14 @@ body {
 
 /* HERO */
 .hero {
-    padding: 2rem;
+    padding: 1rem;
     text-align: center;
     position: relative;
     margin-top: 2rem;
 }
 
 .logo {
-    height: 4.2rem;
+    height: 4rem;
     width: auto;
     margin-left: 2rem;
     display: block;
@@ -62,10 +125,9 @@ body {
 
 /* --- MENU FIJO DEBAJO DEL TITULO --- */
 .menu-debajo {
-    /* Pegajoso al top de la ventana una vez que se alcanza su posición */
-    position: sticky; 
-    top: 0; 
-    background-color: #000;
+    position: sticky;
+    top: 0;
+    background-color: #0A0A0A;
     padding: 1rem 0;
     z-index: 100;
     display: flex;
@@ -81,21 +143,46 @@ body {
 }
 
 .menu-debajo a {
-    color: #fff;
+    font-family: "Bitcount Grid Single", sans-serif;
+    font-style: normal;
+    color: #FF7B00;
     font-size: 1.3rem;
-    font-weight: 600;
+    font-weight: 200;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
+}
+
+/* Efecto de “encendido” al pasar el cursor */
+.menu-debajo a:hover {
+    color: #FF7B00;
+    text-shadow:
+        0 0 6px rgba(255, 123, 0, 0.8),
+        0 0 12px rgba(255, 123, 0, 0.6),
+        0 0 24px rgba(255, 60, 0, 0.4);
+    transform: scale(1.05);
+}
+
+/* Opción extra: pequeño parpadeo al encender */
+@keyframes flicker-on {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    opacity: 1;
+  }
+  20%, 24%, 55% {
+    opacity: 0.7;
+  }
 }
 
 .menu-debajo a:hover {
-    color: #7affd1;
+    animation: flicker-on 1.2s ease-in-out;
 }
+
 
 /* --- REDES SOCIALES (arriba derecha) --- */
 .redes-sociales {
     position: absolute;
-    top: 3.5rem;
+    top: 2rem;
     right: 3.7rem;
     display: flex;
     gap: 1.2rem;
@@ -121,7 +208,6 @@ body {
     margin-top: 2rem;
     font-size: clamp(2.5rem, 10vw, 6rem);
     font-weight: 900;
-    color: #7affd1;
 }
 
 /* BANNER VIDEO */
@@ -148,34 +234,52 @@ section {
     margin: 0 auto;
 }
 
-h2 {
-    font-size: 2.5rem;
-    margin: 3rem 3rem 2rem;
-    font-weight: 300;
-}
-
-h3 {
-    font-size: 1.3rem;
-    margin: 0.8rem 0 0.4rem;
-}
-
 /* BOTÓN “VER MÁS” */
 .btn-ver-mas {
     display: inline-block;
     margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background-color: #7affd1;
-    color: #000;
+    padding: 0.6rem 1.4rem;
+    background-color: #FF7B00;
+    color: #0A0A0A;
     text-decoration: none;
     font-weight: 600;
     border-radius: 6px;
-    transition: background 0.3s ease, transform 0.2s ease;
+    transition: all 0.3s ease;
+    box-shadow:
+        0 0 5px rgba(255, 123, 0, 0.4),
+        0 0 10px rgba(255, 123, 0, 0.3);
+    font-size: 1rem;
+    font-family: "Bitcount Grid Single", "sans-serif"; 
+    text-transform: uppercase;
 }
 
+/* Efecto de “encendido” al pasar */
 .btn-ver-mas:hover {
-    background-color: #5ee6b2;
+    background-color: #FF7B00;
+    color: #0A0A0A;
     transform: translateY(-2px);
+    box-shadow:
+        0 0 10px rgba(255, 123, 0, 0.8),
+        0 0 20px rgba(255, 123, 0, 0.6),
+        0 0 40px rgba(255, 60, 0, 0.4);
+    animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
 }
+
+/* Animación de brillo suave (pulso cálido analógico) */
+@keyframes glowPulseOrange {
+  from {
+    box-shadow:
+      0 0 8px rgba(255, 123, 0, 0.6),
+      0 0 16px rgba(255, 60, 0, 0.4);
+  }
+  to {
+    box-shadow:
+      0 0 20px rgba(255, 123, 0, 0.9),
+      0 0 40px rgba(255, 60, 0, 0.7),
+      0 0 60px rgba(255, 60, 0, 0.5);
+  }
+}
+
 
 /* CONTACTO */
 .contacto a {
@@ -188,9 +292,13 @@ h3 {
     width: 100%;
     padding: 0;
     margin: 0;
+    font-size: 1.5rem;
+
 }
 .proyectos h2 {
+  padding: 50px;
   text-align: center;
+
 }
 
 .grid-proyectos {
@@ -210,15 +318,13 @@ h3 {
 
 /* Optimizado: usar flex-direction para el reverso */
 .proyecto:nth-child(odd) {
-    background-color: #e0f7f3;
+    background-color: #0A0A0A;
     flex-direction: row;
-    color: #111;
 }
 
 .proyecto:nth-child(even) {
-    background-color: #fff0f3;
+    background-color: #0A0A0A;
     flex-direction: row-reverse;
-    color: #111;
 }
 
 .proyecto-texto {
@@ -227,8 +333,16 @@ h3 {
 }
 
 .proyecto-texto p {
-    font-size: 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", system-ui;
+    font-style: normal;
+    color: #FF7B00;
+    letter-spacing: 0.12em; /* más espacio entre letras */
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3); /* brillo leve y sutil */
+    opacity: 0.9; /* baja opacidad = efecto visual más “fino” */
 }
+
 
 .proyecto-carrusel {
     flex: 1;
