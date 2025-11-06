@@ -19,31 +19,30 @@
 
     <div id="contenido" class="fade-in" style="display: none;">
 
-        <header class="hero">
-            <div class="top-bar">
-                <img src="images/Recurso 1t5.png" alt="Logo Luzamora" class="logo">
-
-                <div class="redes-sociales">
-                    <a href="https://www.instagram.com/luzamora__" target="_blank" aria-label="Instagram de Luzamora">
-                        <img src="images/logotipo-de-instagram.png" alt="Icono de Instagram">
-                    </a>
-                    <a href="https://www.linkedin.com/in/tuusuario" target="_blank" aria-label="LinkedIn de Luzamora">
-                        <img src="images/linkedin.png" alt="Icono de LinkedIn">
-                    </a>
-                </div>
-            </div>
-
-            <h1 class="luzamora">LUZAMORA</h1>
-
-            <nav class="menu-debajo" aria-label="Navegación principal">
-                <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="#proyectos">Trabajos</a></li>
-                    <li><a href="/cv/">CV</a></li>
-                    <li><a href="contacto/">Contacto</a></li>
-                </ul>
-            </nav>
-        </header>
+      <header class="hero">
+          <div class="top-header">
+              <a href="www.chiskey.es" target="_blank" aria-label="Ir a la página web del logo Chiskey">
+                  <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/Recurso_1t5_e9fkcy.png" alt="Logo Chiskey" class="logo">
+              </a>
+              <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png" alt="Luzamora Logo con efecto LED" class="logo-main-image logo-cv">
+              <div class="redes-sociales">
+                  <a href="https://linkedin.com/in/tuusuario" target="_blank">
+                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/linkedin_jeajvl.png" alt="LinkedIn">
+                  </a>
+                  <a href="https://instagram.com/luzamora__" target="_blank">
+                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/logotipo-de-instagram_b3yno8.png" alt="Instagram">
+                  </a>
+              </div>
+          </div>
+          <nav class="menu-debajo" aria-label="Navegación principal">
+              <ul>
+                  <li><a href="/">INICIO</a></li>
+                  <li><a href="/proyectos/">TRABAJOS</a></li>
+                  <li><a href="/cv/">CV</a></li> 
+                  <li><a href="/contacto/">CONTACTO</a></li>
+              </ul>
+          </nav>
+      </header>
 
         <section class="video-separador">
             <video autoplay muted loop playsinline>
@@ -54,7 +53,7 @@
 
 
         <section class="proyectos" id="proyectos">
-            <h2>Mis proyectos</h2>
+            <h2>Mis proyectos destacados</h2>
             <div class="grid-proyectos">
                 
                 <div class="proyecto">
@@ -63,13 +62,8 @@
                         <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.</p>
                         <a href="/olivia/" class="btn-ver-mas">Ver mas</a>
                     </div>
-                    <div class="proyecto-carrusel carrusel-container">
-                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
-                        <div class="carrusel">
-                            <div class="slide"><img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" /></div>
-                            <div class="slide"><img src="images/generativa2.jpg" alt="Generativa 2" /></div>
-                        </div>
-                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    <div class="proyecto-imagen-preview">
+                        <img src="images/olivia.jpg" alt="Vista previa de Oliv.ia" />
                     </div>
                 </div>
 
@@ -79,13 +73,8 @@
                         <p>Serie de retratos en estudio con iluminación natural.</p>
                         <a href="/Fotografía/" class="btn-ver-mas">Ver mas</a>
                     </div>
-                    <div class="proyecto-carrusel carrusel-container">
-                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
-                        <div class="carrusel">
-                            <div class="slide"><img src="images/imagenAnalogica1 .jpeg" alt="Foto 1" /></div>
-                            <div class="slide"><img src="images/imagenAnalogica2.jpg" alt="Foto 2" /></div>
-                        </div>
-                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    <div class="proyecto-imagen-preview">
+                        <img src="images/imagenAnalogica1 .jpeg" alt="Foto principal de Proyecto Fotografía" />
                     </div>
                 </div>
 
@@ -95,13 +84,8 @@
                         <p>Branding y diseño para clientes locales.</p>
                         <a href="diseno.html" class="btn-ver-mas">Ver mas</a>
                     </div>
-                    <div class="proyecto-carrusel carrusel-container">
-                        <button class="carrusel-btn left" aria-label="Anterior">&#10094;</button>
-                        <div class="carrusel">
-                            <div class="slide"><img src="images/diseno1.jpg" alt="Diseño 1" /></div>
-                            <div class="slide"><img src="images/diseno2.jpg" alt="Diseño 2" /></div>
-                        </div>
-                        <button class="carrusel-btn right" aria-label="Siguiente">&#10095;</button>
+                    <div class="proyecto-imagen-preview">
+                        <img src="images/diseno1.jpg" alt="Preview de Diseño gráfico" />
                     </div>
                 </div>
 
@@ -109,16 +93,16 @@
         </section>
 
 
-        <section class="contacto" id="contacto">
-            <h2>Contacto</h2>
-            <p>Correo: luzamora@example.com</p>
-            <p><a href="mailto:luzamora@example.com">Enviar correo</a></p>
-        </section>
+<footer class="main-footer">
+    <div class="footer-content">
+        <p>LUZAMORA</p>
+       <p><span class="copyright-symbol">&copy;</span> 2025 ALL RIGHTS RESERVED | <a href="mailto:luzamora.design@gmail.com">LUZAMORA.DESIGN@GMAIL.COM</a></p>
+    </div>
+</footer>
 
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
 

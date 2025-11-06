@@ -1,2 +1,6 @@
 # Ignorar todos los mp4
 *.mp4
+
+*.png
+
+*.jpg

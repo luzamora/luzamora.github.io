@@ -7,11 +7,11 @@
 
 body {
   font-family: "Bitcount Grid Single", monospace;
-  background-color: #0A0A0A;
-  color: #FF7B00;
+  background-color: #202020;
+  color: #FF7B00; /* Naranja principal para el texto base */
   overflow-x: hidden;
   line-height: 1.6;
-  text-transform: uppercase; /* opcional: si quieres todo en mayúsculas */
+  text-transform: uppercase;
 }
 
 /* ======================================================= */
@@ -20,10 +20,10 @@ body {
 
 /* TÍTULO PRINCIPAL */
 h1 {
-  font-size: clamp(2.8rem, 8vw, 5.5rem); /* grande pero adaptable */
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
   font-family: "Bitcount Grid Single", sans-serif;
   font-weight: 900;
-  color: #FF7B00;
+  color: #FF7B00; /* Naranja LED */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-shadow:
@@ -33,11 +33,12 @@ h1 {
 
 /* SECCIONES PRINCIPALES (como “Proyectos”, “Contacto”) */
 h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem); /* menor que h1 pero imponente */
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 400;
   margin-bottom: 1.4rem;
   font-family: "Bitcount Grid Single", sans-serif;
   text-transform: uppercase;
+  text-align: center;
 }
 
 /* SUBTÍTULOS o títulos dentro de secciones */
@@ -49,32 +50,52 @@ h3 {
   text-transform: uppercase;
 }
 
-/* PÁRRAFOS */
+/* PÁRRAFOS: Se usa Bitcount */
 p {
-  font-size: clamp(1rem, 1.2vw, 1.25rem); /* más pequeño que ahora */
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.7;
-  color: #EAEAEA;
+  color: #EAEAEA; 
   font-weight: 300;
-  max-width: 70ch; /* limita el ancho para legibilidad */
+  max-width: 70ch;
   margin-bottom: 1rem;
-}
-
-
-/* LOGO */
-.logo, .logo-text {
-  color: #EAEAEA;
+  font-family: "Bitcount Grid Single", monospace;
+  text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 
-.luzamora{
-    font-family:"aileron", sans-serif;
-    letter-spacing: 0;
-     color: #EAEAEA;
-    text-transform: 0;
-    text-shadow: none;
+/* LOGO TEXTO */
+/* LOGO TEXTO */
+.logo, .logo-text {
+  color: #EAEAEA; 
+  letter-spacing: 0.05em;
 }
 
+/* LOGO IMAGEN EN EL TOP BAR */
+.logo {
+    height: 4rem;
+    width: auto;
+    margin-left: 2rem;
+    display: block;
+    /* CAMBIO 1: Añadir transición para suavizar el efecto */
+    transition: transform 0.3s ease, filter 0.3s ease; 
+}
+
+/* CAMBIO 2: Aplicar el filtro naranja brillante al pasar el ratón sobre el link que envuelve al logo */
+/* CAMBIO 2: Aplicar el filtro naranja brillante al pasar el ratón sobre el link que envuelve al logo (unificado para CV y Home) */
+.top-bar a:hover .logo,
+.top-header a:hover .logo {
+    transform: scale(1.05); /* Escala ligeramente menor que las redes sociales para que no sea tan brusco */
+    filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+}
+
+/* LOGO IMAGEN PRINCIPAL (LUZAMORA) */
+.logo-main-image {
+    display: block;
+    margin: 2rem auto;
+    width: clamp(200px, 60vw, 450px);
+    height: auto;
+}
 
 /* INTRO */
 .intro-screen {
@@ -82,19 +103,17 @@ p {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: black;
-    /* Añadido para la transición de salida controlada por JS */
+    background-color: #202020;
     transition: opacity 1s ease; 
 }
 
-/* Clase añadida por JS para ocultar la pantalla de inicio */
 .fade-out {
     opacity: 0;
 }
 
 .encendido {
     font-size: 3rem;
-    color: #FF7B00;
+    color: #FF7B00; 
     font-weight: 900;
 }
 
@@ -123,11 +142,11 @@ p {
     display: block;
 }
 
-/* --- MENU FIJO DEBAJO DEL TITULO --- */
+/* MENU FIJO DEBAJO DEL TITULO */
 .menu-debajo {
     position: sticky;
     top: 0;
-    background-color: #0A0A0A;
+    background-color: #202020;
     padding: 1rem 0;
     z-index: 100;
     display: flex;
@@ -145,7 +164,7 @@ p {
 .menu-debajo a {
     font-family: "Bitcount Grid Single", sans-serif;
     font-style: normal;
-    color: #FF7B00;
+    color: #FF7B00; 
     font-size: 1.3rem;
     font-weight: 200;
     letter-spacing: 0.08em;
@@ -156,7 +175,7 @@ p {
 
 /* Efecto de “encendido” al pasar el cursor */
 .menu-debajo a:hover {
-    color: #FF7B00;
+    color: #FF7B00; 
     text-shadow:
         0 0 6px rgba(255, 123, 0, 0.8),
         0 0 12px rgba(255, 123, 0, 0.6),
@@ -164,7 +183,6 @@ p {
     transform: scale(1.05);
 }
 
-/* Opción extra: pequeño parpadeo al encender */
 @keyframes flicker-on {
   0%, 18%, 22%, 25%, 53%, 57%, 100% {
     opacity: 1;
@@ -179,7 +197,7 @@ p {
 }
 
 
-/* --- REDES SOCIALES (arriba derecha) --- */
+/* REDES SOCIALES (arriba derecha) */
 .redes-sociales {
     position: absolute;
     top: 2rem;
@@ -192,18 +210,17 @@ p {
 .redes-sociales img {
     width: 30px;
     height: 30px;
-    /* Se prefiere transform y filter para mejor rendimiento */
     transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
 .redes-sociales a:hover img {
-    transform: scale(1.2);
-    /* Invertir a un color similar al del hover del menú */
-    filter: invert(68%) sepia(85%) saturate(342%) hue-rotate(98deg) brightness(103%) contrast(101%); 
+  transform: scale(1.2);
+  /* Nuevo filtro para un naranja brillante */
+  filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%); 
 }
 
 
-/* TÍTULO PRINCIPAL */
+/* TÍTULO PRINCIPAL (h1 ya no se usa para el logo) */
 .hero h1 {
     margin-top: 2rem;
     font-size: clamp(2.5rem, 10vw, 6rem);
@@ -229,7 +246,7 @@ p {
 
 /* SECCIONES GENERALES */
 section {
-    padding: 3rem 5vw;
+    padding: 1rem 5vw;
     width: 100%;
     margin: 0 auto;
 }
@@ -239,8 +256,8 @@ section {
     display: inline-block;
     margin-top: 1rem;
     padding: 0.6rem 1.4rem;
-    background-color: #FF7B00;
-    color: #0A0A0A;
+    background-color: #FF7B00; 
+    color: #202020;
     text-decoration: none;
     font-weight: 600;
     border-radius: 6px;
@@ -255,8 +272,8 @@ section {
 
 /* Efecto de “encendido” al pasar */
 .btn-ver-mas:hover {
-    background-color: #FF7B00;
-    color: #0A0A0A;
+    background-color: #FF7B00; 
+    color: #202020;
     transform: translateY(-2px);
     box-shadow:
         0 0 10px rgba(255, 123, 0, 0.8),
@@ -264,7 +281,19 @@ section {
         0 0 40px rgba(255, 60, 0, 0.4);
     animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
 }
+/* BOTÓN DE DESCARGA DE CV (Se ajusta a la columna y copia estilo de .btn-ver-mas) */
+.btn-download-cv {
+    font-size: 0.9rem; 
+    padding: 0.5rem 1.2rem;
+    display: block; 
+    width: 100%; 
+    text-align: center; 
+    margin: 1.5rem 0 0.5rem 0; 
+    color: #202020;; /* Texto negro */
+}
 
+
+/* BOTÓN DE DESCARGA DE CV (Afilado y estilizado) */
 /* Animación de brillo suave (pulso cálido analógico) */
 @keyframes glowPulseOrange {
   from {
@@ -283,11 +312,11 @@ section {
 
 /* CONTACTO */
 .contacto a {
-    color: #7affd1;
+    color: #FF7B00; 
     text-decoration: none;
 }
 
-/* PROYECTOS */
+/* PROYECTOS DESTACADOS (grid-proyectos) */
 .proyectos {
     width: 100%;
     padding: 0;
@@ -296,9 +325,9 @@ section {
 
 }
 .proyectos h2 {
-  padding: 50px;
+  padding: 50px 0 20px 0;
   text-align: center;
-
+  margin-bottom: 0;
 }
 
 .grid-proyectos {
@@ -316,14 +345,13 @@ section {
     box-sizing: border-box;
 }
 
-/* Optimizado: usar flex-direction para el reverso */
 .proyecto:nth-child(odd) {
-    background-color: #0A0A0A;
+    background-color:#202020;
     flex-direction: row;
 }
 
 .proyecto:nth-child(even) {
-    background-color: #0A0A0A;
+    background-color: #202020;
     flex-direction: row-reverse;
 }
 
@@ -337,71 +365,272 @@ section {
     text-transform: uppercase;
     font-family: "Bitcount Grid Single", system-ui;
     font-style: normal;
-    color: #FF7B00;
-    letter-spacing: 0.12em; /* más espacio entre letras */
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3); /* brillo leve y sutil */
-    opacity: 0.9; /* baja opacidad = efecto visual más “fino” */
+    color: #FF7B00; 
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+    opacity: 0.9;
 }
 
-/* Contenedor del carrusel */
-.carrusel-container {
-    width: 100%;             /* ocupa todo el ancho del contenedor padre */
-    aspect-ratio: 16 / 9;    /* proporción rectangular estándar */
+/* Contenedor estático para una sola imagen de proyecto */
+.proyecto-imagen-preview {
+    flex: 1;
+    width: 100%;
+    aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 0; 
     margin: 1rem 0;
+    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); 
 }
 
-/* Carrusel (slides) */
-.carrusel {
-    display: flex;
-    transition: transform 0.4s ease;
-    height: 100%;            /* se ajusta a la altura del contenedor */
-}
-
-.slide img {
+.proyecto-imagen-preview img {
     width: 100%;
     height: 100%;
-    object-fit: cover;       /* mantiene la proporción y cubre todo el contenedor */
-    border-radius: 8px;
+    object-fit: cover;
+    border-radius: 0; 
+    transition: transform 0.5s ease;
 }
 
-/* Botones del carrusel */
-.carrusel-btn {
+.proyecto-imagen-preview img:hover {
+    transform: scale(1.05); 
+}
+
+
+/* ======================================= */
+/* LISTA COMPLETA DE PROYECTOS           */
+/* ======================================= */
+
+.all-projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    padding: 3rem 5vw;
+    margin-top: 2rem;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-full-item {
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-full-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-full-item .project-date {
+    color: #FF7B00; 
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    text-transform: none;
+    letter-spacing: 0.1em;
+    font-family: monospace;
+}
+
+/* ======================================= */
+/* CV LAYOUT MODO DIGITAL (CRÉDITOS NARANJA) */
+/* ======================================= */
+
+/* Contenedor principal del CV (OCUPA TODO EL ANCHO) */
+.cv-grid-container {
+    width: 100%;
+    max-width: none; 
+    margin: 0 auto; 
+    padding: 2rem 5vw; 
+    border: none; 
+    box-shadow: none; 
+    display: grid;
+    grid-template-columns: 1fr 2fr; 
+    gap: 4rem; 
+    border-radius: 0; 
+}
+
+/* 3. Columna Izquierda (Información Personal/Skills) */
+.cv-left-column {
+    color: #FF7B00; 
+    padding: 0; 
+}
+.cv-left-column h2 {
+    color: #FF7B00; 
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    text-align: left;
+    margin-bottom: 0.5rem;
+    font-family: "Bitcount Grid Single", monospace; 
+    text-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
+}
+/* Subtítulo del Nombre: en naranja, para un efecto de brillo constante */
+.cv-left-column .cv-puesto {
+    color: #FF7B00; 
+    font-size: 1rem;
+    text-transform: uppercase; 
+    font-family: "Bitcount Grid Single", monospace; 
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+}
+
+/* Foto de Perfil: Mantener la foto monocromática con brillo naranja */
+.foto-cv {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    margin: 1.5rem 0;
+}
+
+/* Títulos y texto de Columna Izquierda: TODO naranja */
+.cv-left-column h3 {
+    color: #FF7B00; 
+    font-size: 1.2rem; 
+    font-weight: 700;
+    /* CAMBIO: Reducido margen superior */
+    margin-top: 1rem; 
+    margin-bottom: 0.3rem;
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", monospace;
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.5);
+}
+.cv-left-column p, .cv-left-column li, .cv-left-column a {
+    color: #FF7B00; 
+    font-size: 0.95rem;
+    line-height: 1.3; /* Reducida altura de línea para compactar */
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", monospace;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+    margin-bottom: 0.1rem; /* Reducido margen entre párrafos de contacto */
+}
+.cv-left-column a:hover {
+    text-shadow: 0 0 8px #FF7B00;
+}
+
+/* Listas de Habilidades (puntos en naranja) */
+.cv-list-compact {
+    list-style-type: none;
+    padding-left: 0;
+}
+.cv-list-compact li {
+    position: relative;
+    padding-left: 1.2em;
+    margin-bottom: 0.2em;
+}
+.cv-list-compact li::before {
+    content: '>>'; 
+    color: #FF7B00; 
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    font-size: 2rem;
-    padding: 0.4rem;
-    cursor: pointer;
-    z-index: 2;
-    border-radius: 50%;
-}
-
-.carrusel-btn.left { left: 10px; }
-.carrusel-btn.right { right: 10px; }
-
-.slide {
-    min-width: 100%;
+    left: 0;
+    font-size: 0.7em;
+    top: 0.2em;
 }
 
 
-/* LAYOUT DE PROYECTO (para olivia.html o donde se use) */
+/* 4. Columna Derecha (Contenido Principal) */
+.cv-right-column {
+    padding: 0;
+}
+
+/* Títulos de Sección Derecha: Naranja fuerte */
+.cv-right-column h3 {
+    color: #FF7B00; 
+    font-size: 1.4rem; 
+    font-weight: 800;
+    /* CAMBIO: Reducido margen superior */
+    margin-top: 1rem; 
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem; 
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", monospace;
+    text-shadow: 0 0 4px rgba(255, 123, 0, 0.5);
+}
+/* Texto del Perfil: Naranja brillante */
+.cv-right-column .cv-profile p {
+    color: #FF7B00; 
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", monospace;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+}
+
+/* Experiencia y Educación (Línea de tiempo) */
+.cv-item {
+    /* CAMBIO: Reducido espacio entre elementos de experiencia/educación */
+    margin-bottom: 1rem; 
+    border-left: 2px dashed #FF7B00; 
+    position: relative;
+    padding-left: 1.2rem;
+}
+.cv-item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: -0.2rem;
+    font-family: "Bitcount Grid Single", monospace;
+}
+/* Roles y Fechas: Ambos en naranja para el efecto de créditos */
+.cv-role {
+    color: #FF7B00; 
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+}
+.cv-dates {
+    color: #FF7B00; 
+    font-weight: 500;
+}
+
+/* Punto de la línea de tiempo */
+.cv-item::before {
+    background-color: #FF7B00; 
+    box-shadow: 0 0 8px #FF7B00;
+}
+
+/* Compañía y Descripción: Naranja */
+.cv-company, .cv-description {
+    font-size: 0.95rem;
+    margin-top: 0.1rem; /* Reducido espacio debajo del título */
+    color: #FF7B00; 
+    text-transform: uppercase;
+    font-family: "Bitcount Grid Single", monospace;
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 1px rgba(255, 123, 0, 0.2);
+    line-height: 1.3; /* Compactado */
+}
+.cv-company {
+    color: #EAEAEA; 
+    text-shadow: none;
+}
+
+/* Lista de Formación Complementaria */
+.cv-additional-education .cv-list-compact li {
+    list-style-type: none;
+    color: #FF7B00;
+    font-family: "Bitcount Grid Single", monospace;
+    text-shadow: 0 0 1px rgba(255, 123, 0, 0.2);
+    line-height: 1.3;
+}
+.cv-additional-education .cv-list-compact strong {
+    color: #EAEAEA;
+    text-shadow: 0 0 1px #EAEAEA;
+}
+
+/* LAYOUT DE PROYECTO (para Fotografía/index.html o donde se use) */
 .layout-wrapper {
     width: 90vw;
     max-width: 1800px;
-    border-radius: 1.5rem;
+    border-radius: 0; /* Bordes afilados */
     overflow: hidden;
     margin: 3rem auto;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    /* Efecto LED en el contenedor principal */
+    box-shadow: 0 0 10px rgba(255, 123, 0, 0.5); 
 }
 
 .project-layout {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    background-color: #1A1A1A; /* Fondo gris oscuro para el contenedor del grid */
+    padding: 1rem;
 }
 
 .row {
@@ -429,20 +658,21 @@ section {
 .project-card {
     position: relative;
     overflow: hidden;
-    border-radius: 1rem;
-    background: #ccc;
+    border-radius: 0; /* Bordes afilados */
+    background: #202020;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 15px rgba(255, 123, 0, 0.8); /* Brillo al pasar el cursor */
 }
 
 .project-card img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0;
     transition: transform 0.5s ease;
 }
 
@@ -457,10 +687,12 @@ section {
     flex-direction: column;
     justify-content: flex-end;
     padding: 1rem;
-    color: white;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent);
+    color: #FF7B00; /* Naranja LED */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
+    font-family: "Bitcount Grid Single", monospace;
+    text-transform: uppercase;
 }
 
 .project-card:hover .project-info {
@@ -468,201 +700,364 @@ section {
 }
 
 
-    section {
-        padding: 2rem 1rem;
-    }
+/* ======================================= */
+/* FOOTER (PIE DE PÁGINA) ESTILO CRÉDITOS */
+/* ======================================= */
+.main-footer {
+    width: 100%;
+    background-color: #202020;
+    color: #FF7B00;
+    padding: 1.5rem 5vw;
+    text-align: center;
+    border-top: 1px solid rgba(255, 123, 0, 0.2);
+    font-family: "Bitcount Grid Single", monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    line-height: 1.6;
+}
 
-    .hero {
-        margin-top: 3rem;
-    }
-    
-    /* El selector ya es suficiente para forzar el cambio */
-    .proyecto {
-        flex-direction: column; 
-        padding: 2rem 5vw;
-    }
+.main-footer p {
+    color: #FF7B00;
+    margin: 0.2rem 0;
+    font-size: 0.8rem;
+    max-width: none;
+    text-shadow: 0 0 1px rgba(255, 123, 0, 0.3);
+}
 
-    .proyecto-texto {
-        text-align: center;
-    }
+.main-footer a {
+    color: #EAEAEA;
+    text-decoration: none;
+    text-shadow: 0 0 3px rgba(234, 234, 234, 0.5);
+    transition: text-shadow 0.3s ease;
+}
 
-    /* Ajuste para el logo y redes para pantallas pequeñas */
-    .logo {
-        height: 3.5rem;
-        margin-left: 1rem;
-    }
-    .redes-sociales {
-        top: 1rem;
-        right: 1rem;
-    }
+.main-footer a:hover {
+    color: #FF7B00;
+    text-shadow: 0 0 8px #FF7B00;
+}
 
-@media (max-width: 480px) {
-    .encendido { font-size: 2rem; }
-    .hero h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.7rem; margin: 2.5rem 0 1.5rem; }
-    .proyecto-texto p { font-size: 1.3rem; }
-    .carrusel-btn { font-size: 1.5rem; padding: 0.3rem; }
-
-    .menu-debajo ul {
-        gap: 1.5rem;
+/* ARREGLO PARA EL SÍMBOLO DE COPYRIGHT */
+.copyright-symbol {
+    font-family: Arial, sans-serif;
+    margin-right: 0.1em;
+    /* Aseguramos que el símbolo mantenga el color naranja */
+    color: #FF7B00; 
+}
+/* RESPONSIVE LAYOUT */
+@media (max-width: 768px) {
+    .layout-wrapper {
+        width: 95vw;
+        max-width: 100%;
+        margin: 2rem auto;
+    }
+    /* En móvil, la cuadrícula se convierte en una sola columna */
+    .row-top, .row-bottom, .right-grid {
+        grid-template-columns: 1fr; 
+    }
+    .project-card {
+        aspect-ratio: 4 / 3; 
     }
 }
 
 /* ======================================= */
-/* CV LAYOUT FLOTANTE SOBRE NEGRO        */
+/* PROPUESTA VISUAL: GRID DE PROYECTOS (Elegante y Visual) */
 /* ======================================= */
-
-.cv-grid-container {
-    display: grid;
-    /* Mantenemos la relación 1:2 de columnas */
-    grid-template-columns: 1fr 2fr; 
-    gap: 3rem; /* Aumentamos el espacio entre columnas para separarlas visualmente */
-    max-width: 1200px;
-    width: 90vw;
+.project-grid {
+    padding: 0 5vw;
     margin: 3rem auto;
-    background-color: transparent; /* QUITAMOS EL FONDO GRIS/NEGRO DE LA CAJA PRINCIPAL */
-    box-shadow: none; /* Quitamos la sombra de la caja principal */
-    overflow: visible; /* Permitimos que los elementos sobresalgan un poco si es necesario */
-    padding: 0; 
-    border-radius: 0;
 }
 
-/* 🛑 Quitamos el fondo a las columnas para que floten sobre el body */
-.cv-left-column {
-    background-color: transparent; 
-    padding: 0; /* Quitamos padding general, lo gestiona cada sección */
-}
-
-.cv-right-column {
-    background-color: transparent; 
-    padding: 0; 
-}
-
-
-/* Estilos Generales de Sección */
-/* Separamos las secciones con margen, no con padding y border */
-.cv-section {
-    padding: 0; 
-    margin-bottom: 2rem; /* Espacio para separar bloques */
-    border-bottom: none; 
-}
-.cv-section:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-/* Títulos de Sección (Definen la estructura) */
-.cv-section h3 {
-    color: #7affd1;
-    font-size: 1.3rem; 
-    font-weight: 700;
-    margin-bottom: 0.8rem; /* Espacio antes del contenido */
-    padding-bottom: 0.3rem; 
-    /* Damos fuerza al título con un subrayado de color */
-    border-bottom: 2px solid #7affd1; 
-    text-transform: uppercase;
-}
-.cv-section h3:first-of-type {
-    margin-top: 0;
-}
-
-/* ======================================= */
-/* COLUMNA IZQUIERDA (Info Personal)     */
-/* ======================================= */
-
-.cv-left-column .cv-section {
-    padding: 0; /* Sin padding */
-}
-.foto-cv {
-/* Usamos unidades relativas al viewport para el tamaño */
-    width: 17rem; /* Aproximadamente 17% del ancho del Viewport (Se acerca a 250px en 1440px) */
-    height: auto; /* Mantenemos 'auto' para respetar la proporción original de la imagen */
-    max-height: 40rem; /* Establecemos una altura máxima en 'rem' para que no sea demasiado grande en monitores enormes */
-    margin: 0 auto 0.5rem auto; /* Centrarla y darle un pequeño margen inferior */
-    display: block;
-}
-
-.cv-nombre h2 {
-    font-size: 1.6rem; 
-    margin-bottom: 0.1rem;
-}
-.cv-puesto {
-    font-size: 0.95rem; 
-    color: #aaa;
-}
-/* Asegurar que el texto se vea con color blanco/claro sobre fondo negro */
-.cv-contact-info p, .cv-skills-list p, .cv-languages p, .cv-other-data li, .cv-contact-info a {
-    color: #ccc; 
-    font-size: 0.9rem;
-    line-height: 1.4;
-    margin-bottom: 0.4rem;
-}
-.cv-contact-info a {
-    color: #7affd1; /* Enlaces en color de acento */
-}
-
-/* Iconos de Software */
-.software-grid {
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 15px;
-    padding: 0.5rem 0;
-    width: 80%; /* Hacer la cuadrícula más pequeña para que no se extienda mucho */
+.digital-cards-grid {
+    /* AJUSTE: Mínimo 450px por tarjeta (máximo 2 por fila) para hacerlas más grandes */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
+    gap: 3rem; /* Aumentamos el espacio entre tarjetas */
+    max-width: 1400px; /* Aumentamos el ancho máximo de la cuadrícula */
     margin: 0 auto;
 }
-.software-grid img {
-    width: 40px; 
-    height: 40px;
-}
 
-
-/* ======================================= */
-/* COLUMNA DERECHA (Contenido Principal) */
-/* ======================================= */
-
-/* Perfil (Centrado y Separado con línea de acento) */
-.cv-profile p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ccc;
-}
-
-
-/* Experiencia y Educación (Línea de tiempo más sutil) */
-.cv-item {
-    margin-bottom: 1.8rem;
-    /* Línea sutil que funciona sobre el negro */
-    border-left: 1px solid rgba(255, 255, 255, 0.1); 
+.digital-card {
+    display: block;
     position: relative;
-}
-.cv-item-header {
-    margin-left: 1.5rem; 
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* Formato de pantalla ancha */
+    text-decoration: none;
+    color: #FF7B00;
+    background-color: #202020;
+    
+    /* Bordes Redondeados */
+    border-radius: 8px; 
+    
+    /* SOLUCIÓN: Eliminamos BORDES y SOMBRAS en estado normal */
+    border: none; 
+    box-shadow: none; 
+    
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    cursor: pointer;
 }
 
-/* El círculo del timeline */
-.cv-item::before {
-    content: '';
+.digital-card:hover {
+    transform: translateY(-5px); /* Se eleva sutilmente */
+    /* Mantenemos una sombra sutil para el efecto de elevación */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Efecto inicial: Semi-oscuro y monocromático (elegante) */
+    filter: grayscale(100%) brightness(0.6); 
+    transition: filter 0.6s ease;
+}
+
+.digital-card:hover .card-image {
+    /* Efecto en hover: Color y brillo */
+    filter: grayscale(0%) brightness(0.85); 
+}
+
+.card-overlay {
     position: absolute;
-    left: -7px;
-    top: 0.2rem;
-    width: 12px;
-    height: 12px;
-    background-color: #7affd1; /* Círculo de color de acento */
-    border-radius: 50%;
-    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    /* Degradado oscuro en la parte inferior para que el texto resalte */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 70%);
 }
 
-.cv-company, .cv-description {
-    margin-left: 1.5rem;
-    font-size: 0.9rem;
-    margin-top: 0.2rem;
+.card-overlay h3 {
+    font-family: "Bitcount Grid Single", monospace;
+    font-size: 1.2rem; /* Título más pequeño y discreto */
+    margin-bottom: 0.3rem;
+    color: #EAEAEA; /* Color gris claro (discreto) */
+    text-shadow: none; /* Elimina sombras del texto */
 }
-/* =========================== RESPONSIVE / MÓVIL OPTIMIZADO
-   =========================== */
 
-/* Para tablets y móviles medianos */
-@media (max-width: 768px) {
+.card-overlay .card-date {
+    font-family: "Bitcount Grid Single", monospace;
+    font-size: 0.8rem;
+    color: #FF7B00; /* La fecha sí mantiene el acento naranja para el toque digital */
+    text-shadow: none;
+}
+/* Responsive Ajuste */
+@media (max-width: 900px) {
+    .digital-cards-grid {
+        grid-template-columns: 1fr; /* Columna única en móvil */
+        gap: 1.5rem;
+    }
+    .project-grid {
+        padding: 0 1.5rem;
+    }
+}
 
-    /* Layout general de proyectos */
+/* -------------------------------------- */
+/* NUEVA CUADRÍCULA COMBINADA (OLIV.IA, etc.) - DISEÑO SIMPLE Y ELEGANTE */
+/* -------------------------------------- */
+.combined-grid {
+    padding: 2rem;
+    
+    display: grid;
+    /* Definición del layout principal: 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-auto-rows: minmax(200px, auto); /* Filas flexibles, mínimo 200px de altura */
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    /* Eliminación de bordes y sombras en el contenedor */
+    border: none; 
+    box-shadow: none;
+    border-radius: 8px; /* Bordes redondeados en el contenedor general */
+}
+/* SOLUCIÓN: Ajustar el ancho del botón DENTRO de los módulos de texto de la cuadrícula (MÒDUL/OLIVIA) */
+/* Nueva clase para botones dentro de módulos de texto: Centrado y ajustado al contenido */
+.btn-center-fit {
+    /* Forzamos display: block para que margin: auto funcione */
+    display: block; 
+    /* El ancho se ajusta al contenido del texto, no a toda la columna */
+    width: fit-content; 
+    /* Centrado horizontal y margen vertical */
+    margin: 1rem auto 0 auto; 
+}
+.grid-item {
+    padding: 0;
+    overflow: hidden;
+    font-family: "Bitcount Grid Single", monospace;
+    border-radius: 8px; /* Bordes redondeados en cada módulo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto sutil de elevación en todos los módulos (imagen o texto) */
+.grid-item:hover {
+    transform: translateY(-3px); 
+    /* Añadimos una sombra muy sutil en hover para mantener la elegancia de la elevación */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.grid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    /* CAMBIO CLAVE: Imágenes siempre en color y con brillo normal */
+    filter: none; /* Elimina el filtro grayscale */
+    transition: none; /* Elimina la transición (ya no hay efecto hover visual) */
+}
+
+.grid-image:hover img {
+    /* CAMBIO CLAVE: Eliminamos el efecto hover de la imagen, solo queda la elevación de la tarjeta */
+    filter: none;
+}
+
+/* Estilos de las cajas de texto */
+.grid-text {
+    padding: 1.5rem;
+    /* Borde gris muy sutil */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-radius: 8px;
+}
+.grid-text h3 {
+    color: #EAEAEA; /* Gris claro */
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+    /* Línea divisoria muy suave */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.grid-text p {
+    color: #FF7B00; /* Naranja LED sutil */
+    font-size: 0.8rem;
+    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
+    line-height: 1.4;
+    max-width: none;
+    margin: 0;
+}
+
+/* Elemento que debe ocupar más de un espacio */
+.large-span {
+    grid-column: span 2; /* Ocupa 2 columnas */
+    aspect-ratio: 3.5 / 1.2; 
+}
+.large-span img {
+    aspect-ratio: 3.5 / 1.2; 
+}
+
+
+/* Responsive Adjustments for Combined Grid */
+@media (max-width: 900px) {
+    .combined-grid {
+        padding: 1rem;
+        grid-template-columns: 1fr; /* Columna única en móvil */
+        grid-auto-rows: auto;
+    }
+    /* En móvil, los elementos se apilan normalmente */
+    .combined-grid .grid-item {
+        grid-area: auto !important; 
+        aspect-ratio: 4 / 3; /* Hace que las imágenes se vean bien en móvil */
+    }
+    .grid-text {
+        height: auto; 
+    }
+    .large-span {
+        grid-column: span 1; /* Deja de ocupar 2 columnas en móvil */
+        aspect-ratio: 4 / 3;
+    }
+}
+
+/* ======================================= */
+/* LAYOUT ANALÓGICO (7 ÍTEMS - MÓDULOS DE REVISTA) */
+/* ======================================= */
+
+/* Nuevos selectores para abarcar más espacio */
+.large-span-vertical {
+    grid-row: span 2; /* Ocupa 2 filas */
+}
+.large-span-horizontal {
+    grid-column: span 2; /* Ocupa 2 columnas */
+}
+
+@media (min-width: 901px) {
+    
+    /* REGLA ESPECÍFICA para la Galería Analógica: 3 columnas de igual ancho */
+    .analogue-photo-grid {
+        grid-template-columns: repeat(3, 1fr); 
+        grid-auto-rows: minmax(200px, auto); 
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    /* POSICIONAMIENTO DE LOS ÍTEMS EN GALERÍA ANALÓGICA: */
+    /* Item 1: Foto Vertical (Columna 1, Filas 1-2) */
+    .analogue-photo-grid .item-1 { grid-area: 1 / 1 / 3 / 2; } 
+    
+    /* Item 2: Foto Cuadrada (Columna 2, Fila 1) */
+    .analogue-photo-grid .item-2 { grid-area: 1 / 2 / 2 / 3; } 
+
+    /* Item 3: Bloque de Texto (Columna 3, Fila 1) */
+    .analogue-photo-grid .item-3 { grid-area: 1 / 3 / 2 / 4; } 
+
+    /* Item 4: Foto Horizontal Grande (Ocupa Columnas 2-3, Fila 2) */
+    .analogue-photo-grid .item-4 { grid-area: 2 / 2 / 3 / 4; } 
+
+    /* Item 5, 6, 7: Tres imágenes en la Fila 3 */
+    .analogue-photo-grid .item-5 { grid-area: 3 / 1 / 4 / 2; } 
+    .analogue-photo-grid .item-6 { grid-area: 3 / 2 / 4 / 3; }
+    .analogue-photo-grid .item-7 { grid-area: 3 / 3 / 4 / 4; }
+
+    /* Ajuste visual para que las imágenes que ocupan más espacio se vean llenas */
+    .analogue-photo-grid .grid-image img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+/* =========================== RESPONSIVE GENERAL =========================== */
+
+
+@media (max-width: 900px) {
+
+    /* CV Responsive */
+    .cv-grid-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+    .cv-left-column {
+        padding: 0;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+    .cv-left-column h2, .cv-left-column h3 {
+        text-align: center;
+    }
+    .cv-left-column h3 {
+        margin-top: 1rem;
+    }
+    .foto-cv {
+        margin: 1rem auto;
+        max-width: 150px;
+    }
+    .cv-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cv-dates {
+        margin-top: 0.2rem;
+    }
+
+    /* GENERAL */
+    .logo-main-image {
+        width: clamp(150px, 50vw, 300px);
+    }
+    
     .proyecto {
         flex-direction: column;
         padding: 1.5rem 3vw;
@@ -673,45 +1068,14 @@ section {
         padding: 0 0.5rem;
     }
 
-    /* Carrusel */
-    .carrusel-container {
-        aspect-ratio: 4 / 3; /* más alto que ancho para móviles */
-    }
-    .carrusel-btn {
-        font-size: 1.5rem;
-        padding: 0.3rem;
-    }
-    .slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
+    .proyecto-imagen-preview {
+        aspect-ratio: 4 / 3;
     }
 
-    /* Banner video */
     .video-separador {
-        height: 30vh; /* más rectangular */
+        height: 30vh;
     }
 
-    /* Layout flotante de fotografía */
-    .layout-wrapper {
-        width: 95vw;
-        max-width: 100%;
-        margin: 2rem auto;
-        overflow: hidden;
-        border-radius: 1rem;
-    }
-    .project-layout {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    .row-top, .row-bottom, .right-grid {
-        display: grid;
-        grid-template-columns: 1fr; /* todo en columna única */
-        gap: 1rem;
-    }
-
-    /* Logo y redes sociales */
     .logo {
         height: 3rem;
         margin-left: 1rem;
@@ -722,7 +1086,6 @@ section {
         gap: 0.8rem;
     }
 
-    /* Secciones */
     section {
         padding: 2rem 1rem;
     }
@@ -730,43 +1093,31 @@ section {
         margin-top: 3rem;
     }
 
-    /* CV layout */
-    .cv-grid-container {
-        grid-template-columns: 1fr;
-        width: 95vw;
-        gap: 1.5rem;
-        padding: 0.5rem;
-    }
-    .cv-left-column {
-        padding-bottom: 1rem;
-        border-bottom: 2px solid #7affd1;
-    }
-    .cv-left-column .foto-cv {
-        width: 14rem;
-        max-height: 28rem;
-    }
-    .cv-left-column .cv-nombre h2 {
-        font-size: 1.5rem;
-    }
-    .cv-left-column .cv-puesto {
-        font-size: 0.9rem;
-    }
-
-    .cv-item::before {
-        left: -7px;
-        width: 12px;
-        height: 12px;
-    }
-    .cv-company, .cv-description {
-        margin-left: 0.5rem;
-        font-size: 0.85rem;
+    .all-projects-list {
+        gap: 3rem;
     }
 }
 
 /* Para móviles pequeños */
 @media (max-width: 480px) {
 
-    /* HERO */
+    /* CV Responsive (Ajuste para móviles pequeños) */
+    .cv-grid-container {
+        width: 100%;
+        margin: 0;
+        padding: 0.8rem;
+        border: none;
+        box-shadow: none;
+    }
+    .cv-item-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .cv-dates {
+        margin-top: 0.2rem;
+    }
+    
+    /* GENERAL */
     .hero h1 {
         font-size: 2rem;
         margin-top: 1.5rem;
@@ -775,13 +1126,11 @@ section {
         font-size: 1.8rem;
     }
 
-    /* Proyecto texto */
     .proyecto-texto p {
         font-size: 1rem;
         line-height: 1.4;
     }
 
-    /* Menú inferior y navegación */
     .menu-debajo ul {
         gap: 1rem;
         flex-wrap: wrap;
@@ -791,59 +1140,11 @@ section {
         font-size: 1rem;
     }
 
-    .slide img {
-        height: 100%;
-        object-fit: cover;
-    }
     .video-separador {
         height: 25vh;
     }
 
-    /* Layout flotante de fotografía */
-    .layout-wrapper {
-        width: 95vw;
-        margin: 1rem auto;
-        border-radius: 0.8rem;
-    }
-
-    /* CV layout */
-    .cv-grid-container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        width: 95vw;
-        padding: 0.5rem;
-    }
-    .cv-left-column {
-        padding-bottom: 1rem;
-        border-bottom: 1px solid #7affd1;
-    }
-    .cv-left-column .foto-cv {
-        width: 12rem;
-        max-height: 25rem;
-    }
-    .cv-left-column .cv-nombre h2 {
-        font-size: 1.4rem;
-    }
-    .cv-left-column .cv-puesto {
-        font-size: 0.85rem;
-    }
-
-    /* Timeline / experiencia */
-    .cv-item::before {
-        left: -6px;
-        width: 10px;
-        height: 10px;
-    }
-    .cv-company, .cv-description {
-        margin-left: 0.5rem;
-        font-size: 0.85rem;
-    }
-        .carrusel-container {
-        aspect-ratio: 3 / 2; /* aún más rectangular en móviles pequeños */
-    }
-    .carrusel-btn {
-        font-size: 1.2rem;
-        padding: 0.25rem;
+    .proyecto-imagen-preview {
+        aspect-ratio: 3 / 2;
     }
 }
-

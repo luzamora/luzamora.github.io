@@ -1,14 +1,62 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ======================================================================
-    // DATOS GLOBALES: Array único con la información de los proyectos
+    // DATOS GLOBALES: Lista Completa de Proyectos (AÑADE AQUÍ TODOS TUS PROYECTOS)
     // ======================================================================
+    const PROJECTS_FULL_LIST = [
+        {
+            id: "olivia",
+            title: "Oliv.ia ~ Sistema de Recomendación de Restaurantes con IA",
+            description: "Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes.",
+            link: "/olivia/",
+            date: "2025-10-15", 
+            preview_image: "images/olivia.jpg",
+            is_featured: true 
+        },
+        {
+            id: "diseno",
+            title: "Branding y Diseño Gráfico",
+            description: "Branding y diseño para clientes locales.",
+            link: "diseno.html",
+            date: "2025-07-20",
+            preview_image: "images/diseno1.jpg",
+            is_featured: true
+        },
+        {
+            id: "fotografia",
+            title: "Proyecto Fotografía",
+            description: "Serie de retratos en estudio con iluminación natural.",
+            link: "/Fotografía/",
+            date: "2025-05-01",
+            preview_image: "images/imagenAnalogica1 .jpeg",
+            is_featured: true
+        },
+        {
+            id: "otro-proyecto-1",
+            title: "Simulador de Redes Neuronales",
+            description: "Visualización interactiva de conceptos de Machine Learning.",
+            link: "simulador.html",
+            date: "2024-11-20",
+            preview_image: "images/imagenAnalogica3.jpg",
+            is_featured: false
+        },
+        {
+            id: "proyecto-web-antiguo",
+            title: "Landing Page para Cliente X",
+            description: "Diseño y desarrollo de una página de aterrizaje moderna y responsiva.",
+            link: "landing-x.html",
+            date: "2024-03-10",
+            preview_image: "images/imagenAnalogica3.jpg",
+            is_featured: false
+        }
+    ];
+
+    // Datos auxiliares para páginas de proyecto (se mantienen si tienes páginas de detalle que los usan)
     const ALL_PROJECT_DATA = {
         "olivia": {
             title: "Oliv.ia: Sistema de Recomendación de Restaurantes con IA",
             layout_images: [
-                // **REEMPLAZA ESTOS CON LAS 7 RUTAS DE IMÁGENES REALES DE OLIV.IA**
-                { title: "Dashboard principal", image: "images/imagenAnalogica3.jpg" }, 
+                { title: "Dashboard principal", image: "images/olivia-p1.jpg" }, 
                 { title: "Mapa de resultados", image: "images/olivia-p2.jpg" },
                 { title: "Resumen de reseñas", image: "images/olivia-p3.jpg" },
                 { title: "Gráfico de sentimiento", image: "images/olivia-p4.jpg" },
@@ -20,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
         "fotografia": {
             title: "Proyecto Fotografía: Serie de Retratos en Estudio",
             layout_images: [
-                // **REEMPLAZA ESTOS CON LAS 7 RUTAS DE IMÁGENES REALES DE FOTOGRAFÍA**
                 { title: "Retrato en blanco y negro", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847212/analog_1_ilnm0t.jpg" },
                 { title: "Retrato de perfil", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847212/analog_1_zhstek.jpg" },
                 { title: "Close-up", image: "https://res.cloudinary.com/daxumuyx8/image/upload/v1761847214/analog_2_t8zmry.jpg" },
@@ -70,7 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const iniciarSecuencia = async () => {
-        // Solo ejecuta la intro si estamos en la página que tiene los elementos
         if (introScreen && contenido) { 
             document.body.style.overflow = "hidden";
             await animarDescifrado();
@@ -82,64 +128,62 @@ document.addEventListener("DOMContentLoaded", () => {
                     introScreen.style.display = "none";
                     contenido.style.display = "block";
                     document.body.style.overflow = "auto";
-                    
-                    // === NUEVO: Establecer bandera en localStorage después de completar la animación ===
                     localStorage.setItem('animacionVista', 'true');
-                    
                 }, 1000); 
             }, 800);
         }
     };
 
-    // === NUEVA LÓGICA DE COMPROBACIÓN CON LOCALSTORAGE ===
     if (introScreen && contenido) {
         const animacionYaVista = localStorage.getItem('animacionVista');
         
         if (animacionYaVista) {
-            // Si ya se ha visto, saltar la animación inmediatamente
             introScreen.style.display = "none";
             contenido.style.display = "block";
             document.body.style.overflow = "auto";
         } else {
-            // Si es la primera vez, iniciar la secuencia de animación
             iniciarSecuencia();
         }
     }
-    // ===================================================
 
 
     // ----------------------------------------------------------------------
-    // 2. LÓGICA DEL CARRUSEL (Reutilizable en todas las páginas)
+    // 2. LÓGICA PARA GENERAR LA PÁGINA DE PROYECTOS (proyectos.html)
     // ----------------------------------------------------------------------
-    document.querySelectorAll('.carrusel-container').forEach(container => {
-        const carrusel = container.querySelector('.carrusel');
-        const slides = carrusel.children;
-        let index = 0;
+    const allProjectsContainer = document.getElementById("all-projects-container");
 
-        const updateCarrusel = (newIndex) => {
-            index = newIndex;
-            carrusel.style.transform = `translateX(-${index * 100}%)`;
-        };
+    if (allProjectsContainer) {
+        // 1. Ordenar los proyectos por fecha (más nuevo primero)
+        const sortedProjects = PROJECTS_FULL_LIST.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
 
-        // Escucha de eventos para los botones
-        container.querySelector('.left').addEventListener('click', () => {
-            let newIndex = (index - 1 + slides.length) % slides.length;
-            updateCarrusel(newIndex);
+        // 2. Generar el HTML
+        sortedProjects.forEach(project => {
+            const projectElement = document.createElement("div");
+            projectElement.classList.add("project-full-item", "fade-in");
+            
+            const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = new Date(project.date).toLocaleDateString('es-ES', dateOptions);
+
+            projectElement.innerHTML = `
+                <h3>${project.title}</h3>
+                <p class="project-date">${formattedDate}</p>
+                <p>${project.description}</p>
+                <a href="${project.link}" class="btn-ver-mas">Ver detalles</a>
+            `;
+            
+            allProjectsContainer.appendChild(projectElement);
         });
-        
-        container.querySelector('.right').addEventListener('click', () => {
-            let newIndex = (index + 1) % slides.length;
-            updateCarrusel(newIndex);
-        });
-    });
+    }
 
     // ----------------------------------------------------------------------
     // 3. BLOQUE CONDICIONAL DINÁMICO para generar el layout (Páginas de Proyecto)
     // ----------------------------------------------------------------------
+    // Se mantiene esta sección por si tienes páginas de detalle de proyecto que la usan.
     const container = document.getElementById("projectLayout"); 
     const mainWrapper = document.querySelector(".layout-wrapper");
 
-    // Solo se ejecuta si el contenedor existe Y el wrapper (con el data-id) existe
     if (container && mainWrapper) {
         
         const projectId = mainWrapper.getAttribute('data-project-id'); 
@@ -149,7 +193,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const images = projectData.layout_images; 
 
-            /* ---- Función para crear tarjeta ---- */
             function createCard(imageData) {
                 const card = document.createElement("div");
                 card.classList.add("project-card");
@@ -162,8 +205,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return card;
             }
 
-            // --- Generación del Layout Dinámico (Usa el array 'images' del proyecto actual) ---
-            
             const rowTop = document.createElement("div");
             rowTop.classList.add("row", "row-top");
             rowTop.appendChild(createCard(images[0]));
