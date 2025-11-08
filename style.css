@@ -92,6 +92,8 @@ p {
     margin: 2rem auto;
     width: clamp(200px, 60vw, 450px);
     height: auto;
+    /* FIX: Añadir border-radius al logo principal */
+    border-radius: 8px;
 }
 
 /* INTRO */
@@ -516,7 +518,7 @@ section {
     .diseno-layout .grid-video video {
         height: 100%;
         width: 100%;
-        object-fit:contain;
+        object-fit:cover;
         display: block;
     }
 }
@@ -556,13 +558,13 @@ section {
 /* PROYECTOS DESTACADOS (grid-proyectos) */
 .proyectos {
     width: 100%;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
     font-size: 1.5rem;
 
 }
 .proyectos h2 {
-  padding: 50px 0 20px 0;
+  padding: 0 1rem 1rem 0;
   text-align: center;
   margin-bottom: 0;
 }
@@ -614,7 +616,8 @@ section {
     width: 100%;
     aspect-ratio: 16 / 9;
     overflow: hidden;
-    border-radius: 0; 
+    /* FIX: Aplicar border-radius al contenedor */
+    border-radius: 8px; 
     margin: 1rem 0;
     box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); 
 }
@@ -623,6 +626,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* FIX: Eliminar border-radius de la imagen, el padre con overflow: hidden lo aplica */
     border-radius: 0; 
     transition: transform 0.5s ease;
 }
@@ -1008,10 +1012,19 @@ section {
     height: 100%;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-radius: 0;
     /* CAMBIO CLAVE: Imágenes siempre en color y con brillo normal */
     filter: none; /* Elimina el filtro grayscale */
     transition: none; /* Elimina la transición (ya no hay efecto hover visual) */
+}
+
+/* NUEVA REGLA: Videos en escritorio (necesitan border-radius y object-fit cover por defecto) */
+.grid-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0; 
 }
 
 .grid-image:hover img {
@@ -1060,20 +1073,61 @@ section {
 @media (max-width: 900px) {
     .combined-grid {
         padding: 1rem;
-        grid-template-columns: 1fr; /* Columna única en móvil */
-        grid-auto-rows: auto;
+        /* FIX CLAVE: CAMBIO A FLEXBOX EN COLUMNA PARA FLUJO FLEXIBLE */
+        display: flex; 
+        flex-direction: column; 
+        gap: 1.5rem;
+        /* Se anulan las propiedades de Grid */
+        grid-template-columns: initial; 
+        grid-auto-rows: initial;
     }
-    /* En móvil, los elementos se apilan normalmente */
+    
     .combined-grid .grid-item {
+        /* Anular propiedades de Grid de escritorio */
         grid-area: auto !important; 
-        aspect-ratio: 4 / 3; /* Hace que las imágenes se vean bien en móvil */
+        grid-column: initial !important; 
+        grid-row: initial !important;
+        
+        /* FIX CLAVE: ANULAR EL ASPECT-RATIO de los items generales (permite que .grid-text se adapte) */
+        aspect-ratio: initial;
     }
-    .grid-text {
-        height: auto; 
+    
+    /* NUEVA REGLA: Aplicar aspect-ratio solo a contenedores visuales */
+    .combined-grid .grid-image,
+    .combined-grid .grid-video {
+     /* Proporción 4:3 para imágenes/videos en móvil */
+        width: 100%; 
     }
+
+    /* FIX CRUCIAL PARA TEXTO: Mover texto al principio y permitir altura automática */
+    .combined-grid .grid-text {
+        order: -1; /* ESTA PROPIEDAD MUEVE EL TEXTO A LA PARTE SUPERIOR */
+        height: auto;
+        aspect-ratio: auto;
+        /* FIX EXTRA: Eliminar cualquier restricción de altura/crecimiento de Flexbox */
+        min-height: 0; 
+        flex-basis: auto; 
+        flex-grow: 0;
+    }
+
+    /* FIX LEGIBILIDAD: Aumentar tamaño de texto y eliminar sombra en móvil */
+    .combined-grid .grid-text p {
+        font-size: 1rem; /* Aumentado para mejor lectura */
+        text-shadow: none; /* Se elimina el glow para mayor nitidez */
+        line-height: 1.5; /* Ajuste para espacio entre líneas */
+    }
+    
+    /* Asegurar que el contenido grande (large-span) no rompa el layout en Flexbox */
     .large-span {
-        grid-column: span 1; /* Deja de ocupar 2 columnas en móvil */
+        grid-column: initial;
+        grid-row: initial;
         aspect-ratio: 4 / 3;
+    }
+
+    /* Ajuste para que las imágenes/videos se vean completos */
+    .combined-grid .grid-image img,
+    .combined-grid .grid-video video { 
+        object-fit: contain; /* Mostrar el contenido completo sin recortes en móvil */
     }
 }
 
@@ -1093,6 +1147,7 @@ section {
     
     /* REGLA ESPECÍFICA para la Galería Analógica: 3 columnas de igual ancho */
     .analogue-photo-grid {
+        display: grid; /* Aseguramos que sigue siendo Grid en escritorio */
         grid-template-columns: repeat(3, 1fr); 
         grid-auto-rows: minmax(200px, auto); 
         gap: 1.5rem;
@@ -1145,10 +1200,16 @@ section {
     .cv-left-column h3 {
         margin-top: 1rem;
     }
-    .foto-cv {
-        margin: 1rem auto;
-        max-width: 150px;
+    /* MEJORA APLICADA: Centrar el texto, listas y enlaces de la columna izquierda del CV en móvil */
+    .cv-left-column p, 
+    .cv-left-column li, 
+    .cv-left-column a {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
     }
+
     .cv-item-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1185,19 +1246,23 @@ section {
     .video-separador {
         height: 30vh;
     }
+      .video-separador video{
+        width: 100%;
+        height: 70%;
+    }
 
     .logo {
-        height: 3rem;
-        margin-left: 1rem;
+        height: 2.4rem;
+        margin-left: 0.5rem;
     }
     .redes-sociales {
         top: 0.8rem;
-        right: 0.8rem;
+        right: 1.5rem;
         gap: 0.8rem;
     }
 
     section {
-        padding: 2rem 1rem;
+        padding: 1rem 1rem;
     }
     .hero {
         margin-top: 3rem;
@@ -1258,10 +1323,7 @@ section {
 }
 
 /* Dentro de @media (min-width: 901px) en style.css */
-/* Dentro de @media (min-width: 901px) en style.css */
 @media (min-width: 901px) {
-    
-    /* ... (Reglas analogue-photo-grid existentes) ... */
     
     /* REGLA ESPECÍFICA para el Layout del Zine (Fila 1: 1/3, 1/3, 1/3 / Fila 2: 2/3, 1/3) */
     .zine-layout {
@@ -1282,8 +1344,8 @@ section {
         grid-area: 1 / 2 / 2 / 3; 
     } 
 
-    .zine-layout .item-4 { /* Texto Principal */
-        /* Nota: El texto se pone en Fila 1, Columna 3 para cumplir el requisito de la primera fila. */
+    /* Item 4: Texto Principal */
+    .zine-layout .item-4 { 
         grid-area: 1 / 3 / 2 / 4; 
     }
     
@@ -1292,7 +1354,8 @@ section {
         grid-area: 2 / 1 / 3 / 3; 
     } 
     
-    .zine-layout .item-2 { /* Portada (1/3 ancho - PEQUEÑO) */
+    /* Item 2: Portada (1/3 ancho - PEQUEÑO) */
+    .zine-layout .item-2 { 
         grid-area: 2 / 3 / 3 / 4; 
     } 
     
