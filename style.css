@@ -54,7 +54,7 @@ h3 {
 p {
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   line-height: 1.7;
-  color: #EAEAEA; 
+  color: #DAA520; 
   font-weight: 300;
   max-width: 70ch;
   margin-bottom: 1rem;
@@ -66,7 +66,7 @@ p {
 
 /* LOGO TEXTO */
 .logo {
-  color: #EAEAEA; 
+  color: #DAA520; 
   letter-spacing: 0.05em;
 }
 
@@ -76,7 +76,6 @@ p {
     width: auto;
     margin-left: 2rem;
     display: block;
-    /* CAMBIO 1: Añadir transición para suavizar el efecto */
     transition: transform 0.3s ease, filter 0.3s ease; 
 }
 
@@ -92,8 +91,6 @@ p {
     margin: 2rem auto;
     width: clamp(200px, 60vw, 450px);
     height: auto;
-    /* FIX: Añadir border-radius al logo principal */
-    border-radius: 8px;
 }
 
 /* INTRO */
@@ -134,9 +131,10 @@ p {
     margin-top: 2rem;
 }
 
-.logo {
-    height: 4rem;
-    width: auto;
+/* Ajuste específico para el logo de Chiskey en el top header */
+.top-header .logo {
+    height: 4rem; /* Altura fija */
+    width: auto; /* Ancho automático para mantener la proporción */
     margin-left: 2rem;
     display: block;
 }
@@ -280,15 +278,22 @@ section {
         0 0 40px rgba(255, 60, 0, 0.4);
     animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
 }
-/* BOTÓN DE DESCARGA DE CV (Se ajusta a la columna y copia estilo de .btn-ver-mas) */
+
+/* BOTÓN DE DESCARGA DE CV (Ajustes para nueva posición en columna derecha) */
 .btn-download-cv {
-    font-size: 0.9rem; 
-    padding: 0.5rem 1.2rem;
-    display: block; 
-    width: 100%; 
-    text-align: center; 
-    margin: 1.5rem 0 0.5rem 0; 
-    color: #202020;; /* Texto negro */
+    /* Overriding to match .btn-ver-mas orange style */
+    display: inline-block; 
+    padding: 0.6rem 1.4rem;
+    background-color: #FF7B00; 
+    color: #202020;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    box-shadow: 0 0 5px rgba(255, 123, 0, 0.4), 0 0 10px rgba(255, 123, 0, 0.3);
+    font-size: 1rem;
+    font-family: "Bitcount Grid Single", "sans-serif"; 
+    text-transform: uppercase;
+    margin: 0; /* Reiniciar márgenes */
 }
 
 /* ======================================= */
@@ -305,6 +310,47 @@ section {
     margin: 0 auto;
 }
 
+/* Nuevo estilo para centrar el texto en las columnas de contacto */
+.centered-text-columns .contact-column {
+    text-align: center;
+}
+/* Asegura que el párrafo general también se centre si es necesario (el p ya tiene max-width) */
+.centered-text-columns .contact-column p {
+    margin-left: auto;
+    margin-right: auto;
+}
+.contact-column .contact-logo {
+    display: block;
+    margin: 0 auto 1.5rem auto; /* Centrar el logo y darle margen inferior */
+    height: 3rem; /* Altura de referencia */
+}
+
+.contact-column .luzamora-logo {
+    width: clamp(120px, 30vw, 250px); /* El logo de Luzamora es más grande y horizontal */
+    height: auto; /* Mantener proporción */
+    margin-bottom: 2.4rem;
+    margin-top: 0.8rem;
+}
+
+/* Ajustes para el logo de Chiskey: Control de la altura (más cuadrado) */
+.contact-column .chiskey-logo {
+    height: 4.5rem; /* Altura fija para la alineación y la no-deformación */
+    width: auto; 
+    filter: none; 
+}
+
+
+/* Center contact info block content if the column is centered */
+.centered-text-columns .contact-info-block h3 {
+    text-align: center;
+}
+.centered-text-columns .contact-info-block p {
+    /* Forcing links/text to center */
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .contact-column {
     /* Fondo oscuro sutil */
     background-color: #202020; 
@@ -314,7 +360,7 @@ section {
 }
 
 .contact-column h2 {
-    color: #EAEAEA;
+    color: #DAA520;
     text-align: left;
     margin-bottom: 0.5rem;
     font-size: 1.8rem;
@@ -329,17 +375,17 @@ section {
 }
 
 .contact-column a {
-    color: #EAEAEA;
+    color: #DAA520;
     text-decoration: underline;
     transition: color 0.3s;
 }
 
 .contact-column a:hover {
-    color: #FF7B00;
+    color: #DAA520;
 }
 
 .role-luzamora, .role-chiskey {
-    color: #EAEAEA;
+    color: #DAA520;
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
 }
@@ -564,7 +610,7 @@ section {
 
 }
 .proyectos h2 {
-  padding: 0 1rem 1rem 0;
+  padding: 1rem 1rem 1rem 0;
   text-align: center;
   margin-bottom: 0;
 }
@@ -572,14 +618,14 @@ section {
 .grid-proyectos {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1rem;
 }
 
 .proyecto {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 4rem 5vw;
+    padding: 2rem 5vw;
     gap: 2rem;
     box-sizing: border-box;
 }
@@ -676,6 +722,17 @@ section {
     text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
 }
 
+/* NEW: Contenedor para alinear el botón del CV */
+.cv-top-right-header {
+    text-align: right; 
+    /* Altura calculada para alinear con el nombre/puesto de la columna izquierda */
+    height: 6.5rem; 
+    padding-top: 1.5rem; 
+    box-sizing: border-box;
+    margin-bottom: 2rem; /* Separación de la primera caja */
+}
+
+
 /* Foto de Perfil: Mantener la foto monocromática con brillo naranja */
 .foto-cv {
     width: 100%;
@@ -683,6 +740,16 @@ section {
     max-width: 400px;
     margin: 1.5rem 0;
 }
+
+/* NEW: Estilo de caja (Box Style) para todas las secciones del CV */
+.box-style {
+    background-color: #202020; 
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); /* Sombra LED */
+    margin-bottom: 1rem; /* Reducida separación entre cajas */
+}
+
 
 /* Títulos y texto de Columna Izquierda: TODO naranja */
 .cv-left-column h3 {
@@ -758,14 +825,17 @@ section {
     text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
 }
 
-/* Experiencia y Educación (Línea de tiempo) */
+/* Experiencia y Educación (Eliminación de la línea vertical) */
 .cv-item {
-    /* CAMBIO: Reducido espacio entre elementos de experiencia/educación */
     margin-bottom: 1rem; 
-    border-left: 2px dashed #FF7B00; 
+    border-left: none; /* ELIMINA LÍNEA VERTICAL */
     position: relative;
-    padding-left: 1.2rem;
+    padding-left: 0;
 }
+
+/* Aplicar estilo a items anidados para simular cajas dentro de la sección principal */
+
+
 .cv-item-header {
     display: flex;
     justify-content: space-between;
@@ -784,10 +854,9 @@ section {
     font-weight: 500;
 }
 
-/* Punto de la línea de tiempo */
+/* Punto de la línea de tiempo (eliminado por border-left: none) */
 .cv-item::before {
-    background-color: #FF7B00; 
-    box-shadow: 0 0 8px #FF7B00;
+    content: none; /* ELIMINA EL PUNTO */
 }
 
 /* Compañía y Descripción: Naranja */
@@ -802,7 +871,7 @@ section {
     line-height: 1.3; /* Compactado */
 }
 .cv-company {
-    color: #EAEAEA; 
+    color: #DAA520; 
     text-shadow: none;
 }
 
@@ -815,8 +884,26 @@ section {
     line-height: 1.3;
 }
 .cv-additional-education .cv-list-compact strong {
-    color: #EAEAEA;
-    text-shadow: 0 0 1px #EAEAEA;
+    color: #DAA520;
+    text-shadow: 0 0 1px #DAA520;
+}
+
+/* Herramientas (En columna izquierda ahora) */
+.software-icons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.software-icons-grid img {
+    width: 50px;
+    height: 50px;
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+}
+.software-icons-grid img:hover {
+    transform: scale(1.1);
 }
 
 /* ======================================= */
@@ -844,9 +931,9 @@ section {
 }
 
 .main-footer a {
-    color: #EAEAEA;
+    color: #DAA520;
     text-decoration: none;
-    text-shadow: 0 0 3px rgba(234, 234, 234, 0.5);
+    text-shadow: 0 0 3px rgba(218, 165, 32, 0.5);
     transition: text-shadow 0.3s ease;
 }
 
@@ -942,7 +1029,7 @@ section {
     font-family: "Bitcount Grid Single", monospace;
     font-size: 1.2rem; /* Título más pequeño y discreto */
     margin-bottom: 0.3rem;
-    color: #EAEAEA; /* Color gris claro (discreto) */
+    color: #DAA520; /* Color gris claro (discreto) */
     text-shadow: none; /* Elimina sombras del texto */
 }
 
@@ -1043,7 +1130,7 @@ section {
     border-radius: 8px;
 }
 .grid-text h3 {
-    color: #EAEAEA; /* Gris claro */
+    color: #DAA520; /* Gris claro */
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     text-shadow: none;
@@ -1437,3 +1524,4 @@ section {
         object-fit: cover;
     }
 }
+
