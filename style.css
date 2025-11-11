@@ -132,12 +132,6 @@ p {
 }
 
 /* Ajuste específico para el logo de Chiskey en el top header */
-.top-header .logo {
-    height: 4rem; /* Altura fija */
-    width: auto; /* Ancho automático para mantener la proporción */
-    margin-left: 2rem;
-    display: block;
-}
 
 /* MENU FIJO DEBAJO DEL TITULO */
 .menu-debajo {
@@ -1338,15 +1332,22 @@ section {
         height: 70%;
     }
 
+    /* FIX INTEGRADO */
     .logo {
-        height: 2.4rem;
-        margin-left: 0.5rem;
+        height: 2.4rem; /* Se reduce la altura del logo Chiskey */
+        margin-left: 0.5rem; /* Se reduce el margen izquierdo */
     }
     .redes-sociales {
         top: 0.8rem;
         right: 1.5rem;
         gap: 0.8rem;
     }
+    .redes-sociales img {
+        width: 24px; /* <--- NUEVO: Se reduce el tamaño de los iconos de RRSS */
+        height: 24px;
+    }
+    /* FIN FIX INTEGRADO */
+
 
     section {
         padding: 1rem 1rem;
@@ -1525,3 +1526,56 @@ section {
     }
 }
 
+/* Contenedor de navegación en la parte superior */
+.project-navigation.top-nav {
+    /* Usamos flexbox para alinear los elementos en una fila */
+    display: flex;
+    /* justify-content: space-between empuja la flecha 'Anterior' a la izquierda 
+        y la flecha 'Siguiente' a la derecha, ocupando el ancho completo del contenedor. */
+    justify-content: space-between;
+    align-items: center; /* Centra verticalmente las flechas */
+    width: 100%;
+    margin: 10px 0 10px 0; /* Añade espacio arriba y MUCHO espacio abajo para separar del contenido */
+    padding: 0; /* Asegura que no haya padding si usas algún contenedor principal */
+}
+
+/* Opcional: Cuando solo hay una flecha (como en el primer/último proyecto),
+    aseguramos que se alinee correctamente a la derecha. */
+/* Esta regla funciona en navegadores modernos: */
+.project-navigation.top-nav:has(.next-arrow:only-child) {
+    justify-content: flex-end;
+}
+/* Si necesitas compatibilidad con navegadores antiguos, simplemente no incluyas esta línea. */
+
+
+/* Estilos base para la flecha (los que ya teníamos) */
+.arrow-nav {
+    display: inline-block;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.arrow-nav img {
+    width: 80px; /* Ajusta este tamaño al que te parezca mejor */
+    height: auto;
+    filter: brightness(100%);
+}
+
+/* Efecto Hover (Iluminación) */
+.arrow-nav:hover img {
+    filter: brightness(150%); /* Aumenta el brillo */
+    transform: scale(1.1); /* Hace que la flecha se agrande ligeramente para más efecto */
+}
+
+/* Media Query para dispositivos con un ancho máximo de 600px (típico móvil) */
+@media (max-width: 600px) {
+    
+    /* Reducir el tamaño de las flechas */
+    .arrow-nav img {
+        width: 30px; /* Reducción de 50px a 30px */
+    }
+
+    /* Opcional: Reducir el espacio de margen para ahorrar espacio vertical */
+    .project-navigation.top-nav {
+        margin: 15px 0 30px 0;
+    }
+}
