@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
 body {
   font-family: "Bitcount Grid Single", monospace;
   background-color: #202020;
@@ -218,21 +223,21 @@ p {
     font-weight: 900;
 }
 
-/* BANNER VIDEO */
-.video-separador {
-    position: relative;
+.hero-banner {
     width: 100%;
-    height: 45vh;
+    height: 80vh; /* Ajusta la altura a tu gusto, 80% de la pantalla queda muy pro */
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #202020;
 }
 
-.video-separador video {
-    position: absolute;
-    top: 0;
-    left: 0;
+.banner-img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Esto hace que la imagen cubra todo el espacio sin deformarse */
+    object-position: center;
 }
 
 /* SECCIONES GENERALES */
@@ -1579,3 +1584,215 @@ section {
         margin: 15px 0 30px 0;
     }
 }
+
+.main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 5vw;
+  z-index: 1000;
+  background: linear-gradient(to bottom, rgba(32,32,32,0.9), transparent);
+}
+
+.logo-chiskey {
+  height: 3.5rem;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-menu ul {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-menu a {
+  color: #FF7B00;
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: text-shadow 0.3s ease;
+}
+
+.nav-menu a:hover {
+  text-shadow: 0 0 12px rgba(255, 123, 0, 0.8);
+}
+
+.desktop-socials {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.desktop-socials img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.desktop-socials a:hover img {
+  transform: scale(1.2);
+  filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%);
+}
+
+/* ======================================================= */
+/* 3. SECCIÓN LANDING (Vídeo, Logo Luzamora y Botón)       */
+/* ======================================================= */
+.landing-hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.hero-overlay {
+  text-align: center;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 20px;
+}
+
+.main-logo-landing {
+  width: clamp(250px, 60vw, 550px);
+  height: auto;
+}
+
+/* Estilo Naranja de tus botones */
+.btn-ver-mas {
+  display: inline-block;
+  padding: 0.8rem 2.2rem;
+  background-color: #FF7B00; 
+  color: #202020;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-ver-mas:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(255, 123, 0, 0.8);
+  animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes glowPulseOrange {
+  from { box-shadow: 0 0 8px rgba(255, 123, 0, 0.6); }
+  to { box-shadow: 0 0 30px rgba(255, 123, 0, 0.9); }
+}
+
+/* ======================================================= */
+/* 4. MENÚ HAMBURGUESA (Mobile)                            */
+/* ======================================================= */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.menu-toggle .bar {
+  width: 30px;
+  height: 3px;
+  background-color: #FF7B00;
+  transition: 0.3s;
+}
+
+.nav-socials { display: none; } /* Oculto en desktop */
+
+@media (max-width: 900px) {
+  .desktop-socials { display: none; }
+  .menu-toggle { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: rgba(32, 32, 32, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.4s ease-in-out;
+    z-index: 1050;
+  }
+
+  .nav-menu.active { right: 0; }
+  .nav-menu ul { flex-direction: column; align-items: center; gap: 2rem; }
+  .nav-menu a { font-size: 1.4rem; }
+
+  .nav-socials {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 123, 0, 0.2);
+  }
+  
+  .nav-socials a {
+    color: #DAA520;
+    font-size: 0.9rem;
+    text-decoration: underline;
+  }
+}
+
+/* ======================================================= */
+/* 5. FOOTER & INTRO (Se mantienen)                        */
+/* ======================================================= */
+.main-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1.2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  background: transparent;
+  color: #FF7B00;
+  z-index: 5;
+}
+
+.copyright-symbol { font-family: Arial, sans-serif; }
+
+.intro-screen {
+  position: fixed;
+  inset: 0;
+  background: #202020;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+.fade-out { opacity: 0; pointer-events: none; transition: opacity 1s; }
+.encendido { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; }
+
+/* ======================================================= */
+/* 6. ESTILOS DE PÁGINAS INTERNAS (Conserva tus Grids)     */
+/* ======================================================= */
+/* Aquí irían tus clases .combined-grid, .cv-grid-container, 
+   .contact-grid-container, etc., para que el resto de tu web 
+   no se rompa. */
