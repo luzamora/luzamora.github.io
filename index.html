@@ -4,8 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luzamora | Home</title>
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Preconexión para acelerar Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body class="no-scroll">
 
@@ -17,12 +22,12 @@
         
         <header class="main-header">
             <div class="header-left">
-                <a href="https://www.chiskey.es" target="_blank">
+                <a href="https://www.chiskey.es" target="_blank" rel="noopener">
                     <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/Recurso_1t5_e9fkcy.png" alt="Logo Chiskey" class="logo-chiskey">
                 </a>
             </div>
 
-            <button class="menu-toggle" aria-label="Abrir menú">
+            <button class="menu-toggle" aria-label="Abrir menú de navegación">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -36,23 +41,24 @@
                     <li><a href="/contacto/">CONTACTO</a></li>
                 </ul>
                 <div class="nav-socials">
-                    <a href="https://linkedin.com/in/tuusuario" target="_blank">LINKEDIN</a>
-                    <a href="https://instagram.com/luzamora__" target="_blank">INSTAGRAM</a>
+                    <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener">LINKEDIN</a>
+                    <a href="https://instagram.com/luzamora__" target="_blank" rel="noopener">INSTAGRAM</a>
                 </div>
             </nav>
 
             <div class="header-right desktop-socials">
-                <a href="https://linkedin.com/in/tuusuario" target="_blank">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/linkedin_jeajvl.png" alt="LinkedIn">
+                <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/linkedin_jeajvl.png" alt="LinkedIn" width="28" height="28">
                 </a>
-                <a href="https://instagram.com/luzamora__" target="_blank">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/logotipo-de-instagram_b3yno8.png" alt="Instagram">
+                <a href="https://instagram.com/luzamora__" target="_blank" rel="noopener" aria-label="Instagram">
+                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/logotipo-de-instagram_b3yno8.png" alt="Instagram" width="28" height="28">
                 </a>
             </div>
         </header>
 
         <main class="landing-hero">
-            <video autoplay muted loop playsinline class="bg-video">
+            <!-- Atributos optimizados para reproducción fluida en iOS/Android -->
+            <video autoplay muted loop playsinline preload="auto" class="bg-video fade-in-video">
                 <source src="https://res.cloudinary.com/daxumuyx8/video/upload/v1762195090/analog_aesthetic_cinematic_blurred_lights_long_exposure_motion_dark_background_0a0a0a_warm_orange_b_jzs8xm31v8fhxekkf2rx_1_ugtoka.mp4" type="video/mp4">
             </video>
             
@@ -63,19 +69,24 @@
         </main>
 
         <footer class="main-footer footer-fixed">
-            <p>LUZAMORA <span class="copyright-symbol">&copy;</span> 2025 ALL RIGHTS RESERVED</p>
+            <p>LUZAMORA <span class="copyright-symbol">&copy;</span> 2026 ALL RIGHTS RESERVED</p>
         </footer>
     </div>
 
+    <!-- Modal Formulario -->
+    <div id="contactModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <span id="closeModal" style="float:right; cursor:pointer;" role="button" tabindex="0">// CERRAR</span>
+            <h3>CONTACTO DIRECTO</h3>
+            <form action="https://formspree.io/f/xbdnzjzo" method="POST">
+                <input type="text" name="name" placeholder="NOMBRE" required>
+                <input type="email" name="_replyto" placeholder="TU EMAIL" required>
+                <textarea name="message" placeholder="MENSAJE" rows="4" required></textarea>
+                <button type="submit" class="btn-ver-mas" style="width:100%">ENVIAR</button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
-    <script>
-        // Lógica simple para el menú hamburguesa
-        const toggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', () => {
-            nav.classList.toggle('active');
-            toggle.classList.toggle('is-active');
-        });
-    </script>
 </body>
 </html>

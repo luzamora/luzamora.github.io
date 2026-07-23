@@ -22,7 +22,15 @@ body {
 /* ======================================================= */
 /* JERARQUÍA TIPOGRÁFICA Y ESCALAS                        */
 /* ======================================================= */
+/* Añadir o actualizar en style.css */
+.bg-video.fade-in-video {
+  will-change: opacity; /* Prepara a la GPU para la animación fluida */
+}
 
+/* Evita tirones al pasar el ratón por botones e imágenes */
+.btn-ver-mas, .logo, .redes-sociales img {
+  will-change: transform;
+}
 /* TÍTULO PRINCIPAL */
 h1 {
   font-size: clamp(2.8rem, 8vw, 5.5rem);
@@ -307,6 +315,7 @@ section {
     padding: 4rem 5vw;
     max-width: 1400px;
     margin: 0 auto;
+    margin-top: 80px;
 }
 
 /* Nuevo estilo para centrar el texto en las columnas de contacto */
@@ -605,6 +614,7 @@ section {
     width: 100%;
     padding: 1rem;
     margin: 0;
+    margin-top: 80px;
     font-size: 1.5rem;
 
 }
@@ -690,6 +700,7 @@ section {
     width: 100%;
     max-width: none; 
     margin: 0 auto; 
+    margin-top: 100px;
     padding: 2rem 5vw; 
     border: none; 
     box-shadow: none; 
@@ -961,6 +972,10 @@ section {
     margin: 3rem auto;
 }
 
+.project-media{
+    margin-top: 100px;
+}
+
 .digital-cards-grid {
     /* AJUSTE: Mínimo 450px por tarjeta (máximo 2 por fila) para hacerlas más grandes */
     display: grid;
@@ -1211,10 +1226,6 @@ section {
     }
 
     /* Ajuste para que las imágenes/videos se vean completos */
-    .combined-grid .grid-image img,
-    .combined-grid .grid-video video { 
-        object-fit: contain; /* Mostrar el contenido completo sin recortes en móvil */
-    }
 }
 
 /* ======================================= */
@@ -1586,15 +1597,17 @@ section {
 }
 
 .main-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 5vw;
-  z-index: 1000;
-  background: linear-gradient(to bottom, rgba(32,32,32,0.9), transparent);
+    position: absolute; /* Cambiamos de fixed a absolute */
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5vw;
+    z-index: 2000;
+    background-color: transparent; /* Lo hacemos transparente para que se integre con el fondo/video */
+    border-bottom: none; /* Quitamos el borde para un look más limpio */
+    transition: opacity 0.5s ease;
 }
 
 .logo-chiskey {
@@ -1651,7 +1664,8 @@ section {
   overflow: hidden;
 }
 
-.bg-video {
+/* Estado base del video: oculto y preparado para la transición */
+.bg-video.fade-in-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -1659,6 +1673,17 @@ section {
   height: 100%;
   object-fit: cover;
   z-index: -1;
+  
+  /* NUEVO: Transición suave */
+  opacity: 0; /* Empieza invisible */
+  visibility: hidden; /* Evita interacciones mientras está oculto */
+  transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
+}
+
+/* Clase que activará JavaScript para mostrar el video */
+.bg-video.fade-in-video.video-visible {
+  opacity: 0.8; /* Tu opacidad deseada del 80% al final */
+  visibility: visible;
 }
 
 .hero-overlay {
@@ -1669,8 +1694,54 @@ section {
   align-items: center;
   gap: 2.5rem;
   padding: 0 20px;
+  
+}
+/* Animación de entrada para los items del index */
+.hero-overlay > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
+.hero-overlay.show-items > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays para un efecto escalonado */
+.hero-overlay.show-items .main-logo-landing { transition-delay: 0.2s; }
+.hero-overlay.show-items .btn-landing { transition-delay: 0.5s; }
+
+/* Estilos básicos para el Modal del Formulario */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 3000; 
+  left: 0; top: 0; width: 100%; height: 100%; 
+  background-color: rgba(0,0,0,0.8);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background-color: #202020;
+  padding: 2rem;
+  border: 1px solid #FF7B00;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  color: #FF7B00;
+}
+
+.modal-content input, .modal-content textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  font-family: inherit;
+}
 .main-logo-landing {
   width: clamp(250px, 60vw, 550px);
   height: auto;
@@ -1694,6 +1765,19 @@ section {
   transform: translateY(-3px);
   box-shadow: 0 0 25px rgba(255, 123, 0, 0.8);
   animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
+}
+.btn-ver-mas.btn-landing {
+  background-color: rgba(255, 255, 255, 0.6); /* Blanco */
+
+  color: #000000 !important; /* Negro */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  
+}
+
+.btn-ver-mas.btn-landing:hover {
+  background-color: #f0f0f0;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+  animation: none; /* Quitamos el pulso naranja para que sea más limpio */
 }
 
 @keyframes glowPulseOrange {
@@ -1722,6 +1806,30 @@ section {
 }
 
 .nav-socials { display: none; } /* Oculto en desktop */
+
+@media (min-width: 901px) {
+    .nav-menu {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .nav-menu ul {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+    
+    .nav-menu a {
+        font-size: 1rem;
+        color: #FF7B00;
+        text-decoration: none;
+        letter-spacing: 0.1em;
+        transition: text-shadow 0.3s ease;
+    }
+}
+
+/* Eliminamos el margen superior extra que tenían las secciones hero anteriormente */
 
 @media (max-width: 900px) {
   .desktop-socials { display: none; }

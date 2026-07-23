@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // ----------------------------------------------------------------------
-    // LÓGICA DE INTRODUCCIÓN Y ANIMACIÓN (Página de Inicio)
-    // Usa sessionStorage para que se vea una vez por sesión (al cerrar el navegador se reinicia).
+    // 1. LÓGICA DE INTRODUCCIÓN Y ANIMACIÓN
     // ----------------------------------------------------------------------
     const introScreen = document.getElementById("introScreen");
     const contenido = document.getElementById("contenido");
     const titulo = document.getElementById("tituloAnimado");
+    const overlay = document.querySelector('.hero-overlay');
+    const bgVideo = document.querySelector('.bg-video');
+    
     const textoFinal = "LUZAMORA";
     const caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%";
     let i = 0;
@@ -39,23 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const iniciarSecuencia = async () => {
         if (introScreen && contenido) { 
-            // Bloquea el scroll mientras la animación está activa
             document.body.style.overflow = "hidden";
-            
-            // Inicia la animación de descifrado
             await animarDescifrado();
             
-            // Inicia el desvanecimiento de la pantalla de introducción
             setTimeout(() => {
                 introScreen.classList.add('fade-out');
                 
-                // Finaliza: oculta la pantalla de intro y muestra el contenido principal
                 setTimeout(() => {
                     introScreen.style.display = "none";
                     contenido.style.display = "block";
-                    document.body.style.overflow = "auto"; // Habilita el scroll
+                    document.body.style.overflow = "auto";
                     
-                    // Guarda el estado en sessionStorage para saltarla en navegación interna
+                    setTimeout(() => {
+                        if (overlay) overlay.classList.add('show-items');
+                        if (bgVideo) bgVideo.classList.add('video-visible');
+                    }, 100);
+                    
                     sessionStorage.setItem('animacionVistaSesion', 'true'); 
                 }, 1000); 
             }, 800);
@@ -63,16 +64,75 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     if (introScreen && contenido) {
-        // Comprueba si la animación ya se vio en esta SESIÓN de navegador
         const animacionYaVistaSesion = sessionStorage.getItem('animacionVistaSesion');
         
-        if (!animacionYaVistaSesion) { // Si NO se ha visto en esta sesión
+        if (!animacionYaVistaSesion) {
             iniciarSecuencia();
         } else {
-            // Si ya se vio en esta sesión (navegación interna), carga el contenido directamente
             introScreen.style.display = "none";
             contenido.style.display = "block";
             document.body.style.overflow = "auto";
+            if (overlay) overlay.classList.add('show-items');
+            if (bgVideo) bgVideo.classList.add('video-visible');
         }
     }
+
+    // ----------------------------------------------------------------------
+    // 2. MENÚ HAMBURGUESA (RESPONSIVE)
+    // ----------------------------------------------------------------------
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-menu');
+
+    if (toggle && nav) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            toggle.classList.toggle('is-active');
+            
+            // Bloquea el scroll del fondo cuando el menú está abierto en móvil
+            if (nav.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = nav.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                toggle.classList.remove('is-active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+    }
+
+    // ----------------------------------------------------------------------
+    // 3. LÓGICA DEL FORMULARIO MODAL
+    // ----------------------------------------------------------------------
+    const modal = document.getElementById("contactModal");
+    const btnAbrir = document.querySelector(".btn-landing");
+    const btnCerrar = document.getElementById("closeModal");
+
+    if (btnAbrir && modal) {
+        btnAbrir.onclick = (e) => {
+            e.preventDefault();
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        };
+    }
+
+    if (btnCerrar && modal) {
+        btnCerrar.onclick = () => {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        };
+    }
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    };
 });
