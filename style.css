@@ -1,1906 +1,795 @@
-/* BASE */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+    --f: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --nav: 56px;
+    box-sizing: border-box;
 }
 
-body.no-scroll {
-  overflow: hidden;
-  height: 100vh;
+* {
+    box-sizing: border-box;
 }
+
+html, body {
+    margin: 0;
+    background: #000;
+    color: #fff;
+    font-family: var(--f);
+}
+
 
 body {
-  font-family: "Bitcount Grid Single", monospace;
-  background-color: #202020;
-  color: #FF7B00; /* Naranja principal para el texto base */
-  overflow-x: hidden;
-  line-height: 1.6;
-  text-transform: uppercase;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
 }
 
-/* ======================================================= */
-/* JERARQUÍA TIPOGRÁFICA Y ESCALAS                        */
-/* ======================================================= */
-/* Añadir o actualizar en style.css */
-.bg-video.fade-in-video {
-  will-change: opacity; /* Prepara a la GPU para la animación fluida */
-}
-
-/* Evita tirones al pasar el ratón por botones e imágenes */
-.btn-ver-mas, .logo, .redes-sociales img {
-  will-change: transform;
-}
-/* TÍTULO PRINCIPAL */
-h1 {
-  font-size: clamp(2.8rem, 8vw, 5.5rem);
-  font-family: "Bitcount Grid Single", sans-serif;
-  font-weight: 900;
-  color: #FF7B00; /* Naranja LED */
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-shadow:
-    0 0 10px rgba(255, 123, 0, 0.7),
-    0 0 25px rgba(255, 60, 0, 0.4);
-}
-
-/* SECCIONES PRINCIPALES (como “Proyectos”, “Contacto”) */
-h2 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  font-weight: 400;
-  margin-bottom: 1.4rem;
-  font-family: "Bitcount Grid Single", sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-/* SUBTÍTULOS o títulos dentro de secciones */
-h3 {
-  font-size: clamp(1.3rem, 2vw, 1.8rem);
-  font-weight: 300;
-  margin-bottom: 1rem;
-  font-family: "Bitcount Grid Single", sans-serif;
-  text-transform: uppercase;
-}
-
-/* PÁRRAFOS: Se usa Bitcount */
-p {
-  font-size: clamp(1rem, 1.2vw, 1.25rem);
-  line-height: 1.7;
-  color: #DAA520; 
-  font-weight: 300;
-  max-width: 70ch;
-  margin-bottom: 1rem;
-  font-family: "Bitcount Grid Single", monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-
-/* LOGO TEXTO */
-.logo {
-  color: #DAA520; 
-  letter-spacing: 0.05em;
-}
-
-/* LOGO IMAGEN EN EL TOP BAR */
-.logo {
-    height: 4rem;
-    width: auto;
-    margin-left: 2rem;
-    display: block;
-    transition: transform 0.3s ease, filter 0.3s ease; 
-}
-
-/* CAMBIO 2: Aplicar el filtro naranja brillante al pasar el ratón sobre el link que envuelve al logo (unificado para CV y Home) */
-.top-header a:hover .logo {
-    transform: scale(1.05); /* Escala ligeramente menor que las redes sociales para que no sea tan brusco */
-    filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%);
-}
-
-/* LOGO IMAGEN PRINCIPAL (LUZAMORA) */
-.logo-main-image {
-    display: block;
-    margin: 2rem auto;
-    width: clamp(200px, 60vw, 450px);
-    height: auto;
-}
-
-/* INTRO */
-.intro-screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #202020;
-    transition: opacity 1s ease; 
-}
-
-.fade-out {
-    opacity: 0;
-}
-
-.encendido {
-    font-size: 3rem;
-    color: #FF7B00; 
-    font-weight: 900;
-}
-
-/* FADE-IN */
-.fade-in {
-    animation: fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* HERO */
-.hero {
-    padding: 1rem;
-    text-align: center;
-    position: relative;
-    margin-top: 2rem;
-}
-
-/* Ajuste específico para el logo de Chiskey en el top header */
-
-/* MENU FIJO DEBAJO DEL TITULO */
-.menu-debajo {
-    position: sticky;
-    top: 0;
-    background-color: #202020;
-    padding: 1rem 0;
-    z-index: 100;
-    display: flex;
-    justify-content: center;
-}
-
-.menu-debajo ul {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.menu-debajo a {
-    font-family: "Bitcount Grid Single", sans-serif;
-    font-style: normal;
-    color: #FF7B00; 
-    font-size: 1.3rem;
-    font-weight: 200;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+a {
+    color: inherit;
     text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.2s ease;
 }
 
-/* Efecto de “encendido” al pasar el cursor */
-.menu-debajo a:hover {
-    color: #FF7B00; 
-    text-shadow:
-        0 0 6px rgba(255, 123, 0, 0.8),
-        0 0 12px rgba(255, 123, 0, 0.6),
-        0 0 24px rgba(255, 60, 0, 0.4);
-    transform: scale(1.05);
+a:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
 }
-
-@keyframes flicker-on {
-  0%, 18%, 22%, 25%, 53%, 57%, 100% {
-    opacity: 1;
-  }
-  20%, 24%, 55% {
-    opacity: 0.7;
-  }
-}
-
-.menu-debajo a:hover {
-    animation: flicker-on 1.2s ease-in-out;
-}
-
-
-/* REDES SOCIALES (arriba derecha) */
-.redes-sociales {
-    position: absolute;
-    top: 2rem;
-    right: 3.7rem;
-    display: flex;
-    gap: 1.2rem;
-    z-index: 1000;
-}
-
-.redes-sociales img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease, filter 0.3s ease; 
-}
-
-.redes-sociales a:hover img {
-  transform: scale(1.2);
-  /* Nuevo filtro para un naranja brillante */
-  filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%); 
-}
-
-
-/* TÍTULO PRINCIPAL (h1 ya no se usa para el logo) */
-.hero h1 {
-    margin-top: 2rem;
-    font-size: clamp(2.5rem, 10vw, 6rem);
-    font-weight: 900;
-}
-
-.hero-banner {
-    width: 100%;
-    height: 80vh; /* Ajusta la altura a tu gusto, 80% de la pantalla queda muy pro */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #202020;
-}
-
-.banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Esto hace que la imagen cubra todo el espacio sin deformarse */
-    object-position: center;
-}
-
-/* SECCIONES GENERALES */
-section {
-    padding: 1rem 5vw;
-    width: 100%;
-    margin: 0 auto;
-}
-
-/* BOTÓN “VER MÁS” */
-.btn-ver-mas {
+/* === CAJA CONTACTO CHISKEY === */
+.chk {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.4rem;
-    background-color: #FF7B00; 
-    color: #202020;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    box-shadow:
-        0 0 5px rgba(255, 123, 0, 0.4),
-        0 0 10px rgba(255, 123, 0, 0.3);
-    font-size: 1rem;
-    font-family: "Bitcount Grid Single", "sans-serif"; 
-    text-transform: uppercase;
+    margin-top: 26px;
 }
 
-/* Efecto de “encendido” al pasar */
-.btn-ver-mas:hover {
-    background-color: #FF7B00; 
-    color: #202020;
-    transform: translateY(-2px);
-    box-shadow:
-        0 0 10px rgba(255, 123, 0, 0.8),
-        0 0 20px rgba(255, 123, 0, 0.6),
-        0 0 40px rgba(255, 60, 0, 0.4);
-    animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
+.chk:hover {
+    opacity: 0.7;
 }
 
-/* BOTÓN DE DESCARGA DE CV (Ajustes para nueva posición en columna derecha) */
-.btn-download-cv {
-    /* Overriding to match .btn-ver-mas orange style */
-    display: inline-block; 
-    padding: 0.6rem 1.4rem;
-    background-color: #FF7B00; 
-    color: #202020;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 6px;
-    box-shadow: 0 0 5px rgba(255, 123, 0, 0.4), 0 0 10px rgba(255, 123, 0, 0.3);
-    font-size: 1rem;
-    font-family: "Bitcount Grid Single", "sans-serif"; 
-    text-transform: uppercase;
-    margin: 0; /* Reiniciar márgenes */
-}
-
-/* ======================================= */
-/* CONTACTO LAYOUT (2 COLUMNAS) */
-/* ======================================= */
-
-.contact-grid-container {
-    display: grid;
-    /* Define dos columnas de igual ancho (1fr 1fr) */
-    grid-template-columns: 1fr 1fr; 
-    gap: 5vw; /* Espacio entre columnas */
-    padding: 4rem 5vw;
-    max-width: 1400px;
-    margin: 0 auto;
-    margin-top: 80px;
-}
-
-/* Nuevo estilo para centrar el texto en las columnas de contacto */
-.centered-text-columns .contact-column {
-    text-align: center;
-}
-/* Asegura que el párrafo general también se centre si es necesario (el p ya tiene max-width) */
-.centered-text-columns .contact-column p {
-    margin-left: auto;
-    margin-right: auto;
-}
-.contact-column .contact-logo {
+.chk img {
     display: block;
-    margin: 0 auto 1.5rem auto; /* Centrar el logo y darle margen inferior */
-    height: 3rem; /* Altura de referencia */
+    height: 60px;
+    filter: brightness(0) invert(1); /* Pone el logo en blanco puro */
+}
+/* === FONDO DIFUMINADO Y ANIMACIÓN === */
+.bg {
+    position: fixed;
+    inset: -80px;
+    background-size: cover;
+    background-position: center;
+    filter: blur(38px) brightness(0.48);
+    opacity: 0;
+    transition: opacity 0.8s ease, filter 0.7s ease;
+    z-index: 0;
 }
 
-.contact-column .luzamora-logo {
-    width: clamp(120px, 30vw, 250px); /* El logo de Luzamora es más grande y horizontal */
-    height: auto; /* Mantener proporción */
-    margin-bottom: 2.4rem;
-    margin-top: 0.8rem;
+.bg.on {
+    opacity: 1;
 }
 
-/* Ajustes para el logo de Chiskey: Control de la altura (más cuadrado) */
-.contact-column .chiskey-logo {
-    height: 4.5rem; /* Altura fija para la alineación y la no-deformación */
-    width: auto; 
-    filter: none; 
+/* Círculo nítido que sigue al ratón (ver script.js): misma imagen que .bg, sin blur */
+#spot {
+    --x: -999px;
+    --y: -999px;
+    --r: 190px;
+    position: fixed;
+    inset: -80px;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.85);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, #000 45%, transparent 100%);
+    mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), #000 0%, #000 45%, transparent 100%);
 }
 
-
-/* Center contact info block content if the column is centered */
-.centered-text-columns .contact-info-block h3 {
-    text-align: center;
+#spot.on {
+    opacity: 1;
 }
-.centered-text-columns .contact-info-block p {
-    /* Forcing links/text to center */
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+/* === NAVEGACIÓN ENTRE PROYECTOS (ANTERIOR / SIGUIENTE) === */
+.pn {
+    margin-top: 70px;
+    display: grid;
+    gap: 6px;
 }
 
-.contact-column {
-    /* Fondo oscuro sutil */
-    background-color: #202020; 
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); /* Sombra LED */
+.pn a {
+    font-size: clamp(1.6rem, 5vw, 3.6rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.05;
 }
 
-.contact-column h2 {
-    color: #DAA520;
-    text-align: left;
-    margin-bottom: 0.5rem;
-    font-size: 1.8rem;
+.pn a:first-child {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: clamp(1rem, 2vw, 1.4rem);
 }
 
-.contact-column p {
-    font-size: 0.95rem;
-    color: #FF7B00;
-    line-height: 1.5;
-    text-shadow: 0 0 1px rgba(255, 123, 0, 0.2);
-    max-width: none;
+.pn a:hover {
+    opacity: 0.7;
 }
 
-.contact-column a {
-    color: #DAA520;
-    text-decoration: underline;
-    transition: color 0.3s;
+#app {
+    position: relative;
+    z-index: 1;
 }
 
-.contact-column a:hover {
-    color: #DAA520;
+/* === CONTENEDORES Y MÁRGENES GENERALES === */
+.scr {
+    min-height: 100dvh;
+    padding: calc(var(--nav) + env(safe-area-inset-top, 0px) + 32px) 6vw 56px;
 }
 
-.role-luzamora, .role-chiskey {
-    color: #DAA520;
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-}
-
-.contact-info-block {
-    margin-top: 2rem;
-    padding-top: 1rem;
-    border-top: 1px dashed rgba(255, 123, 0, 0.3);
-}
-
-.contact-info-block h3 {
-    color: #FF7B00;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 0 3px rgba(255, 123, 0, 0.5);
-}
-
-/* ======================================= */
-/* LAYOUT IA QUEER (MOCKUP ALARGADO HORIZONTAL) */
-/* ======================================= */
-
-@media (min-width: 901px) {
-    .ia-queer-layout {
-        grid-template-columns: repeat(3, 1fr); 
-        /* Cambiamos a 'auto' para que la altura de la fila se ajuste al contenido (el Mockup) */
-        grid-auto-rows: auto; 
-    }
-
-    /* FILA 1: Text (1/3) y Mockup (2/3 - ALARGADO) */
-    
-    /* ITEM-TEXT: (1/3) */
-    .ia-queer-layout .item-text { 
-        grid-area: 1 / 1 / 2 / 2; /* Fila 1, Columna 1 */
-        /* Damos una altura mínima para que el texto no se comprima demasiado */
-        min-height: 250px; 
-    }
-    
-    /* ITEM 2: MOCKUP PRINCIPAL (2/3 - HORIZONTAL SPAN) */
-    .ia-queer-layout .item-2 { 
-        grid-area: 1 / 2 / 2 / 4; /* Ocupa 2 columnas */
-        /* PROPIEDAD CLAVE: Hace que el contenedor sea muy horizontal (como el de Mòdul) */
-        aspect-ratio: 3.5 / 1.32; 
-    } 
-
-    /* FILA 2: Video (1/3), Imagen 1 (1/3), Imagen 2 (1/3) */
-    /* La segunda fila se inicia justo debajo de la primera, tomando el 1/3 más alto */
-    
-    /* ITEM 3: VIDEO LOOP (1/3) */
-    .ia-queer-layout .item-3 { 
-        grid-area: 2 / 1 / 3 / 2; /* Fila 2, Columna 1 */
-    } 
-    
-    /* ITEM 4: IMAGEN 1 (1/3) */
-    .ia-queer-layout .item-4 { 
-        grid-area: 2 / 2 / 3 / 3; /* Fila 2, Columna 2 */
-    } 
-
-    /* ITEM 5: IMAGEN 2 (1/3) */
-    .ia-queer-layout .item-5 { 
-        grid-area: 2 / 3 / 3 / 4; /* Fila 2, Columna 3 */
-    } 
-    
-    /* Estilos para el contenido visual */
-    .ia-queer-layout .grid-image img,
-    .ia-queer-layout .grid-video video {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-    }
-}
-
-/* ======================================= */
-/* LAYOUT SOCIAL MEDIA MANAGER (3X3 LLENO - AJUSTE DE ALTURA) */
-/* ======================================= */
-
-@media (min-width: 901px) {
-    .sm-layout {
-        grid-template-columns: repeat(3, 1fr); 
-        /* Reducimos la altura mínima de las filas a 150px y usamos 3 filas fijas */
-        grid-auto-rows: minmax(150px, 1fr); 
-    }
-
-    /* FILA 1 (Texto, Img 1, Img 2) */
-    
-    /* ITEM 1: TEXTO (1x1) */
-    .sm-layout .item-text { 
-        grid-area: 1 / 1 / 2 / 2; 
-        min-height: auto; 
-    }
-    
-    /* ITEM 4: IMAGEN 1 (1x1) */
-    .sm-layout .item-4 { 
-        grid-area: 1 / 2 / 2 / 3; 
-    } 
-
-    /* ITEM 5: IMAGEN 2 (1x1) */
-    .sm-layout .item-5 { 
-        grid-area: 1 / 3 / 2 / 4; 
-    } 
-
-    /* FILA 2 & 3: Video, Mockup (1x2) y Imágenes restantes */
-
-    /* ITEM 2: VIDEO VERTICAL (1x2 Span) - NOTA: Termina en la línea 3, NO en la 4. */
-    .sm-layout .item-2 { 
-        grid-area: 2 / 1 / 4 / 2; /* Comienza Fila 2, Termina Fila 4 (Ocupa 2 filas) */
-    } 
-
-    /* ITEM 3: MOCKUP INSTAGRAM VERTICAL (1x2 Span) */
-    .sm-layout .item-3 { 
-        grid-area: 2 / 2 / 4 / 3; /* Comienza Fila 2, Termina Fila 4 (Ocupa 2 filas) */
-    } 
-    
-    /* ITEM 6: IMAGEN 3 (1x1) -> Fila 2, Columna 3 */
-    .sm-layout .item-6 { 
-        grid-area: 2 / 3 / 3 / 4; 
-    }
-
-    /* ITEM 7: IMAGEN 4 (1x1) -> Fila 3, Columna 3 */
-    .sm-layout .item-7 { 
-        grid-area: 3 / 3 / 4 / 4; 
-    }
-    
-    /* El ITEM-8 y otros elementos que no existen en el HTML se eliminan del CSS */
-    
-    /* Estilos para el contenido visual */
-    .sm-layout .grid-image img,
-    .sm-layout .grid-video video {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        display: block;
-    }
-}
-
-/* ======================================= */
-/* LAYOUT DISEÑO WEB (FINAL - 3 FOTOS + TEXTO) */
-/* ======================================= */
-
-@media (min-width: 901px) {
-    .diseno-layout {
-        grid-template-columns: repeat(3, 1fr); 
-        /* Fija 2 filas de igual altura para una apariencia cuadrada y completa */
-        grid-auto-rows: minmax(250px, 1fr); 
-    }
-
-    /* FILA 1: Img 1 (1/3) y Mockup UPV (2/3 Span) */
-    
-    /* ITEM 1: IMAGEN 1 (1/3) */
-    .diseno-layout .item-1 { 
-        grid-area: 1 / 1 / 2 / 3; /* Fila 1, Columna 1 */
-    } 
-
-    /* ITEM 5: MOCKUP UPV GRANDE (2/3 - SPANNED HORIZONTAL) */
-.diseno-layout .item-5 { 
-    grid-area: 1 / 3 / 2 / 4; /* Fila 1, Columna 2. */
-}
-
-    /* FILA 2: Humedales (2/3 Span) y Texto (1/3) */
-
-    /* ITEM 3: IMAGEN HUMEDALES GRANDE (2/3 - SPANNED HORIZONTAL) */
-    .diseno-layout .item-3 { 
-        grid-area: 2 / 1 / 3 / 3; /* Fila 2, Columnas 1 a 3. */
-    } 
-
-    /* ITEM-TEXT: (1/3) -> POSICIÓN FINAL SOLICITADA */
-    .diseno-layout .item-text { 
-        grid-area: 2 / 3 / 3 / 4; /* Fila 2, Columna 3 */
-        min-height: auto; 
-    }
-    
-    /* El ITEM 4 (imagen cuadrada) y otros ítems sobrantes deben eliminarse del HTML */
-    
-    /* Estilos para que el contenido visual cubra todo el espacio */
-    .diseno-layout .grid-image img,
-    .diseno-layout .grid-video video {
-        height: 100%;
-        width: 100%;
-        object-fit:cover;
-        display: block;
-    }
-}
-/* RESPONSIVE PARA CONTACTO (Debajo del media query general, si existe) */
-
-@media (max-width: 900px) {
-    .contact-grid-container {
-        /* Se apilan en una sola columna en móviles */
-        grid-template-columns: 1fr; 
-        gap: 2rem;
-        padding: 2rem 5vw;
-    }
-}
-/* BOTÓN DE DESCARGA DE CV (Afilado y estilizado) */
-/* Animación de brillo suave (pulso cálido analógico) */
-@keyframes glowPulseOrange {
-  from {
-    box-shadow:
-      0 0 8px rgba(255, 123, 0, 0.6),
-      0 0 16px rgba(255, 60, 0, 0.4);
-  }
-  to {
-    box-shadow:
-      0 0 20px rgba(255, 123, 0, 0.9),
-      0 0 40px rgba(255, 60, 0, 0.7),
-      0 0 60px rgba(255, 60, 0, 0.5);
-  }
-}
-
-
-/* CONTACTO */
-.contacto a {
-    color: #FF7B00; 
-    text-decoration: none;
-}
-
-/* PROYECTOS DESTACADOS (grid-proyectos) */
-.proyectos {
-    width: 100%;
-    padding: 1rem;
-    margin: 0;
-    margin-top: 80px;
-    font-size: 1.5rem;
-
-}
-.proyectos h2 {
-  padding: 1rem 1rem 1rem 0;
-  text-align: center;
-  margin-bottom: 0;
-}
-
-.grid-proyectos {
+.home {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    justify-content: flex-end;
 }
 
-.proyecto {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 2rem 5vw;
-    gap: 2rem;
-    box-sizing: border-box;
-}
-
-.proyecto:nth-child(odd) {
-    background-color:#202020;
-    flex-direction: row;
-}
-
-.proyecto:nth-child(even) {
-    background-color: #202020;
-    flex-direction: row-reverse;
-}
-
-.proyecto-texto {
-    flex: 1;
-    padding: 0 1rem;
-}
-
-.proyecto-texto p {
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-family: "Bitcount Grid Single", system-ui;
-    font-style: normal;
-    color: #FF7B00; 
-    letter-spacing: 0.12em;
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-    opacity: 0.9;
-}
-
-/* Contenedor estático para una sola imagen de proyecto */
-.proyecto-imagen-preview {
-    flex: 1;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    /* FIX: Aplicar border-radius al contenedor */
-    border-radius: 8px; 
-    margin: 1rem 0;
-    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); 
-}
-
-.proyecto-imagen-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* FIX: Eliminar border-radius de la imagen, el padre con overflow: hidden lo aplica */
-    border-radius: 0; 
-    transition: transform 0.5s ease;
-}
-
-.proyecto-imagen-preview img:hover {
-    transform: scale(1.05); 
-}
-
-
-/* ======================================= */
-/* CV LAYOUT MODO DIGITAL (CRÉDITOS NARANJA) */
-/* ======================================= */
-
-/* Contenedor principal del CV (OCUPA TODO EL ANCHO) */
-.cv-grid-container {
-    width: 100%;
-    max-width: none; 
-    margin: 0 auto; 
-    margin-top: 100px;
-    padding: 2rem 5vw; 
-    border: none; 
-    box-shadow: none; 
-    display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 4rem; 
-    border-radius: 0; 
-}
-
-/* 3. Columna Izquierda (Información Personal/Skills) */
-.cv-left-column {
-    color: #FF7B00; 
-    padding: 0; 
-}
-.cv-left-column h2 {
-    color: #FF7B00; 
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    text-align: left;
-    margin-bottom: 0.5rem;
-    font-family: "Bitcount Grid Single", monospace; 
-    text-shadow: 0 0 5px rgba(255, 123, 0, 0.5);
-}
-/* Subtítulo del Nombre: en naranja, para un efecto de brillo constante */
-.cv-left-column .cv-puesto {
-    color: #FF7B00; 
-    font-size: 1rem;
-    text-transform: uppercase; 
-    font-family: "Bitcount Grid Single", monospace; 
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-}
-
-/* NEW: Contenedor para alinear el botón del CV */
-.cv-top-right-header {
-    text-align: right; 
-    /* Altura calculada para alinear con el nombre/puesto de la columna izquierda */
-    height: 6.5rem; 
-    padding-top: 1.5rem; 
-    box-sizing: border-box;
-    margin-bottom: 2rem; /* Separación de la primera caja */
-}
-
-
-/* Foto de Perfil: Mantener la foto monocromática con brillo naranja */
-.foto-cv {
-    width: 100%;
-    height: auto;
-    max-width: 400px;
-    margin: 1.5rem 0;
-}
-
-/* NEW: Estilo de caja (Box Style) para todas las secciones del CV */
-.box-style {
-    background-color: #202020; 
-    padding: 1.5rem 2rem;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 123, 0, 0.2); /* Sombra LED */
-    margin-bottom: 1rem; /* Reducida separación entre cajas */
-}
-
-
-/* Títulos y texto de Columna Izquierda: TODO naranja */
-.cv-left-column h3 {
-    color: #FF7B00; 
-    font-size: 1.2rem; 
+/* === TIPOGRAFÍA === */
+h1 {
+    font-size: clamp(2.8rem, 10.5vw, 9rem);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
     font-weight: 700;
-    /* CAMBIO: Reducido margen superior */
-    margin-top: 1rem; 
-    margin-bottom: 0.3rem;
+    margin: 0 0 22px;
+}
+
+h1.lg {
+    font-size: clamp(3.2rem, 16.5vw, 15rem);
+    letter-spacing: -0.06em;
+    line-height: 0.82;
+    margin: 0 0 26px;
     text-transform: uppercase;
-    font-family: "Bitcount Grid Single", monospace;
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.5);
-}
-.cv-left-column p, .cv-left-column li, .cv-left-column a {
-    color: #FF7B00; 
-    font-size: 0.95rem;
-    line-height: 1.3; /* Reducida altura de línea para compactar */
-    text-transform: uppercase;
-    font-family: "Bitcount Grid Single", monospace;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-    margin-bottom: 0.1rem; /* Reducido margen entre párrafos de contacto */
-}
-.cv-left-column a:hover {
-    text-shadow: 0 0 8px #FF7B00;
 }
 
-/* Listas de Habilidades (puntos en naranja) */
-.cv-list-compact {
-    list-style-type: none;
-    padding-left: 0;
-}
-.cv-list-compact li {
-    position: relative;
-    padding-left: 1.2em;
-    margin-bottom: 0.2em;
-}
-.cv-list-compact li::before {
-    content: '>>'; 
-    color: #FF7B00; 
-    position: absolute;
-    left: 0;
-    font-size: 0.7em;
-    top: 0.2em;
-}
-
-
-/* 4. Columna Derecha (Contenido Principal) */
-.cv-right-column {
-    padding: 0;
-}
-
-/* Títulos de Sección Derecha: Naranja fuerte */
-.cv-right-column h3 {
-    color: #FF7B00; 
-    font-size: 1.4rem; 
-    font-weight: 800;
-    /* CAMBIO: Reducido margen superior */
-    margin-top: 1rem; 
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.3rem; 
-    text-transform: uppercase;
-    font-family: "Bitcount Grid Single", monospace;
-    text-shadow: 0 0 4px rgba(255, 123, 0, 0.5);
-}
-/* Texto del Perfil: Naranja brillante */
-.cv-right-column .cv-profile p {
-    color: #FF7B00; 
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-family: "Bitcount Grid Single", monospace;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-}
-
-/* Experiencia y Educación (Eliminación de la línea vertical) */
-.cv-item {
-    margin-bottom: 1rem; 
-    border-left: none; /* ELIMINA LÍNEA VERTICAL */
-    position: relative;
-    padding-left: 0;
-}
-
-/* Aplicar estilo a items anidados para simular cajas dentro de la sección principal */
-
-
-.cv-item-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: 700;
-    font-size: 1rem;
-    margin-top: -0.2rem;
-    font-family: "Bitcount Grid Single", monospace;
-}
-/* Roles y Fechas: Ambos en naranja para el efecto de créditos */
-.cv-role {
-    color: #FF7B00; 
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-}
-.cv-dates {
-    color: #FF7B00; 
-    font-weight: 500;
-}
-
-/* Punto de la línea de tiempo (eliminado por border-left: none) */
-.cv-item::before {
-    content: none; /* ELIMINA EL PUNTO */
-}
-
-/* Compañía y Descripción: Naranja */
-.cv-company, .cv-description {
-    font-size: 0.95rem;
-    margin-top: 0.1rem; /* Reducido espacio debajo del título */
-    color: #FF7B00; 
-    text-transform: uppercase;
-    font-family: "Bitcount Grid Single", monospace;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 1px rgba(255, 123, 0, 0.2);
-    line-height: 1.3; /* Compactado */
-}
-.cv-company {
-    color: #DAA520; 
-    text-shadow: none;
-}
-
-/* Lista de Formación Complementaria */
-.cv-additional-education .cv-list-compact li {
-    list-style-type: none;
-    color: #FF7B00;
-    font-family: "Bitcount Grid Single", monospace;
-    text-shadow: 0 0 1px rgba(255, 123, 0, 0.2);
-    line-height: 1.3;
-}
-.cv-additional-education .cv-list-compact strong {
-    color: #DAA520;
-    text-shadow: 0 0 1px #DAA520;
-}
-
-/* Herramientas (En columna izquierda ahora) */
-.software-icons-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 15px;
-}
-.software-icons-grid img {
-    width: 50px;
-    height: 50px;
-    opacity: 1;
-    transition: opacity 0.3s, transform 0.3s;
-}
-.software-icons-grid img:hover {
-    transform: scale(1.1);
-}
-
-/* ======================================= */
-/* FOOTER (PIE DE PÁGINA) ESTILO CRÉDITOS */
-/* ======================================= */
-.main-footer {
-    width: 100%;
-    background-color: #202020;
-    color: #FF7B00;
-    padding: 1.5rem 5vw;
-    text-align: center;
-    border-top: 1px solid rgba(255, 123, 0, 0.2);
-    font-family: "Bitcount Grid Single", monospace;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    line-height: 1.6;
-}
-
-.main-footer p {
-    color: #FF7B00;
-    margin: 0.2rem 0;
-    font-size: 0.8rem;
-    max-width: none;
-    text-shadow: 0 0 1px rgba(255, 123, 0, 0.3);
-}
-
-.main-footer a {
-    color: #DAA520;
-    text-decoration: none;
-    text-shadow: 0 0 3px rgba(218, 165, 32, 0.5);
-    transition: text-shadow 0.3s ease;
-}
-
-.main-footer a:hover {
-    color: #FF7B00;
-    text-shadow: 0 0 8px #FF7B00;
-}
-
-/* ARREGLO PARA EL SÍMBOLO DE COPYRIGHT */
-.copyright-symbol {
-    font-family: Arial, sans-serif;
-    margin-right: 0.1em;
-    /* Aseguramos que el símbolo mantenga el color naranja */
-    color: #FF7B00; 
-}
-/* RESPONSIVE LAYOUT */
-@media (max-width: 768px) {
-    /* Contenido eliminado */
-}
-
-/* ======================================= */
-/* PROPUESTA VISUAL: GRID DE PROYECTOS (Elegante y Visual) */
-/* ======================================= */
-.project-grid {
-    padding: 0 5vw;
-    margin: 3rem auto;
-}
-
-.project-media{
-    margin-top: 100px;
-}
-
-.digital-cards-grid {
-    /* AJUSTE: Mínimo 450px por tarjeta (máximo 2 por fila) para hacerlas más grandes */
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); 
-    gap: 3rem; /* Aumentamos el espacio entre tarjetas */
-    max-width: 1400px; /* Aumentamos el ancho máximo de la cuadrícula */
-    margin: 0 auto;
-}
-
-.digital-card {
+h1.lg img {
     display: block;
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 16 / 9; /* Formato de pantalla ancha */
-    text-decoration: none;
-    color: #FF7B00;
-    background-color: #202020;
-    
-    /* Bordes Redondeados */
-    border-radius: 8px; 
-    
-    /* SOLUCIÓN: Eliminamos BORDES y SOMBRAS en estado normal */
-    border: none; 
-    box-shadow: none; 
-    
-    transition: box-shadow 0.4s ease, transform 0.4s ease;
+    width: min(74vw, 780px);
+    height: auto;
+}
+
+.note {
+    font-size: clamp(1rem, 1.7vw, 1.3rem);
+    line-height: 1.35;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 62ch;
+}
+
+.small {
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.lead {
+    font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+    max-width: 46ch;
+    margin: 0 0 22px;
+    line-height: 1.25;
+}
+
+.big {
+    display: block;
+    font-size: clamp(1.8rem, 7vw, 5.6rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: 0 0 14px;
+    word-break: break-word;
+}
+
+.big:hover {
+    opacity: 0.7;
+}
+
+/* === BOTONES Y FILTROS === */
+.btn {
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 11px 20px;
+    font-weight: 700;
+    margin: 0 10px 10px 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.filters {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin: 0 0 28px;
+}
+
+.filters button {
+    font: inherit;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 4px 0;
     cursor: pointer;
 }
 
-.digital-card:hover {
-    transform: translateY(-5px); /* Se eleva sutilmente */
-    /* Mantenemos una sombra sutil para el efecto de elevación */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+.filters button[aria-pressed=true] {
+    color: #fff;
+    border-color: #fff;
 }
 
-.card-image {
+/* === LISTADO DE PROYECTOS === */
+.row {
+    display: grid;
+    grid-template-columns: 3ch 1fr auto;
+    gap: 18px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.28);
+    transition: opacity 0.3s, filter 0.3s;
+}
+
+.row .t {
+    font-size: clamp(1.7rem, 5.6vw, 4.2rem);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+}
+
+.row .n, .row .m {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.hide {
+    display: none !important;
+}
+
+/* === BLOQUES INTERIORES (PROYECTOS) === */
+.blk {
+    margin: 56px 0;
+}
+
+.blk img, .blk video {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.1);
+    min-height: 120px;
+    transition: filter 0.3s;
+}
+
+.cols {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 28px;
+}
+
+.cols h2 {
+    margin: 0;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+}
+
+.cols p {
+    margin: 0;
+    font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+    max-width: 60ch;
+    line-height: 1.35;
+}
+
+/* === GALERÍAS === */
+.g-mosaic {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-auto-rows: 240px;
+    gap: 10px;
+}
+
+.g-mosaic img {
+    height: 100%;
+}
+
+.g-mosaic img:first-child {
+    grid-row: span 2;
+}
+
+.g-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 10px;
+}
+
+.g-grid img {
+    aspect-ratio: 1/1;
+}
+
+.g-stack {
+    display: grid;
+    gap: 10px;
+}
+
+/* === SECCIÓN CV === */
+.cv {
+    font-family: var(--f);
+    background: rgba(0, 0, 0, 0.42);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: clamp(24px, 5vw, 64px);
+    line-height: 1.5;
+}
+
+.cv header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.cv header h1 {
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin: 0 0 12px;
+}
+
+.cv address a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cv .role {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cv address {
+    font-style: normal;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: right;
+}
+
+.cv .intro {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+    line-height: 1.35;
+    max-width: 52ch;
+    margin: 32px 0 0;
+}
+
+.cvg {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(28px, 5vw, 64px);
+    margin-top: 40px;
+}
+
+.cv h2 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 22px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.cv h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.28);
+}
+
+.cv section {
+    margin-bottom: 40px;
+}
+
+.cv .job {
+    margin-bottom: 28px;
+    padding-left: 18px;
+    border-left: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.cv .job-h {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+}
+
+.cv h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+}
+
+.cv .d {
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.cv .org {
+    margin: 4px 0 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.cv ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+}
+
+.cv li, .cv p {
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+}
+
+.cv .edu {
+    margin-bottom: 18px;
+}
+
+.cv .edu b {
+    display: block;
+    font-weight: 600;
+}
+
+.cv .edu span {
+    display: block;
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Panel lateral y etiquetas */
+.side {
+    align-self: start;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 24px;
+}
+
+.cv .side h3 {
+    margin: 24px 0 8px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.cv .side p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tags span {
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+    padding: 3px 12px;
+    font-size: 0.8rem;
+}
+
+/* === BARRA INFERIOR (MENÚ) === */
+.bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    background: rgba(10, 10, 10, 0.38);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
+    backdrop-filter: blur(20px) saturate(1.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+.bar a {
+    flex: 1;
+    max-width: 220px;
+    height: var(--nav);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+
+.bar a:hover {
+    color: #fff;
+}
+
+.bar a[aria-current=page] {
+    color: #fff;
+    font-weight: 700;
+}
+
+/* === HOVER EFFECTS === */
+@media (hover: hover) {
+    .list:hover .row:not(:hover) {
+        opacity: 0.3;
+        filter: blur(2.5px);
+    }
+    .blk[class*=g-]:hover img:not(:hover) {
+        filter: blur(4px) brightness(0.55);
+    }
+}
+
+@media (hover: none) {
+    .row {
+        opacity: 0.5;
+    }
+    .row.act {
+        opacity: 1;
+    }
+}
+
+/* === DISEÑO RESPONSIVE (MÓVIL) === */
+@media (max-width: 760px) {
+    .cols, .cvg, .g-mosaic {
+        grid-template-columns: 1fr;
+    }
+    .g-mosaic {
+        grid-auto-rows: 200px;
+    }
+    .g-mosaic img:first-child {
+        grid-row: auto;
+    }
+    .cv address {
+        text-align: left;
+    }
+    .bar a {
+        font-size: 0.72rem;
+        letter-spacing: 0.05em;
+    }
+    .row {
+        grid-template-columns: 2.5ch 1fr;
+    }
+    .row .m {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg, .row, .blk img {
+        transition: none;
+    }
+    .bg {
+        transition: opacity 0.01s;
+    }
+}
+/* === DOS FOTOS GIGANTES LADO A LADO === */
+.g-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas exactamente iguales */
+    gap: 10px;
+}
+
+/* En móviles es mejor que pasen a estar una debajo de otra para que no se vean enanas */
+@media (max-width: 760px) {
+    .g-duo {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* === CUATRO FOTOS EN UNA SOLA FILA === */
+.g-quad {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cuatro columnas exactamente iguales */
+    gap: 10px;
+}
+
+/* En móviles, pasamos a 2 columnas para que las fotos no se vean diminutas */
+@media (max-width: 760px) {
+    .g-quad {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* === 1 FOTO GRANDE Y 2 PEQUEÑAS (COLUMNAS IGUALES) === */
+.g-mitad {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    grid-auto-rows: 240px; 
+    gap: 10px;
+}
+.g-mitad img {
+    height: 100%;
+}
+.g-mitad img:first-child {
+    grid-row: span 2; /* La primera foto ocupa 2 filas hacia abajo */
+}
+
+/* En móvil las apilamos para que no se vean muy estrechas */
+@media (max-width: 760px) {
+    .g-mitad {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+    }
+    .g-mitad img:first-child {
+        grid-row: auto;
+    }
+}
+/* === COLLAGE EDITORIAL ZINE (Más ancho y con mayor presencia) === */
+.g-zine {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 310px; /* Aumentamos la altura de las fotos */
+    gap: 12px;
+    width: 100%; /* Forzamos a que ocupe todo el ancho disponible */
+}
+
+.g-zine img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Efecto inicial: Semi-oscuro y monocromático (elegante) */
-    filter: grayscale(100%) brightness(0.6); 
-    transition: filter 0.6s ease;
 }
 
-.digital-card:hover .card-image {
-    /* Efecto en hover: Color y brillo */
-    filter: grayscale(0%) brightness(0.85); 
+/* La 1ª foto (mockup horizontal) ocupa 2 columnas a la izquierda */
+.g-zine img:nth-child(1) {
+    grid-column: span 2;
 }
 
-.card-overlay {
+/* La 2ª foto (portada vertical) se va a la columna de la derecha y abarca 2 filas de alto */
+.g-zine img:nth-child(2) {
+    grid-column: 3;
+    grid-row: span 2;
+}
+
+/* Versión adaptable para móviles */
+@media (max-width: 760px) {
+    .g-zine {
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 220px;
+    }
+    .g-zine img:nth-child(1), 
+    .g-zine img:nth-child(2) {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+}
+
+/* === WEDDING WEBS: INVITACIONES EN MÓVILES (3 COLUMNAS) === */
+.demos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 3.5vw, 48px);
+}
+
+.demo-card {
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+}
+
+.demo-card h3 {
+    margin: 18px 0 6px;
+    font-size: 1.05rem;
+}
+
+.demo-card p {
+    margin: 0 0 14px;
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Marco de móvil: el iframe se renderiza a 390px y se escala al ancho del marco */
+.demo-card .ph {
+    --s: 1;
+    position: relative;
+    aspect-ratio: 390 / 844;
+    border: 8px solid #0b0b0b;
+    border-radius: 36px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 24px 50px rgba(0, 0, 0, 0.45);
+    transform: translateZ(0);
+}
+
+.demo-card .ph iframe {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 1.5rem;
+    width: calc(390px + var(--sbw, 0px));
+    height: calc(100% / var(--s));
+    border: 0;
+    transform: scale(var(--s));
+    transform-origin: 0 0;
+}
+
+/* Isla dinámica */
+.demo-card .ph::after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    width: 26%;
+    height: 14px;
+    border-radius: 10px;
+    background: #0b0b0b;
+    transform: translateX(-50%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* === GALERÍA AJUSTADA AL ANCHO (fotos en una fila, altura contenida) === */
+.g-fit {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* Degradado oscuro en la parte inferior para que el texto resalte */
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent 70%);
+    gap: 10px;
 }
 
-.card-overlay h3 {
-    font-family: "Bitcount Grid Single", monospace;
-    font-size: 1.2rem; /* Título más pequeño y discreto */
-    margin-bottom: 0.3rem;
-    color: #DAA520; /* Color gris claro (discreto) */
-    text-shadow: none; /* Elimina sombras del texto */
+.g-fit img {
+    flex: var(--ar, 150) 1 0px;
+    min-width: 0;
+    height: var(--h, 260px);
+    object-fit: cover;
 }
 
-.card-overlay .card-date {
-    font-family: "Bitcount Grid Single", monospace;
-    font-size: 0.8rem;
-    color: #FF7B00; /* La fecha sí mantiene el acento naranja para el toque digital */
-    text-shadow: none;
-}
-/* Responsive Ajuste */
-@media (max-width: 900px) {
-    .digital-cards-grid {
-        grid-template-columns: 1fr; /* Columna única en móvil */
-        gap: 1.5rem;
-    }
-    .project-grid {
-        padding: 0 1.5rem;
-    }
-}
-
-/* -------------------------------------- */
-/* NUEVA CUADRÍCULA COMBINADA (OLIV.IA, etc.) - DISEÑO SIMPLE Y ELEGANTE */
-/* -------------------------------------- */
-.combined-grid {
-    padding: 2rem;
-    
+/* Galería de 2 columnas con fotos grandes (Mòdul) */
+.g-big {
     display: grid;
-    /* Definición del layout principal: 3 columnas de igual tamaño */
-    grid-template-columns: repeat(3, 1fr); 
-    grid-auto-rows: minmax(200px, auto); /* Filas flexibles, mínimo 200px de altura */
-    gap: 1.5rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    
-    /* Eliminación de bordes y sombras en el contenedor */
-    border: none; 
-    box-shadow: none;
-    border-radius: 8px; /* Bordes redondeados en el contenedor general */
-}
-/* SOLUCIÓN: Ajustar el ancho del botón DENTRO de los módulos de texto de la cuadrícula (MÒDUL/OLIVIA) */
-/* Nueva clase para botones dentro de módulos de texto: Centrado y ajustado al contenido */
-.btn-center-fit {
-    /* Forzamos display: block para que margin: auto funcione */
-    display: block; 
-    /* El ancho se ajusta al contenido del texto, no a toda la columna */
-    width: fit-content; 
-    /* Centrado horizontal y margen vertical */
-    margin: 1rem auto 0 auto; 
-}
-.grid-item {
-    padding: 0;
-    overflow: hidden;
-    font-family: "Bitcount Grid Single", monospace;
-    border-radius: 8px; /* Bordes redondeados en cada módulo */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
 }
 
-/* Efecto sutil de elevación en todos los módulos (imagen o texto) */
-.grid-item:hover {
-    transform: translateY(-3px); 
-    /* Añadimos una sombra muy sutil en hover para mantener la elegancia de la elevación */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5); 
+.g-big img {
+    aspect-ratio: 3 / 2;
 }
 
-.grid-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 0;
-    /* CAMBIO CLAVE: Imágenes siempre en color y con brillo normal */
-    filter: none; /* Elimina el filtro grayscale */
-    transition: none; /* Elimina la transición (ya no hay efecto hover visual) */
+/* Imagen única a todo el ancho, sin ocupar tanto alto */
+.blk.hero img {
+    max-height: 56vh;
 }
 
-/* NUEVA REGLA: Videos en escritorio (necesitan border-radius y object-fit cover por defecto) */
-.grid-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 0; 
-}
-
-.grid-image:hover img {
-    /* CAMBIO CLAVE: Eliminamos el efecto hover de la imagen, solo queda la elevación de la tarjeta */
-    filter: none;
-}
-
-/* Estilos de las cajas de texto */
-.grid-text {
-    padding: 1.5rem;
-    /* Borde gris muy sutil */
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    border-radius: 8px;
-}
-.grid-text h3 {
-    color: #DAA520; /* Gris claro */
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    text-shadow: none;
-    /* Línea divisoria muy suave */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.grid-text p {
-    color: #FF7B00; /* Naranja LED sutil */
-    font-size: 0.8rem;
-    text-shadow: 0 0 2px rgba(255, 123, 0, 0.3);
-    line-height: 1.4;
-    max-width: none;
-    margin: 0;
-}
-
-/* Elemento que debe ocupar más de un espacio */
-.large-span {
-    grid-column: span 2; /* Ocupa 2 columnas */
-    aspect-ratio: 3.5 / 1.2; 
-}
-.large-span img {
-    aspect-ratio: 3.5 / 1.2; 
-}
-
-
-/* Responsive Adjustments for Combined Grid */
-@media (max-width: 900px) {
-    .combined-grid {
-        padding: 1rem;
-        /* FIX CLAVE: CAMBIO A FLEXBOX EN COLUMNA PARA FLUJO FLEXIBLE */
-        display: flex; 
-        flex-direction: column; 
-        gap: 1.5rem;
-        /* Se anulan las propiedades de Grid */
-        grid-template-columns: initial; 
-        grid-auto-rows: initial;
-    }
-    
-    .combined-grid .grid-item {
-        /* Anular propiedades de Grid de escritorio */
-        grid-area: auto !important; 
-        grid-column: initial !important; 
-        grid-row: initial !important;
-        
-        /* FIX CLAVE: ANULAR EL ASPECT-RATIO de los items generales (permite que .grid-text se adapte) */
-        aspect-ratio: initial;
-    }
-    
-    /* NUEVA REGLA: Aplicar aspect-ratio solo a contenedores visuales */
-    .combined-grid .grid-image,
-    .combined-grid .grid-video {
-     /* Proporción 4:3 para imágenes/videos en móvil */
-        width: 100%; 
-    }
-
-    /* FIX CRUCIAL PARA TEXTO: Mover texto al principio y permitir altura automática */
-    .combined-grid .grid-text {
-        order: -1; /* ESTA PROPIEDAD MUEVE EL TEXTO A LA PARTE SUPERIOR */
-        height: auto;
-        aspect-ratio: auto;
-        /* FIX EXTRA: Eliminar cualquier restricción de altura/crecimiento de Flexbox */
-        min-height: 0; 
-        flex-basis: auto; 
-        flex-grow: 0;
-    }
-
-    /* FIX LEGIBILIDAD: Aumentar tamaño de texto y eliminar sombra en móvil */
-    .combined-grid .grid-text p {
-        font-size: 1rem; /* Aumentado para mejor lectura */
-        text-shadow: none; /* Se elimina el glow para mayor nitidez */
-        line-height: 1.5; /* Ajuste para espacio entre líneas */
-    }
-    
-    /* Asegurar que el contenido grande (large-span) no rompa el layout en Flexbox */
-    .large-span {
-        grid-column: initial;
-        grid-row: initial;
-        aspect-ratio: 4 / 3;
-    }
-
-    /* Ajuste para que las imágenes/videos se vean completos */
-}
-
-/* ======================================= */
-/* LAYOUT ANALÓGICO (7 ÍTEMS - MÓDULOS DE REVISTA) */
-/* ======================================= */
-
-/* Nuevos selectores para abarcar más espacio */
-.large-span-vertical {
-    grid-row: span 2; /* Ocupa 2 filas */
-}
-.large-span-horizontal {
-    grid-column: span 2; /* Ocupa 2 columnas */
-}
-
-@media (min-width: 901px) {
-    
-    /* REGLA ESPECÍFICA para la Galería Analógica: 3 columnas de igual ancho */
-    .analogue-photo-grid {
-        display: grid; /* Aseguramos que sigue siendo Grid en escritorio */
-        grid-template-columns: repeat(3, 1fr); 
-        grid-auto-rows: minmax(200px, auto); 
-        gap: 1.5rem;
-        padding: 1.5rem;
-    }
-    
-    /* POSICIONAMIENTO DE LOS ÍTEMS EN GALERÍA ANALÓGICA: */
-    /* Item 1: Foto Vertical (Columna 1, Filas 1-2) */
-    .analogue-photo-grid .item-1 { grid-area: 1 / 1 / 3 / 2; } 
-    
-    /* Item 2: Foto Cuadrada (Columna 2, Fila 1) */
-    .analogue-photo-grid .item-2 { grid-area: 1 / 2 / 2 / 3; } 
-
-    /* Item 3: Bloque de Texto (Columna 3, Fila 1) */
-    .analogue-photo-grid .item-3 { grid-area: 1 / 3 / 2 / 4; } 
-
-    /* Item 4: Foto Horizontal Grande (Ocupa Columnas 2-3, Fila 2) */
-    .analogue-photo-grid .item-4 { grid-area: 2 / 2 / 3 / 4; } 
-
-    /* Item 5, 6, 7: Tres imágenes en la Fila 3 */
-    .analogue-photo-grid .item-5 { grid-area: 3 / 1 / 4 / 2; } 
-    .analogue-photo-grid .item-6 { grid-area: 3 / 2 / 4 / 3; }
-    .analogue-photo-grid .item-7 { grid-area: 3 / 3 / 4 / 4; }
-
-    /* Ajuste visual para que las imágenes que ocupan más espacio se vean llenas */
-    .analogue-photo-grid .grid-image img {
-        height: 100%;
-        object-fit: cover;
-    }
-}
-/* =========================== RESPONSIVE GENERAL =========================== */
-
-
-@media (max-width: 900px) {
-
-    /* CV Responsive */
-    .cv-grid-container {
+@media (max-width: 760px) {
+    .demos {
         grid-template-columns: 1fr;
-        gap: 2rem;
-        padding: 1.5rem;
+        gap: 44px;
     }
-    .cv-left-column {
-        padding: 0;
-        text-align: center;
-        padding-bottom: 2rem;
+    .demo-card {
+        max-width: min(78vw, 300px);
     }
-    .cv-left-column h2, .cv-left-column h3 {
-        text-align: center;
+    .g-big {
+        grid-template-columns: 1fr;
     }
-    .cv-left-column h3 {
-        margin-top: 1rem;
-    }
-    /* MEJORA APLICADA: Centrar el texto, listas y enlaces de la columna izquierda del CV en móvil */
-    .cv-left-column p, 
-    .cv-left-column li, 
-    .cv-left-column a {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80%;
-    }
-
-    .cv-item-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .cv-dates {
-        margin-top: 0.2rem;
-    }
-
-    /* GENERAL */
-    .logo-main-image {
-        width: clamp(150px, 50vw, 300px);
-    }
-    
-    .proyecto {
-        flex-direction: column;
-        padding: 1.5rem 3vw;
-        gap: 1.5rem;
-    }
-    .proyecto:nth-child(odd) {
-        flex-direction: column;
-    }
-    .proyecto:nth-child(even) {
-        flex-direction: column;
-    }
-    .proyecto-texto {
-        text-align: center;
-        padding: 0 0.5rem;
-    }
-
-    .proyecto-imagen-preview {
-        aspect-ratio: 4 / 3;
-    }
-
-    .video-separador {
-        height: 30vh;
-    }
-      .video-separador video{
-        width: 100%;
-        height: 70%;
-    }
-
-    /* FIX INTEGRADO */
-    .logo {
-        height: 2.4rem; /* Se reduce la altura del logo Chiskey */
-        margin-left: 0.5rem; /* Se reduce el margen izquierdo */
-    }
-    .redes-sociales {
-        top: 0.8rem;
-        right: 1.5rem;
-        gap: 0.8rem;
-    }
-    .redes-sociales img {
-        width: 24px; /* <--- NUEVO: Se reduce el tamaño de los iconos de RRSS */
-        height: 24px;
-    }
-    /* FIN FIX INTEGRADO */
-
-
-    section {
-        padding: 1rem 1rem;
-    }
-    .hero {
-        margin-top: 3rem;
-    }
-
-    /* Contenido eliminado */
-}
-
-/* Para móviles pequeños */
-@media (max-width: 480px) {
-
-    /* CV Responsive (Ajuste para móviles pequeños) */
-    .cv-grid-container {
-        width: 100%;
-        margin: 0;
-        padding: 0.8rem;
-        border: none;
-        box-shadow: none;
-    }
-    .cv-item-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .cv-dates {
-        margin-top: 0.2rem;
-    }
-    
-    /* GENERAL */
-    .hero h1 {
-        font-size: 2rem;
-        margin-top: 1.5rem;
-    }
-    .encendido {
-        font-size: 1.8rem;
-    }
-
-    .proyecto-texto p {
-        font-size: 1rem;
-        line-height: 1.4;
-    }
-
-    .menu-debajo ul {
-        gap: 1rem;
+    .g-fit {
         flex-wrap: wrap;
-        justify-content: center;
     }
-    .menu-debajo a {
-        font-size: 1rem;
+    .g-fit img {
+        flex: 1 1 45%;
+        height: 180px;
     }
-
-    .video-separador {
-        height: 25vh;
-    }
-
-    .proyecto-imagen-preview {
-        aspect-ratio: 3 / 2;
+    .g-fit.g-full img {
+        flex: 1 1 100%;
+        height: auto;
     }
 }
-
-/* Dentro de @media (min-width: 901px) en style.css */
-@media (min-width: 901px) {
-    
-    /* REGLA ESPECÍFICA para el Layout del Zine (Fila 1: 1/3, 1/3, 1/3 / Fila 2: 2/3, 1/3) */
-    .zine-layout {
-        /* Mantiene el layout de 3 columnas */
-        grid-template-columns: repeat(3, 1fr); 
-        /* Altura de fila automática */
-        grid-auto-rows: auto; 
-    }
-
-    /* POSICIONAMIENTO DE LOS ÍTEMS: */
-    
-    /* Fila 1: 3 elementos de 1/3 cada uno */
-    .zine-layout .item-3 { /* Detalle Migrantes */
-        grid-area: 1 / 1 / 2 / 2; 
-    } 
-    
-    .zine-layout .item-5 { /* Nueva Imagen/Índice */
-        grid-area: 1 / 2 / 2 / 3; 
-    } 
-
-    /* Item 4: Texto Principal */
-    .zine-layout .item-4 { 
-        grid-area: 1 / 3 / 2 / 4; 
-    }
-    
-    /* Fila 2: 2 elementos (2/3 y 1/3) */
-    .zine-layout .item-1 { /* Mockup (2/3 ancho - GRANDE) */
-        grid-area: 2 / 1 / 3 / 3; 
-    } 
-    
-    /* Item 2: Portada (1/3 ancho - PEQUEÑO) */
-    .zine-layout .item-2 { 
-        grid-area: 2 / 3 / 3 / 4; 
-    } 
-    
-    /* Asegurar que las imágenes llenen el espacio asignado */
-    .zine-layout .grid-image img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-}
-
-/* ======================================= */
-/* LAYOUT ARROZ CON COSAS (9 MÓDULOS - 3x3 LLENO) */
-/* ======================================= */
-
-@media (min-width: 901px) {
-    .arroz-layout {
-        /* Mantiene el layout de 3 columnas */
-        grid-template-columns: repeat(3, 1fr); 
-        /* Fija 3 filas de igual altura para una apariencia cuadrada */
-        grid-auto-rows: minmax(180px, 1fr); 
-    }
-
-    /* POSICIONAMIENTO MANUAL para el diseño asimétrico (2x2 en el centro-izquierda) */
-    
-    /* ITEM 6: IMAGEN GRANDE DESTACADA (2x2) -> Ocupa Col 1-2, Fila 2-3 */
-    .arroz-layout .item-6 { 
-        grid-area: 2 / 1 / 4 / 3; 
-    } 
-
-    /* ITEM-TEXT: (1x1) -> Fila 1, Columna 1 */
-    .arroz-layout .item-text { 
-        grid-area: 1 / 1 / 2 / 2; 
-        min-height: auto; 
-    }
-    
-    /* ITEM 1: (1x1) -> Fila 1, Columna 2 */
-    .arroz-layout .item-1 { 
-        grid-area: 1 / 2 / 2 / 3; 
-    } 
-
-    /* ITEM 2: (1x1) -> Fila 1, Columna 3 */
-    .arroz-layout .item-2 { 
-        grid-area: 1 / 3 / 2 / 4; 
-    } 
-
-    /* ITEM 3: (1x1) -> Fila 2, Columna 3 */
-    .arroz-layout .item-3 { 
-        grid-area: 2 / 3 / 3 / 4; 
-    } 
-    
-    /* ITEM 4: (1x1) -> Fila 3, Columna 3 */
-    .arroz-layout .item-4 { 
-        grid-area: 3 / 3 / 4 / 4; 
-    } 
-
-    /* ITEM 5: (1x1) -> Fila 2, Columna 1. Reemplazado por item-6 (2x2)
-       Lo recolocamos para que llene el hueco debajo del texto (Fila 4) */
-    .arroz-layout .item-5 { 
-        /* Lo colocamos al lado de item-7 */
-        grid-area: 4 / 1 / 5 / 2;
-        /* Dado que la cuadrícula se expandirá a 4 filas, es necesario añadir los otros dos. */
-    } 
-       
-    /* ITEM 7: (1x1) -> Fila 4, Columna 2 */
-    .arroz-layout .item-7 { 
-        grid-area: 4 / 2 / 5 / 3; 
-    } 
-
-    /* ITEM 8: (1x1) -> Fila 4, Columna 3 */
-    .arroz-layout .item-8 { 
-        grid-area: 4 / 3 / 5 / 4; 
-    }
-    
-    /* ESTILOS GENERALES DE LA CUADRÍCULA */
-    .arroz-layout .grid-image img {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-}
-
-/* Contenedor de navegación en la parte superior */
-.project-navigation.top-nav {
-    /* Usamos flexbox para alinear los elementos en una fila */
-    display: flex;
-    /* justify-content: space-between empuja la flecha 'Anterior' a la izquierda 
-        y la flecha 'Siguiente' a la derecha, ocupando el ancho completo del contenedor. */
-    justify-content: space-between;
-    align-items: center; /* Centra verticalmente las flechas */
-    width: 100%;
-    margin: 10px 0 10px 0; /* Añade espacio arriba y MUCHO espacio abajo para separar del contenido */
-    padding: 0; /* Asegura que no haya padding si usas algún contenedor principal */
-}
-
-/* Opcional: Cuando solo hay una flecha (como en el primer/último proyecto),
-    aseguramos que se alinee correctamente a la derecha. */
-/* Esta regla funciona en navegadores modernos: */
-.project-navigation.top-nav:has(.next-arrow:only-child) {
-    justify-content: flex-end;
-}
-/* Si necesitas compatibilidad con navegadores antiguos, simplemente no incluyas esta línea. */
-
-
-/* Estilos base para la flecha (los que ya teníamos) */
-.arrow-nav {
-    display: inline-block;
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.arrow-nav img {
-    width: 80px; /* Ajusta este tamaño al que te parezca mejor */
-    height: auto;
-    filter: brightness(100%);
-}
-
-/* Efecto Hover (Iluminación) */
-.arrow-nav:hover img {
-    filter: brightness(150%); /* Aumenta el brillo */
-    transform: scale(1.1); /* Hace que la flecha se agrande ligeramente para más efecto */
-}
-
-/* Media Query para dispositivos con un ancho máximo de 600px (típico móvil) */
-@media (max-width: 600px) {
-    
-    /* Reducir el tamaño de las flechas */
-    .arrow-nav img {
-        width: 30px; /* Reducción de 50px a 30px */
-    }
-
-    /* Opcional: Reducir el espacio de margen para ahorrar espacio vertical */
-    .project-navigation.top-nav {
-        margin: 15px 0 30px 0;
-    }
-}
-
-.main-header {
-    position: absolute; /* Cambiamos de fixed a absolute */
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem 5vw;
-    z-index: 2000;
-    background-color: transparent; /* Lo hacemos transparente para que se integre con el fondo/video */
-    border-bottom: none; /* Quitamos el borde para un look más limpio */
-    transition: opacity 0.5s ease;
-}
-
-.logo-chiskey {
-  height: 3.5rem;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.nav-menu ul {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-}
-
-.nav-menu a {
-  color: #FF7B00;
-  font-size: 1.1rem;
-  text-decoration: none;
-  letter-spacing: 0.08em;
-  transition: text-shadow 0.3s ease;
-}
-
-.nav-menu a:hover {
-  text-shadow: 0 0 12px rgba(255, 123, 0, 0.8);
-}
-
-.desktop-socials {
-  display: flex;
-  gap: 1.2rem;
-}
-
-.desktop-socials img {
-  width: 28px;
-  height: 28px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.desktop-socials a:hover img {
-  transform: scale(1.2);
-  filter: invert(50%) sepia(100%) saturate(2000%) hue-rotate(330deg) brightness(100%) contrast(100%);
-}
-
-/* ======================================================= */
-/* 3. SECCIÓN LANDING (Vídeo, Logo Luzamora y Botón)       */
-/* ======================================================= */
-.landing-hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Estado base del video: oculto y preparado para la transición */
-.bg-video.fade-in-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  
-  /* NUEVO: Transición suave */
-  opacity: 0; /* Empieza invisible */
-  visibility: hidden; /* Evita interacciones mientras está oculto */
-  transition: opacity 1.5s ease-in-out, visibility 1.5s ease-in-out;
-}
-
-/* Clase que activará JavaScript para mostrar el video */
-.bg-video.fade-in-video.video-visible {
-  opacity: 0.8; /* Tu opacidad deseada del 80% al final */
-  visibility: visible;
-}
-
-.hero-overlay {
-  text-align: center;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
-  padding: 0 20px;
-  
-}
-/* Animación de entrada para los items del index */
-.hero-overlay > * {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.hero-overlay.show-items > * {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Delays para un efecto escalonado */
-.hero-overlay.show-items .main-logo-landing { transition-delay: 0.2s; }
-.hero-overlay.show-items .btn-landing { transition-delay: 0.5s; }
-
-/* Estilos básicos para el Modal del Formulario */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 3000; 
-  left: 0; top: 0; width: 100%; height: 100%; 
-  background-color: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-content {
-  background-color: #202020;
-  padding: 2rem;
-  border: 1px solid #FF7B00;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 500px;
-  color: #FF7B00;
-}
-
-.modal-content input, .modal-content textarea {
-  width: 100%;
-  padding: 0.8rem;
-  margin: 1rem 0;
-  background: #111;
-  border: 1px solid #333;
-  color: white;
-  font-family: inherit;
-}
-.main-logo-landing {
-  width: clamp(250px, 60vw, 550px);
-  height: auto;
-}
-
-/* Estilo Naranja de tus botones */
-.btn-ver-mas {
-  display: inline-block;
-  padding: 0.8rem 2.2rem;
-  background-color: #FF7B00; 
-  color: #202020;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 6px;
-  font-size: 1.1rem;
-  box-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
-  transition: all 0.3s ease;
-}
-
-.btn-ver-mas:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 25px rgba(255, 123, 0, 0.8);
-  animation: glowPulseOrange 1.5s infinite alternate ease-in-out;
-}
-.btn-ver-mas.btn-landing {
-  background-color: rgba(255, 255, 255, 0.6); /* Blanco */
-
-  color: #000000 !important; /* Negro */
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  
-}
-
-.btn-ver-mas.btn-landing:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
-  animation: none; /* Quitamos el pulso naranja para que sea más limpio */
-}
-
-@keyframes glowPulseOrange {
-  from { box-shadow: 0 0 8px rgba(255, 123, 0, 0.6); }
-  to { box-shadow: 0 0 30px rgba(255, 123, 0, 0.9); }
-}
-
-/* ======================================================= */
-/* 4. MENÚ HAMBURGUESA (Mobile)                            */
-/* ======================================================= */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  gap: 6px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-.menu-toggle .bar {
-  width: 30px;
-  height: 3px;
-  background-color: #FF7B00;
-  transition: 0.3s;
-}
-
-.nav-socials { display: none; } /* Oculto en desktop */
-
-@media (min-width: 901px) {
-    .nav-menu {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .nav-menu ul {
-        display: flex;
-        gap: 2rem;
-        list-style: none;
-    }
-    
-    .nav-menu a {
-        font-size: 1rem;
-        color: #FF7B00;
-        text-decoration: none;
-        letter-spacing: 0.1em;
-        transition: text-shadow 0.3s ease;
-    }
-}
-
-/* Eliminamos el margen superior extra que tenían las secciones hero anteriormente */
-
-@media (max-width: 900px) {
-  .desktop-socials { display: none; }
-  .menu-toggle { display: flex; }
-
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    height: 100vh;
-    background-color: rgba(32, 32, 32, 0.98);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: 0.4s ease-in-out;
-    z-index: 1050;
-  }
-
-  .nav-menu.active { right: 0; }
-  .nav-menu ul { flex-direction: column; align-items: center; gap: 2rem; }
-  .nav-menu a { font-size: 1.4rem; }
-
-  .nav-socials {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 123, 0, 0.2);
-  }
-  
-  .nav-socials a {
-    color: #DAA520;
-    font-size: 0.9rem;
-    text-decoration: underline;
-  }
-}
-
-/* ======================================================= */
-/* 5. FOOTER & INTRO (Se mantienen)                        */
-/* ======================================================= */
-.main-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 1.2rem;
-  text-align: center;
-  font-size: 0.8rem;
-  background: transparent;
-  color: #FF7B00;
-  z-index: 5;
-}
-
-.copyright-symbol { font-family: Arial, sans-serif; }
-
-.intro-screen {
-  position: fixed;
-  inset: 0;
-  background: #202020;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-}
-.fade-out { opacity: 0; pointer-events: none; transition: opacity 1s; }
-.encendido { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 900; }
-
-/* ======================================================= */
-/* 6. ESTILOS DE PÁGINAS INTERNAS (Conserva tus Grids)     */
-/* ======================================================= */
-/* Aquí irían tus clases .combined-grid, .cv-grid-container, 
-   .contact-grid-container, etc., para que el resto de tu web 
-   no se rompa. */

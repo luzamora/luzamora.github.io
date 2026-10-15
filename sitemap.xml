@@ -1,28 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://luzamora.es/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-15</lastmod>
   </url>
-
   <url>
     <loc>https://luzamora.es/proyectos/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-15</lastmod>
   </url>
-
   <url>
     <loc>https://luzamora.es/cv/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-15</lastmod>
   </url>
-
   <url>
     <loc>https://luzamora.es/contacto/</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
+    <lastmod>2026-10-15</lastmod>
   </url>
-
+  <url>
+    <loc>https://luzamora.es/invitaciones/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/olivia/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/fotografia/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/modul/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/social-media-manager/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/diseno-web/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/arroz/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/metodos-sinteticos/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/tfg/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://luzamora.es/zine/</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
 </urlset>

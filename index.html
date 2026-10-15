@@ -1,120 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <!-- Título único y descriptivo por página (cambia en proyectos/cv/contacto) -->
-  <title>Luzamora | Diseño y desarrollo web</title>
-  <meta name="description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales. Descubre mis trabajos, mi CV y cómo contactarme." />
+    <!-- SEO:START -->
+    <title>Luzamora | Diseño y desarrollo web</title>
+    <meta name="description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales. Descubre mis trabajos, mi CV y cómo contactarme.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://luzamora.es/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Luzamora">
+    <meta property="og:title" content="Luzamora | Diseño y desarrollo web">
+    <meta property="og:description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales. Descubre mis trabajos, mi CV y cómo contactarme.">
+    <meta property="og:url" content="https://luzamora.es/">
+    <meta property="og:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Luzamora | Diseño y desarrollo web">
+    <meta name="twitter:description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales. Descubre mis trabajos, mi CV y cómo contactarme.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png">
+    <meta name="theme-color" content="#000000">
+        <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lucía García González","alternateName":"Luzamora","url":"https://luzamora.es/","jobTitle":"Diseñadora web y community manager","address":{"@type":"PostalAddress","addressLocality":"Valencia","addressCountry":"ES"},"sameAs":["https://www.linkedin.com/in/lucia-garcia-gonzalez-programadoraweb","https://instagram.com/luzamora__","https://www.chiskey.es"]}</script>
+    <!-- SEO:END -->
 
-  <!-- Canonical: evita contenido duplicado si el sitio se sirve desde varios dominios -->
-  <link rel="canonical" href="https://luzamora.es/" />
-
-  <!-- Open Graph (Facebook, LinkedIn, WhatsApp...) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Luzamora | Diseño y desarrollo web" />
-  <meta property="og:description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales." />
-  <meta property="og:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png" />
-  <meta property="og:url" content="https://luzamora.es/" />
-  <meta property="og:locale" content="es_ES" />
-
-  <!-- Twitter/X Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Luzamora | Diseño y desarrollo web" />
-  <meta name="twitter:description" content="Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales." />
-  <meta name="twitter:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png" />
-
-  <!-- Favicon: sube estos archivos a la raíz del repo (puedes generarlos gratis en https://realfavicongenerator.net) -->
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-  <!-- Color de la barra de navegador en móvil, a juego con tu estética oscura -->
-  <meta name="theme-color" content="#0a0a0a" />
-
-  <!-- Preconexión para acelerar Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css" />
+    <!-- Hoja de estilos (ruta absoluta para que funcione en /proyectos/, /olivia/, etc.) -->
+    <link rel="stylesheet" href="/style.css">
 </head>
-<body class="no-scroll">
+<body>
+    <!-- Fondos dinámicos difuminados -->
+    <div class="bg" id="a"></div>
+    <div class="bg" id="b"></div>
 
-    <div class="intro-screen" id="introScreen">
-        <span class="encendido" id="tituloAnimado">----------</span>
-    </div>
+    <!-- Contenedor principal donde JavaScript pinta las páginas -->
+    <main id="app">
+        <!-- APP:START -->
+        <section class="scr"><h1>Luzamora</h1><p>Portfolio de Luzamora: diseño y desarrollo web, branding y proyectos digitales. Descubre mis trabajos, mi CV y cómo contactarme.</p><p><a href="/proyectos/">Proyectos</a> · <a href="/cv/">CV</a> · <a href="/contacto/">Contacto</a></p></section>
+    <!-- APP:END -->
+    </main>
 
-    <div id="contenido" style="display: none;">
-        
-        <header class="main-header">
-            <div class="header-left">
-                <a href="https://www.chiskey.es" target="_blank" rel="noopener">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/Recurso_1t5_e9fkcy.png" alt="Logo Chiskey" class="logo-chiskey">
-                </a>
-            </div>
+    <!-- Menú de navegación superior -->
+    <nav class="bar" aria-label="Principal">
+        <a href="/">Inicio</a>
+        <a href="/proyectos/">Proyectos</a>
+        <a href="/cv/">CV</a>
+        <a href="/contacto/">Contacto</a>
+    </nav>
 
-            <button class="menu-toggle" aria-label="Abrir menú de navegación">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="/">INICIO</a></li>
-                    <li><a href="/proyectos/">PROYECTOS</a></li>
-                    <li><a href="/cv/">CV</a></li>
-                    <li><a href="/contacto/">CONTACTO</a></li>
-                </ul>
-                <div class="nav-socials">
-                    <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener">LINKEDIN</a>
-                    <a href="https://instagram.com/luzamora__" target="_blank" rel="noopener">INSTAGRAM</a>
-                </div>
-            </nav>
-
-            <div class="header-right desktop-socials">
-                <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/linkedin_jeajvl.png" alt="LinkedIn" width="28" height="28">
-                </a>
-                <a href="https://instagram.com/luzamora__" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/logotipo-de-instagram_b3yno8.png" alt="Instagram" width="28" height="28">
-                </a>
-            </div>
-        </header>
-
-        <main class="landing-hero">
-            <!-- Atributos optimizados para reproducción fluida en iOS/Android -->
-            <video autoplay muted loop playsinline preload="auto" class="bg-video fade-in-video">
-                <source src="https://res.cloudinary.com/daxumuyx8/video/upload/v1762195090/analog_aesthetic_cinematic_blurred_lights_long_exposure_motion_dark_background_0a0a0a_warm_orange_b_jzs8xm31v8fhxekkf2rx_1_ugtoka.mp4" type="video/mp4">
-            </video>
-            
-            <div class="hero-overlay">
-                <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/luzamora_l1s5pz.png" alt="Luzamora Logo" class="main-logo-landing">
-                <a href="/contacto/" class="btn-ver-mas btn-landing">// TRABAJA CONMIGO</a>
-            </div>
-        </main>
-
-        <footer class="main-footer footer-fixed">
-            <p>LUZAMORA <span class="copyright-symbol">&copy;</span> 2026 ALL RIGHTS RESERVED</p>
-        </footer>
-    </div>
-
-    <!-- Modal Formulario -->
-    <div id="contactModal" class="modal" aria-hidden="true">
-        <div class="modal-content">
-            <span id="closeModal" style="float:right; cursor:pointer;" role="button" tabindex="0">// CERRAR</span>
-            <h3>CONTACTO DIRECTO</h3>
-            <form action="https://formspree.io/f/xbdnzjzo" method="POST">
-                <input type="text" name="name" placeholder="NOMBRE" required>
-                <input type="email" name="_replyto" placeholder="TU EMAIL" required>
-                <textarea name="message" placeholder="MENSAJE" rows="4" required></textarea>
-                <button type="submit" class="btn-ver-mas" style="width:100%">ENVIAR</button>
-            </form>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <!-- Datos y funciones -->
+    <script src="/data.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

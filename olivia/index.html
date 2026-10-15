@@ -1,107 +1,53 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Oliv.ia - Sistema de Recomendación</title>
-    <link rel="stylesheet" href="/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.typekit.net/sbs8dkv.css" />
-  </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-  <body>
-        <header class="main-header">
-            <div class="header-left">
-                <a href="https://www.chiskey.es" target="_blank">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762452002/Recurso_1t5_e9fkcy.png" alt="Logo Chiskey" class="logo-chiskey">
-                </a>
-            </div>
+    <!-- SEO:START -->
+    <title>Oliv.ia | Luzamora</title>
+    <meta name="description" content="Una aplicación web que recomienda restaurantes a partir de reseñas reales.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://luzamora.es/olivia/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Luzamora">
+    <meta property="og:title" content="Oliv.ia | Luzamora">
+    <meta property="og:description" content="Una aplicación web que recomienda restaurantes a partir de reseñas reales.">
+    <meta property="og:url" content="https://luzamora.es/olivia/">
+    <meta property="og:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455803/olivia_oj1qdo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Oliv.ia | Luzamora">
+    <meta name="twitter:description" content="Una aplicación web que recomienda restaurantes a partir de reseñas reales.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455803/olivia_oj1qdo.jpg">
+    <meta name="theme-color" content="#000000">
+    <!-- SEO:END -->
 
-            <button class="menu-toggle" aria-label="Abrir menú">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+    <!-- Hoja de estilos (ruta absoluta para que funcione en /proyectos/, /olivia/, etc.) -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Fondos dinámicos difuminados -->
+    <div class="bg" id="a"></div>
+    <div class="bg" id="b"></div>
 
-            <nav class="nav-menu">
-                <ul>
-                    <li><a href="/">INICIO</a></li>
-                    <li><a href="/proyectos/">PROYECTOS</a></li>
-                    <li><a href="/cv/">CV</a></li>
-                    <li><a href="/contacto/">CONTACTO</a></li>
-                </ul>
-                <div class="nav-socials">
-                    <a href="https://linkedin.com/in/tuusuario" target="_blank">LINKEDIN</a>
-                    <a href="https://instagram.com/luzamora__" target="_blank">INSTAGRAM</a>
-                </div>
-            </nav>
+    <!-- Contenedor principal donde JavaScript pinta las páginas -->
+    <main id="app">
+        <!-- APP:START -->
+        <section class="scr"><h1>Oliv.ia</h1><p>Una aplicación web que recomienda restaurantes a partir de reseñas reales.</p><h2>El proyecto</h2><p>Combina análisis de datos y procesamiento del lenguaje natural con reseñas del dataset de Yelp para sugerir restaurantes según lo que busca cada persona. Proyecto final del curso de IA de Samsung Innovation Campus con la EOI.</p><p>IA, Streamlit, NLP, Python</p><p><a href="/proyectos/">Ver todos los proyectos</a></p></section>
+    <!-- APP:END -->
+    </main>
 
-            <div class="header-right desktop-socials">
-                <a href="https://linkedin.com/in/tuusuario" target="_blank">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/linkedin_jeajvl.png" alt="LinkedIn">
-                </a>
-                <a href="https://instagram.com/luzamora__" target="_blank">
-                    <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762451986/logotipo-de-instagram_b3yno8.png" alt="Instagram">
-                </a>
-            </div>
-        </header>
+    <!-- Menú de navegación superior -->
+    <nav class="bar" aria-label="Principal">
+        <a href="/">Inicio</a>
+        <a href="/proyectos/">Proyectos</a>
+        <a href="/cv/">CV</a>
+        <a href="/contacto/">Contacto</a>
+    </nav>
 
-      <main>
-<section class="project-media">
-<div class="project-navigation top-nav">
-    <!-- Espacio invisible en la izquierda para empujar el título al centro -->
-    <span class="nav-placeholder" style="width: 80px; display: inline-block;"></span>
-
-    <!-- Título Centrado -->
-    <h2>Proyecto Oliv.ia</h2>
-
-    <!-- Flecha derecha (Siguiente) -->
-    <a href="/modul/" class="arrow-nav next-arrow">
-        <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762859538/Recurso_41_r666ml.png" alt="Siguiente Proyecto: Mòdul">
-    </a>
-</div>
-              <div class="combined-grid">
-                  
-                  <div class="grid-item grid-text item-1">
-                      <p>Oliv.ia es una aplicación web desarrollada con Streamlit que integra análisis de datos y procesamiento del lenguaje natural (NLP) para ofrecer recomendaciones personalizadas de restaurantes basadas en reseñas reales extraídas del dataset de Yelp.</p>
-                      <a href="https://github.com/luzamora/Oliv.ia" target="_blank" class="btn-ver-mas btn-center-fit">// VER CÓDIGO</a>
-                  </div>
-                  
-                  <div class="grid-item grid-image item-2">
-                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455803/olivia_oj1qdo.jpg" alt="Vista del Dashboard Principal de Oliv.ia">
-                  </div>
-
-                  <div class="grid-item grid-image item-3">
-                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455805/logo_yrl9jj.jpg" alt="Gráfico de análisis de sentimiento de las reseñas">
-                  </div>
-
-                  <div class="grid-item grid-image item-5">
-                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455806/flujo_dz3wph.png" alt="Logo o Icono de la aplicación Oliv.ia">
-                  </div>
-
-                  <div class="grid-item grid-image item-6">
-                      <img src="https://res.cloudinary.com/daxumuyx8/image/upload/v1762455803/eda_opnsvw.jpg" alt="Detalle de la interfaz de filtros de usuario">
-                  </div>
-                 <div class="grid-item grid-text item-4">
-                      <p>Permite a los usuarios explorar visualmente los datos y obtener sugerencias de restaurantes adaptadas a sus preferencias. </p>
-                      <br>
-                      <p>Proyecto de finalización del Curso de Inteligencia Artificial del programa Campus Samsung Innovation en colaboración con la EOI.</p>
-                      <a href="https://www.youtube.com/watch?v=cdC7lhYLBMU" target="_blank" class="btn-ver-mas btn-center-fit">// VER DEMO</a>
-                  </div>
-              </div>
-          </section>
-
-
-
-      </main>
-
-      <footer class="main-footer">
-          <div class="footer-content">
-              <p>LUZAMORA</p>
-             <p><span class="copyright-symbol">&copy;</span> 2025 ALL RIGHTS RESERVED | <a href="mailto:luzamora.design@gmail.com">LUZAMORA.DESIGN@GMAIL.COM</a></p>
-          </div>
-      </footer>
-
+    <!-- Datos y funciones -->
+    <script src="/data.js"></script>
     <script src="/script.js"></script>
-  </body>
+</body>
 </html>
